@@ -41,16 +41,16 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         "Widget",
         "on_openserial_bt_clicked",
         "",
-        "refreshSerialPortList",
-        "on_connectMotor_bt_clicked"
+        "on_connectMotor_bt_clicked",
+        "refreshSerialPortList"
     };
 
     QtMocHelpers::UintData qt_methods {
         // Slot 'on_openserial_bt_clicked'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'refreshSerialPortList'
-        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_connectMotor_bt_clicked'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'refreshSerialPortList'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
@@ -76,8 +76,8 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->on_openserial_bt_clicked(); break;
-        case 1: _t->refreshSerialPortList(); break;
-        case 2: _t->on_connectMotor_bt_clicked(); break;
+        case 1: _t->on_connectMotor_bt_clicked(); break;
+        case 2: _t->refreshSerialPortList(); break;
         default: ;
         }
     }

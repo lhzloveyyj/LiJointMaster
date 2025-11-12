@@ -1,17 +1,12 @@
-E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_autogen/EWIEGA46WW/moc_widget.cpp: E:/QT/LiJointMaster/widget.h \
+E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_autogen/EWIEGA46WW/moc_serialmanager.cpp: E:/QT/LiJointMaster/serialmanager.h \
   E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_autogen/moc_predefs.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/QObject \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/QTimer \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/q17memory.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/q20functional.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/q20iterator.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/q20memory.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/q20type_traits.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/q20utility.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/q23utility.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qalgorithms.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qalloc.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qanystringview.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qarraydata.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qarraydataops.h \
@@ -20,14 +15,12 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qatomic.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qatomic_cxx11.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qbasicatomic.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qbasictimer.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qbindingstorage.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qbytearray.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qbytearraylist.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qbytearrayview.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qchar.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qcheckedint_impl.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qcompare.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qcompare_impl.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qcomparehelpers.h \
@@ -37,13 +30,8 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qcontainerfwd.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qcontainerinfo.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qcontainertools_impl.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qcontiguouscache.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qdarwinhelpers.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qdatastream.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qdeadlinetimer.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qdebug.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qendian.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qeventloop.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qexceptionhandling.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qflags.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qfloat16.h \
@@ -53,19 +41,15 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qgenericatomic.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qglobal.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qglobalstatic.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qhash.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qhashfunctions.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qiodevice.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qiodevicebase.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qiterable.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qiterator.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qlatin1stringview.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qline.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qlist.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qlogging.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qmalloc.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qmap.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qmargins.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qmath.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qmetacontainer.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qmetatype.h \
@@ -78,20 +62,13 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qoverload.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qpair.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qpoint.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qprocessordetection.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qproperty.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qpropertyprivate.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qrect.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qrefcount.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qscopeguard.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qset.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qshareddata.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qshareddata_impl.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qsharedpointer.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qsize.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qspan.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qstdlibdetection.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qstring.h \
@@ -118,9 +95,7 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qtdeprecationdefinitions.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qtextstream.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qtformat_impl.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qtimer.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qtmetamacros.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qtnoop.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -132,49 +107,15 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qtypeinfo.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qtypes.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qutf8stringview.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qvariant.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtCore/qvarlengtharray.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qversiontagging.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/download/QT/6.10.0/mingw_64/include/QtCore/qyieldcpu.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qaction.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qbitmap.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qbrush.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qcolor.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qcursor.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qfont.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qfontinfo.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qfontmetrics.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qfontvariableaxis.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qicon.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qimage.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qkeysequence.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qpaintdevice.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qpalette.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qpixelformat.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qpixmap.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qpolygon.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qregion.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qrgb.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qrgba64.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qtgui-config.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qtguiexports.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qtguiglobal.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qtransform.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qwindowdefs.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/QSerialPort \
   D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/QSerialPortInfo \
   D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qserialport.h \
   D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qserialportglobal.h \
   D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qserialportinfo.h \
   D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qtserialportexports.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtWidgets/QWidget \
-  D:/download/QT/6.10.0/mingw_64/include/QtWidgets/qsizepolicy.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-  D:/download/QT/6.10.0/mingw_64/include/QtWidgets/qwidget.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \
@@ -245,12 +186,10 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_list.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_map.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
-  D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_numeric.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_pair.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_raw_storage_iter.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h \
-  D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
@@ -263,7 +202,6 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h \
-  D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h \
@@ -272,7 +210,6 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
-  D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
@@ -311,7 +248,6 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_numeric_defs.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/pstl_config.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
-  D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
@@ -334,7 +270,6 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/typeinfo \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
-  D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/utility \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/variant \
   D:/download/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
@@ -389,5 +324,4 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   D:/download/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   D:/download/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  E:/QT/LiJointMaster/serialcommand.h \
-  E:/QT/LiJointMaster/serialmanager.h
+  E:/QT/LiJointMaster/serialcommand.h

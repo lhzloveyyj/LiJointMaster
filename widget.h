@@ -2,8 +2,8 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QSerialPort>
 #include <QTimer>
+#include "serialmanager.h"   // 引入新的串口管理类
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,21 +16,17 @@ class Widget : public QWidget
     Q_OBJECT
 
 public:
-    Widget(QWidget *parent = nullptr);
+    explicit Widget(QWidget *parent = nullptr);
     ~Widget();
 
-    QSerialPort *serialPort;  // 串口对象
-    bool serialOpen;      // 串口状态，true=打开，false=关闭
-
-     QTimer *refreshTimer;  // 定时刷新串口列表
-
 private slots:
-
     void on_openserial_bt_clicked();
-    void refreshSerialPortList();
     void on_connectMotor_bt_clicked();
+    void refreshSerialPortList();
 
 private:
     Ui::Widget *ui;
+    SerialManager *serialManager;  // 串口管理对象
+    QTimer *refreshTimer;          // 定时刷新串口列表
 };
 #endif // WIDGET_H

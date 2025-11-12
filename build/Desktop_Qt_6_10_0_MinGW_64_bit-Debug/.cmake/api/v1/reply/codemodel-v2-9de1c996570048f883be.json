@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-936515b7efc62673b648.json",
+					"jsonFile" : "directory-.-Debug-ef29fde7b00af4125e82.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "LiJointMaster::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-LiJointMaster-Debug-e67de21d4222d4961b52.json",
+					"jsonFile" : "target-LiJointMaster-Debug-162d9262435154e5d0b6.json",
 					"name" : "LiJointMaster",
 					"projectIndex" : 0
 				},

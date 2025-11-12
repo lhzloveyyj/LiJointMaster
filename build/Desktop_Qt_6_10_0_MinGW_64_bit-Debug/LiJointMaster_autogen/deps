@@ -1,4 +1,5 @@
 LiJointMaster_autogen/timestamp: \
+	D:/download/QT/6.10.0/mingw_64/include/QtCore/QObject \
 	D:/download/QT/6.10.0/mingw_64/include/QtCore/QTimer \
 	D:/download/QT/6.10.0/mingw_64/include/QtCore/q17memory.h \
 	D:/download/QT/6.10.0/mingw_64/include/QtCore/q20functional.h \
@@ -162,8 +163,10 @@ LiJointMaster_autogen/timestamp: \
 	D:/download/QT/6.10.0/mingw_64/include/QtGui/qwindowdefs.h \
 	D:/download/QT/6.10.0/mingw_64/include/QtGui/qwindowdefs_win.h \
 	D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/QSerialPort \
+	D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/QSerialPortInfo \
 	D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qserialport.h \
 	D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qserialportglobal.h \
+	D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qserialportinfo.h \
 	D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qtserialportexports.h \
 	D:/download/QT/6.10.0/mingw_64/include/QtWidgets/QWidget \
 	D:/download/QT/6.10.0/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -586,6 +589,7 @@ LiJointMaster_autogen/timestamp: \
 	E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_autogen/moc_predefs.h \
 	E:/QT/LiJointMaster/main.cpp \
+	E:/QT/LiJointMaster/serialcommand.h \
 	E:/QT/LiJointMaster/serialmanager.cpp \
 	E:/QT/LiJointMaster/serialmanager.h \
 	E:/QT/LiJointMaster/widget.cpp \

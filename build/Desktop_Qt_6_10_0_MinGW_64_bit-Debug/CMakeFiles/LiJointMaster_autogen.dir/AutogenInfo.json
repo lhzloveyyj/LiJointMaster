@@ -461,6 +461,12 @@
 	"HEADERS" : 
 	[
 		[
+			"E:/QT/LiJointMaster/serialcommand.h",
+			"MU",
+			"EWIEGA46WW/moc_serialcommand.cpp",
+			null
+		],
+		[
 			"E:/QT/LiJointMaster/serialmanager.h",
 			"MU",
 			"EWIEGA46WW/moc_serialmanager.cpp",
