@@ -1,0 +1,4 @@
+#ifndef SERIALMANAGER_H
+#define SERIALMANAGER_H
+
+#endif // SERIALMANAGER_H

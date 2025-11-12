@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>picture/serial.png</file>
+        <file>picture/serial_down.png</file>
+        <file>picture/motor.png</file>
+        <file>picture/serial_up.png</file>
+    </qresource>
+</RCC>
