@@ -42,7 +42,10 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         "on_openserial_bt_clicked",
         "",
         "on_connectMotor_bt_clicked",
-        "refreshSerialPortList"
+        "refreshSerialPortList",
+        "handleParsedCommand",
+        "CMD_TypeDef",
+        "cmd"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -52,6 +55,10 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'refreshSerialPortList'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleParsedCommand'
+        QtMocHelpers::SlotData<void(CMD_TypeDef)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 6, 7 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -78,10 +85,10 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 0: _t->on_openserial_bt_clicked(); break;
         case 1: _t->on_connectMotor_bt_clicked(); break;
         case 2: _t->refreshSerialPortList(); break;
+        case 3: _t->handleParsedCommand((*reinterpret_cast<std::add_pointer_t<CMD_TypeDef>>(_a[1]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *Widget::metaObject() const
@@ -103,14 +110,14 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }

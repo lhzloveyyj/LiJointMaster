@@ -22,6 +22,7 @@ Widget::Widget(QWidget *parent)
 
     connect(serialManager, &SerialManager::portClosed, this, [=]() {
         ui->serialStatus->setStyleSheet("border-image: url(:/picture/serial_down.png);");
+        ui->connet_motor_pic->setStyleSheet("border-image: url(:/picture/serial_down.png);");
         ui->openserial_bt->setText("打开串口");
     });
 
@@ -29,6 +30,10 @@ Widget::Widget(QWidget *parent)
     refreshTimer = new QTimer(this);
     connect(refreshTimer, &QTimer::timeout, this, &Widget::refreshSerialPortList);
     refreshTimer->start(2000);
+
+    // 连接信号和槽
+    connect(serialManager, &SerialManager::commandParsed,
+            this, &Widget::handleParsedCommand);
 }
 
 Widget::~Widget()
@@ -76,3 +81,19 @@ void Widget::on_connectMotor_bt_clicked()
 
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_CONNECT_MOTOR, 0.12);
 }
+
+void Widget::handleParsedCommand(CMD_TypeDef cmd)
+{
+    qDebug() << "handleParsedCommand received cmd:" << static_cast<int>(cmd);
+
+    switch (cmd) {
+    case CMD_TypeDef::CMD_CONNECT_MOTOR:
+    {
+        ui->connet_motor_pic->setStyleSheet("border-image: url(:/picture/serial_up.png);");
+        break;
+    }
+    default:
+        break;
+    }
+}
+

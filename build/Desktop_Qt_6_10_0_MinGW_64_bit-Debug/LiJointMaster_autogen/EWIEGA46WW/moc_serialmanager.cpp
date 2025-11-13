@@ -41,7 +41,13 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         "SerialManager",
         "portOpened",
         "",
-        "portClosed"
+        "portClosed",
+        "dataReceived",
+        "CMD_TypeDef",
+        "cmd",
+        "data",
+        "commandParsed",
+        "readSerialData"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -49,6 +55,16 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'portClosed'
         QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'dataReceived'
+        QtMocHelpers::SignalData<void(CMD_TypeDef, QByteArray)>(4, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 }, { QMetaType::QByteArray, 7 },
+        }}),
+        // Signal 'commandParsed'
+        QtMocHelpers::SignalData<void(CMD_TypeDef)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 },
+        }}),
+        // Slot 'readSerialData'
+        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -74,6 +90,9 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         switch (_id) {
         case 0: _t->portOpened(); break;
         case 1: _t->portClosed(); break;
+        case 2: _t->dataReceived((*reinterpret_cast<std::add_pointer_t<CMD_TypeDef>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[2]))); break;
+        case 3: _t->commandParsed((*reinterpret_cast<std::add_pointer_t<CMD_TypeDef>>(_a[1]))); break;
+        case 4: _t->readSerialData(); break;
         default: ;
         }
     }
@@ -81,6 +100,10 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         if (QtMocHelpers::indexOfMethod<void (SerialManager::*)()>(_a, &SerialManager::portOpened, 0))
             return;
         if (QtMocHelpers::indexOfMethod<void (SerialManager::*)()>(_a, &SerialManager::portClosed, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(CMD_TypeDef , QByteArray )>(_a, &SerialManager::dataReceived, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(CMD_TypeDef )>(_a, &SerialManager::commandParsed, 3))
             return;
     }
 }
@@ -104,14 +127,14 @@ int SerialManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 5;
     }
     return _id;
 }
@@ -126,5 +149,17 @@ void SerialManager::portOpened()
 void SerialManager::portClosed()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void SerialManager::dataReceived(CMD_TypeDef _t1, QByteArray _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 2, nullptr, _t1, _t2);
+}
+
+// SIGNAL 3
+void SerialManager::commandParsed(CMD_TypeDef _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1);
 }
 QT_WARNING_POP

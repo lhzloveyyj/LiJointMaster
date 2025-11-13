@@ -75,19 +75,19 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 71,
-				"parent" : 0
-			},
-			{
-				"command" : 5,
-				"file" : 1,
-				"line" : 53,
+				"line" : 72,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
 				"line" : 54,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 55,
 				"parent" : 0
 			},
 			{
@@ -395,18 +395,18 @@
 				1,
 				2,
 				6,
-				10
+				11
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "LiJointMaster_autogen::@6890427a1f51a3e7e1df"
+			"id" : "LiJointMaster_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "LiJointMaster_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "LiJointMaster_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "LiJointMaster::@6890427a1f51a3e7e1df",
@@ -525,7 +525,7 @@
 				1,
 				2,
 				6,
-				10
+				11
 			]
 		},
 		{
@@ -534,7 +534,8 @@
 			[
 				3,
 				7,
-				8
+				8,
+				9
 			]
 		},
 		{
@@ -555,15 +556,15 @@
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				9
+				10
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				11,
-				12
+				12,
+				13
 			]
 		}
 	],
@@ -612,6 +613,11 @@
 		{
 			"backtrace" : 4,
 			"path" : "serialmanager.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "serialcommand.h",
 			"sourceGroupIndex" : 1
 		},
 		{

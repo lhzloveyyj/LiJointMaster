@@ -23,6 +23,7 @@ private slots:
     void on_openserial_bt_clicked();
     void on_connectMotor_bt_clicked();
     void refreshSerialPortList();
+    void handleParsedCommand(CMD_TypeDef cmd);
 
 private:
     Ui::Widget *ui;
