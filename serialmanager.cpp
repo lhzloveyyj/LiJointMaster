@@ -125,14 +125,9 @@ void SerialManager::readSerialData()
     QByteArray data = serialPort->readAll();
     rxBuffer.append(data);
 
-    // 打印刚收到的原始数据
-    //qDebug() << "Received bytes:";
-    //for (int i = 0; i < data.size(); i++)
-    //    qDebug("%02X ", static_cast<uint8_t>(data[i]));
-
-    while (rxBuffer.size() >= 5) // 至少帧头 + CMD + LEN + 校验 + 帧尾
+    while (rxBuffer.size() >= 5)
     {
-        int headIndex = rxBuffer.indexOf(static_cast<char>(0xA5));
+        int headIndex = rxBuffer.indexOf(char(0xA5));
         if (headIndex < 0) {
             rxBuffer.clear();
             return;
@@ -141,7 +136,7 @@ void SerialManager::readSerialData()
         if (rxBuffer.size() - headIndex < 5)
             return;
 
-        uint8_t len = static_cast<uint8_t>(rxBuffer[headIndex + 2]);
+        uint8_t len = uint8_t(rxBuffer[headIndex + 2]);
         int frameSize = 5 + len;
 
         if (rxBuffer.size() - headIndex < frameSize)
@@ -150,53 +145,32 @@ void SerialManager::readSerialData()
         QByteArray frame = rxBuffer.mid(headIndex, frameSize);
         rxBuffer.remove(0, headIndex + frameSize);
 
-        // 打印整帧数据
-        // qDebug() << "Received frame:";
-        // for (int i = 0; i < frame.size(); i++)
-        //     qDebug("%02X ", static_cast<uint8_t>(frame[i]));
-
-        uint8_t cmd = static_cast<uint8_t>(frame[1]);
+        uint8_t cmd = uint8_t(frame[1]);
         QByteArray dataBytes = frame.mid(3, len);
 
-        // 打印 CMD 和数据
-        // qDebug() << "CMD:" << cmd;
-        // qDebug() << "Data bytes:";
-        // for (int i = 0; i < dataBytes.size(); i++)
-        //     qDebug("%02X ", static_cast<uint8_t>(dataBytes[i]));
-
-        // ---------- case 解析 ----------
-        switch (static_cast<CMD_TypeDef>(cmd)) {
-        case CMD_TypeDef::CMD_CONNECT_MOTOR:
-        {
-            // CMD_CONNECT_MOTOR 可能返回多个 float
-            int floatCount = len / 4;
-            for (int i = 0; i < floatCount; i++) {
-                float value = bytesToFloat(dataBytes, i * 4);
-            //    qDebug() << "CMD_CONNECT_MOTOR float[" << i << "]:" << value;
-            }
-            emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR); // 发射信号
-            break;
+        // ---- 统一：所有命令都只含一个 float ----
+        float value = 0.0f;
+        if (len == 4)
+            value = bytesToFloat(dataBytes, 0);
+        else {
+            qDebug() << "Error! Payload length != 4. len =" << len;
+            continue;
         }
 
-        case CMD_TypeDef::CMD_NONE:
-            qDebug() << "CMD_NONE received";
+        switch (CMD_TypeDef(cmd)) {
+
+        case CMD_TypeDef::CMD_CONNECT_MOTOR:             // 保存全局变量
+            emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR); // 发射信号
             break;
 
-            // 以后拓展命令
-            // case CMD_TypeDef::DISCONNECT_MOTOR:
-            // {
-            //     int floatCount = len / 4;
-            //     for (int i = 0; i < floatCount; i++) {
-            //         float value = bytesToFloat(dataBytes, i * 4);
-            //         qDebug() << "DISCONNECT_MOTOR float[" << i << "]:" << value;
-            //     }
-            //     break;
-            // }
+        case CMD_TypeDef::CMD_MECHANICALANGLE:
+            mechanicalAngle = value;
+            qDebug() << "Mechanical Angle =" << mechanicalAngle;
+            break;
 
         default:
-            qDebug() << "Unknown CMD:" << cmd << "Data:" << dataBytes.toHex();
+            qDebug() << "Unknown CMD:" << cmd << "Value:" << value;
             break;
         }
     }
 }
-

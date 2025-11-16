@@ -45,7 +45,9 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         "refreshSerialPortList",
         "handleParsedCommand",
         "CMD_TypeDef",
-        "cmd"
+        "cmd",
+        "on_mechanicalAngle_bt_clicked",
+        "checked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -58,6 +60,10 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         // Slot 'handleParsedCommand'
         QtMocHelpers::SlotData<void(CMD_TypeDef)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { 0x80000000 | 6, 7 },
+        }}),
+        // Slot 'on_mechanicalAngle_bt_clicked'
+        QtMocHelpers::SlotData<void(bool)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 9 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -86,6 +92,7 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 1: _t->on_connectMotor_bt_clicked(); break;
         case 2: _t->refreshSerialPortList(); break;
         case 3: _t->handleParsedCommand((*reinterpret_cast<std::add_pointer_t<CMD_TypeDef>>(_a[1]))); break;
+        case 4: _t->on_mechanicalAngle_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
         default: ;
         }
     }
@@ -110,14 +117,14 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

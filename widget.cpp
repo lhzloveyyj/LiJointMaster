@@ -97,3 +97,21 @@ void Widget::handleParsedCommand(CMD_TypeDef cmd)
     }
 }
 
+
+void Widget::on_mechanicalAngle_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    anglePrintingEnabled = checked;
+    if (anglePrintingEnabled) {
+        qDebug() << "Angle printing enabled";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_MECHANICALANGLE, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_MECHANICALANGLE_CLOSE, 0.0);
+        qDebug() << "Angle printing disabled";
+    }
+}
+

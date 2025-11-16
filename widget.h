@@ -25,9 +25,12 @@ private slots:
     void refreshSerialPortList();
     void handleParsedCommand(CMD_TypeDef cmd);
 
+    void on_mechanicalAngle_bt_clicked(bool checked);
+
 private:
     Ui::Widget *ui;
     SerialManager *serialManager;  // 串口管理对象
     QTimer *refreshTimer;          // 定时刷新串口列表
+    bool anglePrintingEnabled = false;  // 控制是否打印
 };
 #endif // WIDGET_H

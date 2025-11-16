@@ -42,23 +42,24 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_7;
     QComboBox *Parity_ComboBox;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_9;
     QPushButton *openserial_bt;
     QLabel *serialStatus;
     QFrame *frame_2;
-    QWidget *widget1;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_2;
     QLabel *label;
-    QWidget *widget2;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_9;
     QLabel *label_10;
-    QWidget *widget3;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_6;
     QPushButton *connectMotor_bt;
     QLabel *connet_motor_pic;
+    QPushButton *mechanicalAngle_bt;
 
     void setupUi(QWidget *Widget)
     {
@@ -168,18 +169,18 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_5);
 
-        widget = new QWidget(frame);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(10, 160, 118, 32));
-        horizontalLayout_9 = new QHBoxLayout(widget);
+        layoutWidget1 = new QWidget(frame);
+        layoutWidget1->setObjectName("layoutWidget1");
+        layoutWidget1->setGeometry(QRect(10, 160, 118, 32));
+        horizontalLayout_9 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_9->setObjectName("horizontalLayout_9");
         horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
-        openserial_bt = new QPushButton(widget);
+        openserial_bt = new QPushButton(layoutWidget1);
         openserial_bt->setObjectName("openserial_bt");
 
         horizontalLayout_9->addWidget(openserial_bt);
 
-        serialStatus = new QLabel(widget);
+        serialStatus = new QLabel(layoutWidget1);
         serialStatus->setObjectName("serialStatus");
         serialStatus->setMinimumSize(QSize(30, 30));
         serialStatus->setStyleSheet(QString::fromUtf8("border-image: url(:/picture/serial_down.png);"));
@@ -193,20 +194,20 @@ public:
         frame_2->setGeometry(QRect(-1, -1, 1281, 41));
         frame_2->setFrameShape(QFrame::Shape::Box);
         frame_2->setFrameShadow(QFrame::Shadow::Raised);
-        widget1 = new QWidget(Widget);
-        widget1->setObjectName("widget1");
-        widget1->setGeometry(QRect(10, 40, 102, 32));
-        horizontalLayout_7 = new QHBoxLayout(widget1);
+        layoutWidget2 = new QWidget(Widget);
+        layoutWidget2->setObjectName("layoutWidget2");
+        layoutWidget2->setGeometry(QRect(10, 40, 102, 32));
+        horizontalLayout_7 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(widget1);
+        label_2 = new QLabel(layoutWidget2);
         label_2->setObjectName("label_2");
         label_2->setMinimumSize(QSize(30, 30));
         label_2->setStyleSheet(QString::fromUtf8("border-image: url(:/picture/serial.png);"));
 
         horizontalLayout_7->addWidget(label_2);
 
-        label = new QLabel(widget1);
+        label = new QLabel(layoutWidget2);
         label->setObjectName("label");
         QFont font;
         font.setPointSize(12);
@@ -214,37 +215,37 @@ public:
 
         horizontalLayout_7->addWidget(label);
 
-        widget2 = new QWidget(Widget);
-        widget2->setObjectName("widget2");
-        widget2->setGeometry(QRect(10, 280, 102, 32));
-        horizontalLayout_8 = new QHBoxLayout(widget2);
+        layoutWidget3 = new QWidget(Widget);
+        layoutWidget3->setObjectName("layoutWidget3");
+        layoutWidget3->setGeometry(QRect(10, 280, 102, 32));
+        horizontalLayout_8 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_8->setObjectName("horizontalLayout_8");
         horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
-        label_9 = new QLabel(widget2);
+        label_9 = new QLabel(layoutWidget3);
         label_9->setObjectName("label_9");
         label_9->setMinimumSize(QSize(30, 30));
         label_9->setStyleSheet(QString::fromUtf8("border-image: url(:/picture/motor.png);"));
 
         horizontalLayout_8->addWidget(label_9);
 
-        label_10 = new QLabel(widget2);
+        label_10 = new QLabel(layoutWidget3);
         label_10->setObjectName("label_10");
         label_10->setFont(font);
 
         horizontalLayout_8->addWidget(label_10);
 
-        widget3 = new QWidget(Widget);
-        widget3->setObjectName("widget3");
-        widget3->setGeometry(QRect(10, 320, 108, 25));
-        horizontalLayout_6 = new QHBoxLayout(widget3);
+        layoutWidget4 = new QWidget(Widget);
+        layoutWidget4->setObjectName("layoutWidget4");
+        layoutWidget4->setGeometry(QRect(10, 320, 108, 25));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_6->setObjectName("horizontalLayout_6");
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        connectMotor_bt = new QPushButton(widget3);
+        connectMotor_bt = new QPushButton(layoutWidget4);
         connectMotor_bt->setObjectName("connectMotor_bt");
 
         horizontalLayout_6->addWidget(connectMotor_bt);
 
-        connet_motor_pic = new QLabel(widget3);
+        connet_motor_pic = new QLabel(layoutWidget4);
         connet_motor_pic->setObjectName("connet_motor_pic");
         connet_motor_pic->setMinimumSize(QSize(20, 20));
         connet_motor_pic->setStyleSheet(QString::fromUtf8("border-image: url(:/picture/serial_down.png);"));
@@ -253,6 +254,10 @@ public:
 
         horizontalLayout_6->addWidget(connet_motor_pic);
 
+        mechanicalAngle_bt = new QPushButton(Widget);
+        mechanicalAngle_bt->setObjectName("mechanicalAngle_bt");
+        mechanicalAngle_bt->setGeometry(QRect(10, 350, 80, 23));
+        mechanicalAngle_bt->setCheckable(true);
 
         retranslateUi(Widget);
 
@@ -301,6 +306,7 @@ public:
         label_10->setText(QCoreApplication::translate("Widget", "\347\224\265\346\234\272\351\205\215\347\275\256", nullptr));
         connectMotor_bt->setText(QCoreApplication::translate("Widget", "\350\277\236\346\216\245", nullptr));
         connet_motor_pic->setText(QString());
+        mechanicalAngle_bt->setText(QCoreApplication::translate("Widget", "\346\234\272\346\242\260\350\247\222\345\272\246", nullptr));
     } // retranslateUi
 
 };
