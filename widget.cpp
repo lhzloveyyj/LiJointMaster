@@ -80,6 +80,13 @@ void Widget::on_connectMotor_bt_clicked()
     }
 
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_CONNECT_MOTOR, 0.12);
+
+    // 延迟 100ms 更新 UI
+    QTimer::singleShot(100, this, [=]() {
+        ui->setPairs_te->setPlainText(QString::number(serialManager->getPairs));
+        ui->setDir_te->setPlainText(QString::number(serialManager->dir));
+    });
+
 }
 
 void Widget::handleParsedCommand(CMD_TypeDef cmd)
@@ -113,5 +120,40 @@ void Widget::on_mechanicalAngle_bt_clicked(bool checked)
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_MECHANICALANGLE_CLOSE, 0.0);
         qDebug() << "Angle printing disabled";
     }
+}
+
+
+void Widget::on_setPairs_bt_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->setPairs_te->toPlainText().trimmed();
+    bool ok = false;
+    int value = text.toInt(&ok);
+    float floatValue = static_cast<float>(value);
+    qDebug() << "Sent value:" << floatValue;
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETPAIRS, floatValue);
+
+}
+
+
+void Widget::on_setDir_bt_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->setDir_te->toPlainText().trimmed();
+    bool ok = false;
+    int value = text.toInt(&ok);
+    float floatValue = static_cast<float>(value);
+    qDebug() << "Sent value:" << floatValue;
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETDIR, floatValue);
 }
 

@@ -20,6 +20,8 @@ public:
     void closePort();                       // 关闭串口
     bool isOpen() const;                    // 判断是否打开
     void sendFloatCommand(CMD_TypeDef cmd, float value);
+    int getPairs;
+    int dir;
     float mechanicalAngle;   // 保存单片机发送的角度
 
 

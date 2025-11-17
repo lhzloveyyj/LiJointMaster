@@ -148,29 +148,38 @@ void SerialManager::readSerialData()
         uint8_t cmd = uint8_t(frame[1]);
         QByteArray dataBytes = frame.mid(3, len);
 
-        // ---- 统一：所有命令都只含一个 float ----
-        float value = 0.0f;
-        if (len == 4)
-            value = bytesToFloat(dataBytes, 0);
-        else {
-            qDebug() << "Error! Payload length != 4. len =" << len;
-            continue;
+        int floatCount = len / 4;  // 一个 float 4 字节
+        QVector<float> values;
+        for (int i = 0; i < floatCount; i++) {
+            float v = bytesToFloat(dataBytes, i * 4);
+            values.append(v);
         }
 
         switch (CMD_TypeDef(cmd)) {
 
-        case CMD_TypeDef::CMD_CONNECT_MOTOR:             // 保存全局变量
-            emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR); // 发射信号
+        case CMD_TypeDef::CMD_CONNECT_MOTOR:
+            // 如果 CMD_CONNECT_MOTOR 可能返回多个 float
+            // 保存第一个作为 getPairs 示例，也可以根据需求保存全部
+            if (!values.isEmpty()) {
+                getPairs = int(values[0]);
+                dir      = int(values[1]);
+                qDebug() << "CMD_CONNECT_MOTOR getPairs =" << getPairs;
+                qDebug() << "CMD_CONNECT_MOTOR dir =" << dir;
+                emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR);
+            }
             break;
 
         case CMD_TypeDef::CMD_MECHANICALANGLE:
-            mechanicalAngle = value;
-            qDebug() << "Mechanical Angle =" << mechanicalAngle;
+            if (!values.isEmpty()) {
+                mechanicalAngle = values[0];
+                qDebug() << "Mechanical Angle:" << mechanicalAngle;
+            }
             break;
 
         default:
-            qDebug() << "Unknown CMD:" << cmd << "Value:" << value;
+            qDebug() << "Unknown CMD:" << cmd << "Values:" << values;
             break;
         }
     }
 }
+

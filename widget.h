@@ -27,6 +27,10 @@ private slots:
 
     void on_mechanicalAngle_bt_clicked(bool checked);
 
+    void on_setPairs_bt_clicked();
+
+    void on_setDir_bt_clicked();
+
 private:
     Ui::Widget *ui;
     SerialManager *serialManager;  // 串口管理对象

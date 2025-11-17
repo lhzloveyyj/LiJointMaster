@@ -13,7 +13,9 @@ enum class CMD_TypeDef : uint8_t
     CMD_NONE                    = 0x00,  // 无效命令
     CMD_CONNECT_MOTOR           = 0x01,  // 连接电机
     CMD_MECHANICALANGLE         = 0x02,  // 打开机械角度传输
-    CMD_MECHANICALANGLE_CLOSE   = 0X03,  //关闭机械角度传输
+    CMD_MECHANICALANGLE_CLOSE   = 0x03,  //关闭机械角度传输
+    CMD_SETPAIRS                = 0x04,  //设置极对数
+    CMD_SETDIR                  = 0x05,  //设置方向
 };
 
 
