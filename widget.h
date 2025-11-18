@@ -31,6 +31,10 @@ private slots:
 
     void on_setDir_bt_clicked();
 
+    void on_zeroOffset_bt_clicked();
+
+    void onZeroCalibrationFinished();
+
 private:
     Ui::Widget *ui;
     SerialManager *serialManager;  // 串口管理对象

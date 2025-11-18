@@ -61,14 +61,19 @@ public:
     QPushButton *connectMotor_bt;
     QLabel *connet_motor_pic;
     QPushButton *mechanicalAngle_bt;
-    QWidget *widget;
+    QWidget *layoutWidget5;
     QHBoxLayout *horizontalLayout_10;
     QTextEdit *setPairs_te;
     QPushButton *setPairs_bt;
-    QWidget *widget1;
+    QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout_11;
     QTextEdit *setDir_te;
     QPushButton *setDir_bt;
+    QPushButton *zeroOffset_bt;
+    QLabel *label_8;
+    QLabel *label_11;
+    QTextEdit *zeroOffset_te;
+    QTextEdit *correctedElecAngle_te;
 
     void setupUi(QWidget *Widget)
     {
@@ -265,44 +270,63 @@ public:
 
         mechanicalAngle_bt = new QPushButton(Widget);
         mechanicalAngle_bt->setObjectName("mechanicalAngle_bt");
-        mechanicalAngle_bt->setGeometry(QRect(10, 450, 80, 23));
+        mechanicalAngle_bt->setGeometry(QRect(210, 70, 80, 23));
         mechanicalAngle_bt->setCheckable(true);
-        widget = new QWidget(Widget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(10, 350, 128, 32));
-        horizontalLayout_10 = new QHBoxLayout(widget);
+        layoutWidget5 = new QWidget(Widget);
+        layoutWidget5->setObjectName("layoutWidget5");
+        layoutWidget5->setGeometry(QRect(10, 350, 128, 32));
+        horizontalLayout_10 = new QHBoxLayout(layoutWidget5);
         horizontalLayout_10->setObjectName("horizontalLayout_10");
         horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
-        setPairs_te = new QTextEdit(widget);
+        setPairs_te = new QTextEdit(layoutWidget5);
         setPairs_te->setObjectName("setPairs_te");
         setPairs_te->setMaximumSize(QSize(40, 30));
 
         horizontalLayout_10->addWidget(setPairs_te);
 
-        setPairs_bt = new QPushButton(widget);
+        setPairs_bt = new QPushButton(layoutWidget5);
         setPairs_bt->setObjectName("setPairs_bt");
         setPairs_bt->setMinimumSize(QSize(80, 30));
 
         horizontalLayout_10->addWidget(setPairs_bt);
 
-        widget1 = new QWidget(Widget);
-        widget1->setObjectName("widget1");
-        widget1->setGeometry(QRect(10, 390, 128, 32));
-        horizontalLayout_11 = new QHBoxLayout(widget1);
+        layoutWidget6 = new QWidget(Widget);
+        layoutWidget6->setObjectName("layoutWidget6");
+        layoutWidget6->setGeometry(QRect(10, 390, 128, 32));
+        horizontalLayout_11 = new QHBoxLayout(layoutWidget6);
         horizontalLayout_11->setObjectName("horizontalLayout_11");
         horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
-        setDir_te = new QTextEdit(widget1);
+        setDir_te = new QTextEdit(layoutWidget6);
         setDir_te->setObjectName("setDir_te");
         setDir_te->setMaximumSize(QSize(40, 30));
 
         horizontalLayout_11->addWidget(setDir_te);
 
-        setDir_bt = new QPushButton(widget1);
+        setDir_bt = new QPushButton(layoutWidget6);
         setDir_bt->setObjectName("setDir_bt");
         setDir_bt->setMinimumSize(QSize(80, 30));
 
         horizontalLayout_11->addWidget(setDir_bt);
 
+        zeroOffset_bt = new QPushButton(Widget);
+        zeroOffset_bt->setObjectName("zeroOffset_bt");
+        zeroOffset_bt->setGeometry(QRect(10, 430, 80, 30));
+        label_8 = new QLabel(Widget);
+        label_8->setObjectName("label_8");
+        label_8->setGeometry(QRect(11, 471, 48, 20));
+        label_8->setFont(font);
+        label_11 = new QLabel(Widget);
+        label_11->setObjectName("label_11");
+        label_11->setGeometry(QRect(11, 501, 48, 20));
+        label_11->setFont(font);
+        zeroOffset_te = new QTextEdit(Widget);
+        zeroOffset_te->setObjectName("zeroOffset_te");
+        zeroOffset_te->setGeometry(QRect(65, 471, 80, 30));
+        zeroOffset_te->setMaximumSize(QSize(80, 30));
+        correctedElecAngle_te = new QTextEdit(Widget);
+        correctedElecAngle_te->setObjectName("correctedElecAngle_te");
+        correctedElecAngle_te->setGeometry(QRect(65, 501, 80, 30));
+        correctedElecAngle_te->setMaximumSize(QSize(80, 30));
 
         retranslateUi(Widget);
 
@@ -354,6 +378,9 @@ public:
         mechanicalAngle_bt->setText(QCoreApplication::translate("Widget", "\346\234\272\346\242\260\350\247\222\345\272\246", nullptr));
         setPairs_bt->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\346\236\201\345\257\271\346\225\260", nullptr));
         setDir_bt->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\346\226\271\345\220\221", nullptr));
+        zeroOffset_bt->setText(QCoreApplication::translate("Widget", "\351\233\266\347\224\265\344\275\215\346\240\241\345\207\206", nullptr));
+        label_8->setText(QCoreApplication::translate("Widget", "\351\233\266\345\201\217\345\200\274", nullptr));
+        label_11->setText(QCoreApplication::translate("Widget", "\347\224\265\350\247\222\345\272\246", nullptr));
     } // retranslateUi
 
 };

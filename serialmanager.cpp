@@ -176,6 +176,20 @@ void SerialManager::readSerialData()
             }
             break;
 
+        case CMD_TypeDef::CMD_ZEROCALIBRATIO:
+
+            break;
+
+        case CMD_TypeDef::CMD_ZEROCALIBRATIO_OVER:
+            if (!values.isEmpty()) {
+                g_zeroOffset = values[0];
+                g_correctedElecAngle      = values[1];
+                qDebug() << "g_zeroOffset = " << g_zeroOffset;
+                qDebug() << "g_correctedElecAngle =" << g_correctedElecAngle;
+            }
+            emit zeroCalibrationFinished();
+            break;
+
         default:
             qDebug() << "Unknown CMD:" << cmd << "Values:" << values;
             break;

@@ -9,6 +9,27 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // --- 全局暗色 UI ---
+    QString darkStyle =
+        "QWidget { background-color: #2b2b2b; color: #dddddd; }"
+        "QPushButton {"
+        "   background-color: #3c3c3c;"
+        "   border: 1px solid #4c4c4c;"
+        "   padding: 5px;"
+        "   border-radius: 4px;"
+        "}"
+        "QPushButton:hover {"
+        "   background-color: #505050;"
+        "}"
+        "QLineEdit, QTextEdit, QPlainTextEdit {"
+        "   background-color: #3a3a3a;"
+        "   border: 1px solid #555555;"
+        "   color: #eeeeee;"
+        "}"
+        "QLabel { color: #dddddd; }";
+
+    qApp->setStyleSheet(darkStyle);
+
     serialManager = new SerialManager(this);
 
     // 初始化串口列表
@@ -34,6 +55,10 @@ Widget::Widget(QWidget *parent)
     // 连接信号和槽
     connect(serialManager, &SerialManager::commandParsed,
             this, &Widget::handleParsedCommand);
+
+    //零点校准完成槽
+    connect(serialManager, &SerialManager::zeroCalibrationFinished,
+            this, &Widget::onZeroCalibrationFinished);
 }
 
 Widget::~Widget()
@@ -155,5 +180,23 @@ void Widget::on_setDir_bt_clicked()
     qDebug() << "Sent value:" << floatValue;
 
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETDIR, floatValue);
+}
+
+
+void Widget::on_zeroOffset_bt_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_ZEROCALIBRATIO, 0.0f);
+}
+
+// 零点校准完成槽 onZeroCalibrationFinished
+void Widget::onZeroCalibrationFinished()
+{
+    ui->zeroOffset_te->setPlainText(QString::number(serialManager->g_zeroOffset));
+    ui->correctedElecAngle_te->setPlainText(QString::number(serialManager->g_correctedElecAngle));
 }
 

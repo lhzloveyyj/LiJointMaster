@@ -16,6 +16,8 @@ enum class CMD_TypeDef : uint8_t
     CMD_MECHANICALANGLE_CLOSE   = 0x03,  //关闭机械角度传输
     CMD_SETPAIRS                = 0x04,  //设置极对数
     CMD_SETDIR                  = 0x05,  //设置方向
+    CMD_ZEROCALIBRATIO          = 0x06,  // 零点校准
+    CMD_ZEROCALIBRATIO_OVER     = 0x07,  // 零点校准结束
 };
 
 
