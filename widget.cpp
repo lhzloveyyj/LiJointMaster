@@ -28,6 +28,7 @@ Widget::Widget(QWidget *parent)
         "}"
         "QLabel { color: #dddddd; }";
 
+
     qApp->setStyleSheet(darkStyle);
 
     serialManager = new SerialManager(this);
@@ -110,6 +111,7 @@ void Widget::on_connectMotor_bt_clicked()
     QTimer::singleShot(100, this, [=]() {
         ui->setPairs_te->setPlainText(QString::number(serialManager->getPairs));
         ui->setDir_te->setPlainText(QString::number(serialManager->dir));
+        ui->zeroOffset_te->setPlainText(QString::number(serialManager->g_zeroOffset));
     });
 
 }
@@ -198,5 +200,24 @@ void Widget::onZeroCalibrationFinished()
 {
     ui->zeroOffset_te->setPlainText(QString::number(serialManager->g_zeroOffset));
     ui->correctedElecAngle_te->setPlainText(QString::number(serialManager->g_correctedElecAngle));
+}
+
+
+void Widget::on_Uabc_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    uabcEnabled = checked;
+    if (uabcEnabled) {
+        qDebug() << "Uabc printing enabled";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_UABC, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_UABC_CLOSE, 0.0);
+        qDebug() << "Uabc printing disabled";
+    }
+
 }
 

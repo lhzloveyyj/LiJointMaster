@@ -25,6 +25,9 @@ public:
     float mechanicalAngle;
     float g_zeroOffset ;
     float g_correctedElecAngle;
+    float Ua;
+    float Ub;
+    float Uc;
 
 
 signals:

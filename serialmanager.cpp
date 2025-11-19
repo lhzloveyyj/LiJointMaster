@@ -163,16 +163,20 @@ void SerialManager::readSerialData()
             if (!values.isEmpty()) {
                 getPairs = int(values[0]);
                 dir      = int(values[1]);
+                g_zeroOffset = values[2];
                 qDebug() << "CMD_CONNECT_MOTOR getPairs =" << getPairs;
                 qDebug() << "CMD_CONNECT_MOTOR dir =" << dir;
+                qDebug() << "CMD_CONNECT_MOTOR g_zeroOffset =" << g_zeroOffset;
                 emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR);
             }
             break;
 
         case CMD_TypeDef::CMD_MECHANICALANGLE:
-            if (!values.isEmpty()) {
+            if (values.size() >= 1) {
                 mechanicalAngle = values[0];
                 qDebug() << "Mechanical Angle:" << mechanicalAngle;
+            } else {
+                qDebug() << "CMD_MECHANICALANGLE 数据为空";
             }
             break;
 
@@ -189,6 +193,17 @@ void SerialManager::readSerialData()
             }
             emit zeroCalibrationFinished();
             break;
+
+        case CMD_TypeDef::CMD_UABC:
+            if (!values.isEmpty()) {
+                Ua = values[0];
+                Ub = values[1];
+                Uc = values[2];
+                qDebug() << "Ua =" << Ua << ", Ub =" << Ub << ", Uc =" << Uc;
+
+            }
+            break;
+
 
         default:
             qDebug() << "Unknown CMD:" << cmd << "Values:" << values;

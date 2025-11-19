@@ -15,6 +15,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 #SerialPort pack
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets SerialPort)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets SerialPort)
+find_package(Qt6 REQUIRED COMPONENTS Widgets PrintSupport)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -31,6 +32,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         serialmanager.cpp
         serialmanager.h
         serialcommand.h
+
+
 
     )
 # Define target properties for Android with Qt 6 as:
@@ -53,6 +56,7 @@ endif()
 
 target_link_libraries(LiJointMaster PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(LiJointMaster PRIVATE Qt6::Core Qt6::Widgets Qt6::SerialPort)
+target_link_libraries(LiJointMaster PRIVATE Qt6::Widgets Qt6::PrintSupport)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

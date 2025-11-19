@@ -298,6 +298,15 @@ LiJointMaster_autogen/timestamp: \
 	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-relwithdebinfo.cmake \
 	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake \
 	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake \
+	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportAdditionalTargetInfo.cmake \
+	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfig.cmake \
+	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersion.cmake \
+	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersionImpl.cmake \
+	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportDependencies.cmake \
+	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportPlugins.cmake \
+	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets-relwithdebinfo.cmake \
+	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets.cmake \
+	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportVersionlessAliasTargets.cmake \
 	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortAdditionalTargetInfo.cmake \
 	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortConfig.cmake \
 	D:/download/QT/6.10.0/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortConfigVersion.cmake \

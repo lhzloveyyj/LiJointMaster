@@ -18,6 +18,8 @@ enum class CMD_TypeDef : uint8_t
     CMD_SETDIR                  = 0x05,  //设置方向
     CMD_ZEROCALIBRATIO          = 0x06,  // 零点校准
     CMD_ZEROCALIBRATIO_OVER     = 0x07,  // 零点校准结束
+    CMD_UABC                    = 0x08,  // 打印三项电压ua,ub,uc
+    CMD_UABC_CLOSE              = 0x09,  // 关闭打印三项电压ua,ub,uc
 };
 
 

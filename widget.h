@@ -5,6 +5,7 @@
 #include <QTimer>
 #include "serialmanager.h"   // 引入新的串口管理类
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -35,10 +36,17 @@ private slots:
 
     void onZeroCalibrationFinished();
 
+    void on_Uabc_bt_clicked(bool checked);
+
+
 private:
     Ui::Widget *ui;
+
+
+    //串口
     SerialManager *serialManager;  // 串口管理对象
     QTimer *refreshTimer;          // 定时刷新串口列表
-    bool anglePrintingEnabled = false;  // 控制是否打印
+    bool anglePrintingEnabled = false;  // 控制角度
+    bool uabcEnabled = false;           //控制Uabc打印
 };
 #endif // WIDGET_H
