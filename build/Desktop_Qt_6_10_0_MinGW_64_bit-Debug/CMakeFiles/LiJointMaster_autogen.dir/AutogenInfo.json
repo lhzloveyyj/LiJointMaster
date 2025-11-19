@@ -556,6 +556,12 @@
 	"HEADERS" : 
 	[
 		[
+			"E:/QT/LiJointMaster/qcustomplot.h",
+			"MU",
+			"EWIEGA46WW/moc_qcustomplot.cpp",
+			null
+		],
+		[
 			"E:/QT/LiJointMaster/serialcommand.h",
 			"MU",
 			"EWIEGA46WW/moc_serialcommand.cpp",
@@ -602,6 +608,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"E:/QT/LiJointMaster",
 		"D:/download/QT/6.10.0/mingw_64/include/QtCore",
 		"D:/download/QT/6.10.0/mingw_64/include",
 		"D:/download/QT/6.10.0/mingw_64/mkspecs/win32-g++",
@@ -650,6 +657,7 @@
 	"SOURCES" : 
 	[
 		[ "E:/QT/LiJointMaster/main.cpp", "MU", null ],
+		[ "E:/QT/LiJointMaster/qcustomplot.cpp", "MU", null ],
 		[ "E:/QT/LiJointMaster/serialmanager.cpp", "MU", null ],
 		[ "E:/QT/LiJointMaster/widget.cpp", "MU", null ]
 	],

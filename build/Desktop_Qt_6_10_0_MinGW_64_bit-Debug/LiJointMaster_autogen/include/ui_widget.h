@@ -19,6 +19,7 @@
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <qcustomplot.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -81,6 +82,7 @@ public:
     QHBoxLayout *horizontalLayout_13;
     QLabel *label_11;
     QTextEdit *correctedElecAngle_te;
+    QCustomPlot *plotWidget;
 
     void setupUi(QWidget *Widget)
     {
@@ -379,6 +381,9 @@ public:
 
         horizontalLayout_13->addWidget(correctedElecAngle_te);
 
+        plotWidget = new QCustomPlot(Widget);
+        plotWidget->setObjectName("plotWidget");
+        plotWidget->setGeometry(QRect(370, 40, 911, 471));
 
         retranslateUi(Widget);
 

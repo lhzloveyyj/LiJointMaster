@@ -27,13 +27,41 @@ Widget::Widget(QWidget *parent)
         "   color: #eeeeee;"
         "}"
         "QLabel { color: #dddddd; }";
-
-
     qApp->setStyleSheet(darkStyle);
 
+    //坐标轴
+    // 设置整体背景为深灰色
+    ui->plotWidget->setBackground(QBrush(QColor(30, 30, 30)));
+
+    /* =================================== 坐标轴曲线 ==================================== */
+    ui->plotWidget->xAxis->setBasePen(QPen(Qt::white));    // 坐标轴线颜色
+    ui->plotWidget->yAxis->setBasePen(QPen(Qt::white));
+    ui->plotWidget->xAxis->setTickPen(QPen(Qt::white));    // 刻度线颜色
+    ui->plotWidget->yAxis->setTickPen(QPen(Qt::white));
+    ui->plotWidget->xAxis->setSubTickPen(QPen(Qt::white)); // 子刻度线颜色
+    ui->plotWidget->yAxis->setSubTickPen(QPen(Qt::white));
+
+    // 坐标轴文字颜色
+    ui->plotWidget->xAxis->setTickLabelColor(Qt::white);
+    ui->plotWidget->yAxis->setTickLabelColor(Qt::white);
+
+    // 坐标轴标题颜色（如果有）
+    ui->plotWidget->xAxis->setLabelColor(Qt::white);
+    ui->plotWidget->yAxis->setLabelColor(Qt::white);
+
+    // 网格线颜色
+    ui->plotWidget->xAxis->grid()->setPen(QPen(QColor(80, 80, 80)));
+    ui->plotWidget->yAxis->grid()->setPen(QPen(QColor(80, 80, 80)));
+
+    // 可选：启用鼠标拖动和滚轮缩放
+    ui->plotWidget->setInteraction(QCP::iRangeDrag);
+    ui->plotWidget->setInteraction(QCP::iRangeZoom);
+
+
+
+    /* =================================== 初始化串口 ==================================== */
     serialManager = new SerialManager(this);
 
-    // 初始化串口列表
     ui->ComPort_ComboBox->addItems(serialManager->availablePorts());
 
     // 串口打开/关闭信号绑定到 UI 更新
