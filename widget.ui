@@ -33,7 +33,7 @@
      <rect>
       <x>11</x>
       <y>11</y>
-      <width>118</width>
+      <width>124</width>
       <height>151</height>
      </rect>
     </property>
@@ -64,10 +64,10 @@
        <item>
         <widget class="QComboBox" name="BuadRate_ComboBox">
          <property name="currentText">
-          <string>921600</string>
+          <string>1500000</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>5</number>
          </property>
          <item>
           <property name="text">
@@ -359,7 +359,7 @@
   <widget class="QPushButton" name="Uabc_bt">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>460</x>
      <y>570</y>
      <width>80</width>
      <height>30</height>
@@ -656,6 +656,41 @@
    <property name="orientation">
     <enum>Qt::Orientation::Horizontal</enum>
    </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>540</y>
+     <width>168</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_14">
+    <item>
+     <widget class="QTextEdit" name="setUq_te">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="setUq_bt">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>设置Uq</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <customwidgets>

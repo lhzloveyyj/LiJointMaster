@@ -39,6 +39,8 @@ private slots:
     void on_Uabc_bt_clicked(bool checked);
 
 
+    void on_setUq_bt_clicked();
+
 private:
     Ui::Widget *ui;
 

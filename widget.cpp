@@ -267,3 +267,22 @@ void Widget::on_Uabc_bt_clicked(bool checked)
 
 }
 
+
+void Widget::on_setUq_bt_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+    QString text = ui->setUq_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 直接解析为浮点数
+    if (ok) {
+        qDebug() << "Sent value:" << floatValue;
+    } else {
+        qDebug() << "Failed to convert text to float:" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETUQ, floatValue);
+}
+

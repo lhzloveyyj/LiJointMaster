@@ -85,6 +85,10 @@ public:
     QTextEdit *correctedElecAngle_te;
     QCustomPlot *plotWidget;
     QSlider *x_Axis_sd;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_14;
+    QTextEdit *setUq_te;
+    QPushButton *setUq_bt;
 
     void setupUi(QWidget *Widget)
     {
@@ -98,7 +102,7 @@ public:
         frame->setFrameShadow(QFrame::Shadow::Raised);
         layoutWidget = new QWidget(frame);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(11, 11, 118, 151));
+        layoutWidget->setGeometry(QRect(11, 11, 124, 151));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -263,7 +267,7 @@ public:
 
         Uabc_bt = new QPushButton(Widget);
         Uabc_bt->setObjectName("Uabc_bt");
-        Uabc_bt->setGeometry(QRect(160, 570, 80, 30));
+        Uabc_bt->setGeometry(QRect(460, 570, 80, 30));
         Uabc_bt->setMaximumSize(QSize(100, 30));
         Uabc_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
 "    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
@@ -393,10 +397,28 @@ public:
         x_Axis_sd->setGeometry(QRect(190, 510, 1081, 20));
         x_Axis_sd->setMaximum(200);
         x_Axis_sd->setOrientation(Qt::Orientation::Horizontal);
+        widget = new QWidget(Widget);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(180, 540, 168, 32));
+        horizontalLayout_14 = new QHBoxLayout(widget);
+        horizontalLayout_14->setObjectName("horizontalLayout_14");
+        horizontalLayout_14->setContentsMargins(0, 0, 0, 0);
+        setUq_te = new QTextEdit(widget);
+        setUq_te->setObjectName("setUq_te");
+        setUq_te->setMaximumSize(QSize(80, 30));
+
+        horizontalLayout_14->addWidget(setUq_te);
+
+        setUq_bt = new QPushButton(widget);
+        setUq_bt->setObjectName("setUq_bt");
+        setUq_bt->setMaximumSize(QSize(80, 30));
+
+        horizontalLayout_14->addWidget(setUq_bt);
+
 
         retranslateUi(Widget);
 
-        BuadRate_ComboBox->setCurrentIndex(4);
+        BuadRate_ComboBox->setCurrentIndex(5);
         DataBits_comboBox->setCurrentIndex(3);
 
 
@@ -416,7 +438,7 @@ public:
         BuadRate_ComboBox->setItemText(5, QCoreApplication::translate("Widget", "1500000", nullptr));
         BuadRate_ComboBox->setItemText(6, QCoreApplication::translate("Widget", "2000000", nullptr));
 
-        BuadRate_ComboBox->setCurrentText(QCoreApplication::translate("Widget", "921600", nullptr));
+        BuadRate_ComboBox->setCurrentText(QCoreApplication::translate("Widget", "1500000", nullptr));
         label_5->setText(QCoreApplication::translate("Widget", "\346\225\260\346\215\256\344\275\215", nullptr));
         DataBits_comboBox->setItemText(0, QCoreApplication::translate("Widget", "5", nullptr));
         DataBits_comboBox->setItemText(1, QCoreApplication::translate("Widget", "6", nullptr));
@@ -451,6 +473,7 @@ public:
         mechanicalAngle_bt->setText(QCoreApplication::translate("Widget", "\346\234\272\346\242\260\350\247\222\345\272\246", nullptr));
         label_8->setText(QCoreApplication::translate("Widget", "\351\233\266\345\201\217\345\200\274", nullptr));
         label_11->setText(QCoreApplication::translate("Widget", "\347\224\265\350\247\222\345\272\246", nullptr));
+        setUq_bt->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256Uq", nullptr));
     } // retranslateUi
 
 };
