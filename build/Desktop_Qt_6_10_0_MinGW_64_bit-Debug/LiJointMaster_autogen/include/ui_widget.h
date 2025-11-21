@@ -16,6 +16,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -83,6 +84,7 @@ public:
     QLabel *label_11;
     QTextEdit *correctedElecAngle_te;
     QCustomPlot *plotWidget;
+    QSlider *x_Axis_sd;
 
     void setupUi(QWidget *Widget)
     {
@@ -123,6 +125,8 @@ public:
         horizontalLayout_2->addWidget(label_4);
 
         BuadRate_ComboBox = new QComboBox(layoutWidget);
+        BuadRate_ComboBox->addItem(QString());
+        BuadRate_ComboBox->addItem(QString());
         BuadRate_ComboBox->addItem(QString());
         BuadRate_ComboBox->addItem(QString());
         BuadRate_ComboBox->addItem(QString());
@@ -259,7 +263,7 @@ public:
 
         Uabc_bt = new QPushButton(Widget);
         Uabc_bt->setObjectName("Uabc_bt");
-        Uabc_bt->setGeometry(QRect(170, 70, 80, 30));
+        Uabc_bt->setGeometry(QRect(160, 570, 80, 30));
         Uabc_bt->setMaximumSize(QSize(100, 30));
         Uabc_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
 "    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
@@ -383,7 +387,12 @@ public:
 
         plotWidget = new QCustomPlot(Widget);
         plotWidget->setObjectName("plotWidget");
-        plotWidget->setGeometry(QRect(370, 40, 911, 471));
+        plotWidget->setGeometry(QRect(150, 40, 1131, 471));
+        x_Axis_sd = new QSlider(Widget);
+        x_Axis_sd->setObjectName("x_Axis_sd");
+        x_Axis_sd->setGeometry(QRect(190, 510, 1081, 20));
+        x_Axis_sd->setMaximum(200);
+        x_Axis_sd->setOrientation(Qt::Orientation::Horizontal);
 
         retranslateUi(Widget);
 
@@ -404,6 +413,8 @@ public:
         BuadRate_ComboBox->setItemText(2, QCoreApplication::translate("Widget", "38400", nullptr));
         BuadRate_ComboBox->setItemText(3, QCoreApplication::translate("Widget", "115200", nullptr));
         BuadRate_ComboBox->setItemText(4, QCoreApplication::translate("Widget", "921600", nullptr));
+        BuadRate_ComboBox->setItemText(5, QCoreApplication::translate("Widget", "1500000", nullptr));
+        BuadRate_ComboBox->setItemText(6, QCoreApplication::translate("Widget", "2000000", nullptr));
 
         BuadRate_ComboBox->setCurrentText(QCoreApplication::translate("Widget", "921600", nullptr));
         label_5->setText(QCoreApplication::translate("Widget", "\346\225\260\346\215\256\344\275\215", nullptr));

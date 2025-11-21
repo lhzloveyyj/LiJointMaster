@@ -36,6 +36,7 @@ signals:
     void dataReceived(CMD_TypeDef cmd, QByteArray data); // 接收到数据的信号
     void commandParsed(CMD_TypeDef cmd);
     void zeroCalibrationFinished();         // 零点校准完成
+    void newUABC(float Ua, float Ub, float Uc);   // 发射三相电压绘图
 
 private slots:
     void readSerialData();                  // 串口接收槽

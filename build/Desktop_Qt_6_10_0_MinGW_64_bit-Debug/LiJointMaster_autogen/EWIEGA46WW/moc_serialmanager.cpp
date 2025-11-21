@@ -48,6 +48,10 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         "data",
         "commandParsed",
         "zeroCalibrationFinished",
+        "newUABC",
+        "Ua",
+        "Ub",
+        "Uc",
         "readSerialData"
     };
 
@@ -66,8 +70,12 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         }}),
         // Signal 'zeroCalibrationFinished'
         QtMocHelpers::SignalData<void()>(9, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'newUABC'
+        QtMocHelpers::SignalData<void(float, float, float)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 11 }, { QMetaType::Float, 12 }, { QMetaType::Float, 13 },
+        }}),
         // Slot 'readSerialData'
-        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -96,7 +104,8 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 2: _t->dataReceived((*reinterpret_cast<std::add_pointer_t<CMD_TypeDef>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[2]))); break;
         case 3: _t->commandParsed((*reinterpret_cast<std::add_pointer_t<CMD_TypeDef>>(_a[1]))); break;
         case 4: _t->zeroCalibrationFinished(); break;
-        case 5: _t->readSerialData(); break;
+        case 5: _t->newUABC((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[3]))); break;
+        case 6: _t->readSerialData(); break;
         default: ;
         }
     }
@@ -110,6 +119,8 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(CMD_TypeDef )>(_a, &SerialManager::commandParsed, 3))
             return;
         if (QtMocHelpers::indexOfMethod<void (SerialManager::*)()>(_a, &SerialManager::zeroCalibrationFinished, 4))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float , float )>(_a, &SerialManager::newUABC, 5))
             return;
     }
 }
@@ -133,14 +144,14 @@ int SerialManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }
@@ -173,5 +184,11 @@ void SerialManager::commandParsed(CMD_TypeDef _t1)
 void SerialManager::zeroCalibrationFinished()
 {
     QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
+}
+
+// SIGNAL 5
+void SerialManager::newUABC(float _t1, float _t2, float _t3)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 5, nullptr, _t1, _t2, _t3);
 }
 QT_WARNING_POP

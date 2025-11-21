@@ -315,6 +315,7 @@ LiJointMaster_autogen/timestamp: \
 	D:/download/QT/6.10.0/mingw_64/include/QtGui/QPaintEvent \
 	D:/download/QT/6.10.0/mingw_64/include/QtGui/QPainter \
 	D:/download/QT/6.10.0/mingw_64/include/QtGui/QPainterPath \
+	D:/download/QT/6.10.0/mingw_64/include/QtGui/QPen \
 	D:/download/QT/6.10.0/mingw_64/include/QtGui/QPixmap \
 	D:/download/QT/6.10.0/mingw_64/include/QtGui/QShortcut \
 	D:/download/QT/6.10.0/mingw_64/include/QtGui/QSurfaceFormat \
@@ -1153,6 +1154,8 @@ LiJointMaster_autogen/timestamp: \
 	E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_autogen/moc_predefs.h \
 	E:/QT/LiJointMaster/main.cpp \
+	E:/QT/LiJointMaster/plotmanager.cpp \
+	E:/QT/LiJointMaster/plotmanager.h \
 	E:/QT/LiJointMaster/qcustomplot.cpp \
 	E:/QT/LiJointMaster/qcustomplot.h \
 	E:/QT/LiJointMaster/serialcommand.h \

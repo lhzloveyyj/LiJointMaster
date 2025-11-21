@@ -199,7 +199,8 @@ void SerialManager::readSerialData()
                 Ua = values[0];
                 Ub = values[1];
                 Uc = values[2];
-                qDebug() << "Ua =" << Ua << ", Ub =" << Ub << ", Uc =" << Uc;
+                emit newUABC(Ua, Ub, Uc); //发射绘图
+                //qDebug() << "Ua =" << Ua << ", Ub =" << Ub << ", Uc =" << Uc;
 
             }
             break;

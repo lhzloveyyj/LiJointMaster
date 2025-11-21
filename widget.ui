@@ -94,6 +94,16 @@
            <string>921600</string>
           </property>
          </item>
+         <item>
+          <property name="text">
+           <string>1500000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2000000</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
@@ -349,8 +359,8 @@
   <widget class="QPushButton" name="Uabc_bt">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>70</y>
+     <x>160</x>
+     <y>570</y>
      <width>80</width>
      <height>30</height>
     </rect>
@@ -624,11 +634,27 @@
   <widget class="QCustomPlot" name="plotWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>150</x>
      <y>40</y>
-     <width>911</width>
+     <width>1131</width>
      <height>471</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QSlider" name="x_Axis_sd">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>510</y>
+     <width>1081</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>200</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Orientation::Horizontal</enum>
    </property>
   </widget>
  </widget>

@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QTimer>
 #include "serialmanager.h"   // 引入新的串口管理类
-
+#include "plotmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -48,5 +48,7 @@ private:
     QTimer *refreshTimer;          // 定时刷新串口列表
     bool anglePrintingEnabled = false;  // 控制角度
     bool uabcEnabled = false;           //控制Uabc打印
+
+    PlotManager *plotManager;
 };
 #endif // WIDGET_H

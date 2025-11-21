@@ -34,6 +34,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         serialcommand.h
         qcustomplot.cpp
         qcustomplot.h
+        plotmanager.cpp
+        plotmanager.h
 
 
 
