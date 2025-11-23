@@ -70,11 +70,34 @@ Widget::Widget(QWidget *parent)
     plotManager->addGraph("Ua", Qt::red);
     plotManager->addGraph("Ub", Qt::green);
     plotManager->addGraph("Uc", Qt::blue);
+
+    // 添加三条电压ADC
+    plotManager->addGraph("ADC1", Qt::yellow);
+    plotManager->addGraph("ADC2", Qt::cyan);
+    plotManager->addGraph("ADC3", Qt::magenta);
+
+    // 添加三条SVPWM
+    plotManager->addGraph("Ta", Qt::yellow);
+    plotManager->addGraph("Tb", Qt::cyan);
+    plotManager->addGraph("Tc", Qt::magenta);
+
     // 连接信号
     connect(serialManager, &SerialManager::newUABC, [=](float Ua, float Ub, float Uc){
         plotManager->appendData("Ua", Ua);
         plotManager->appendData("Ub", Ub);
         plotManager->appendData("Uc", Uc);
+    });
+
+    connect(serialManager, &SerialManager::newADC, [=](uint16_t ADC1, uint16_t ADC2, uint16_t ADC3){
+        plotManager->appendData("ADC1", ADC1);
+        plotManager->appendData("ADC2", ADC2);
+        plotManager->appendData("ADC3", ADC3);
+    });
+
+    connect(serialManager, &SerialManager::newTABC, [=](float Ta, float Tb, float Tc){
+        plotManager->appendData("Ta", Ta);
+        plotManager->appendData("Tb", Tb);
+        plotManager->appendData("Tc", Tc);
     });
 
     connect(ui->x_Axis_sd, &QSlider::valueChanged, this,
@@ -284,5 +307,57 @@ void Widget::on_setUq_bt_clicked()
     }
 
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETUQ, floatValue);
+}
+
+
+void Widget::on_adc_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    adcEnabled = checked;
+    if (adcEnabled) {
+        qDebug() << "ADC printing enabled";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_ADC, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_ADC_CLOSE, 0.0);
+        qDebug() << "ADC printing disabled";
+    }
+}
+
+
+void Widget::on_dcBus_bt_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_DCVBUS, 0.0);
+
+    // 延迟 100ms 更新 UI
+    QTimer::singleShot(100, this, [=]() {
+        ui->dcBus_te->setPlainText(QString::number(serialManager->dcVbus));
+    });
+}
+
+
+void Widget::on_SVPWM_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    tabcEnabled = checked;
+    if (tabcEnabled) {
+        qDebug() << "Tabc printing enabled";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_TABC, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_TABC_CLOSE, 0.0);
+        qDebug() << "Tabc printing disabled";
+    }
 }
 

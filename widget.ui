@@ -275,6 +275,24 @@
    <property name="frameShadow">
     <enum>QFrame::Shadow::Raised</enum>
    </property>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>0</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>LiJointMaster</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -401,19 +419,6 @@
    <property name="frameShadow">
     <enum>QFrame::Shadow::Raised</enum>
    </property>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>240</y>
-      <width>80</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>母线电压</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
@@ -538,30 +543,6 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="mechanicalAngle_bt">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>280</y>
-      <width>80</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton:checked {
-    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
-    color: black;                  /* 更明显 */
-    font-weight: bold;
-    border: 2px solid #27ae60;
-}</string>
-    </property>
-    <property name="text">
-     <string>机械角度</string>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
@@ -630,6 +611,41 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>232</y>
+      <width>133</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_15">
+     <item>
+      <widget class="QPushButton" name="dcBus_bt">
+       <property name="maximumSize">
+        <size>
+         <width>60</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>母线电压</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="dcBus_te">
+       <property name="maximumSize">
+        <size>
+         <width>65</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QCustomPlot" name="plotWidget" native="true">
    <property name="geometry">
@@ -657,7 +673,7 @@
     <enum>Qt::Orientation::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -691,6 +707,90 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="adc_bt">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>610</y>
+     <width>80</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>80</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+   </property>
+   <property name="text">
+    <string>三相ADC</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mechanicalAngle_bt">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>540</y>
+     <width>80</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+   </property>
+   <property name="text">
+    <string>机械角度</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SVPWM_bt">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>650</y>
+     <width>80</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>80</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+   </property>
+   <property name="text">
+    <string>三相SVPWM</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <customwidgets>

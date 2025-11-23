@@ -25,10 +25,20 @@ public:
     float mechanicalAngle;
     float g_zeroOffset ;
     float g_correctedElecAngle;
+
     float Ua;
     float Ub;
     float Uc;
 
+    uint16_t ADC1;
+    uint16_t ADC2;
+    uint16_t ADC3;
+
+    float Ta;
+    float Tb;
+    float Tc;
+
+    float dcVbus;
 
 signals:
     void portOpened();                      // 串口打开信号
@@ -37,6 +47,9 @@ signals:
     void commandParsed(CMD_TypeDef cmd);
     void zeroCalibrationFinished();         // 零点校准完成
     void newUABC(float Ua, float Ub, float Uc);   // 发射三相电压绘图
+    void newADC(float Ua, float Ub, float Uc);    // 发射三相电压绘图
+    void newTABC(float Ta, float Tb, float Tc);   // 发射三相SVPWM绘图
+
 
 private slots:
     void readSerialData();                  // 串口接收槽

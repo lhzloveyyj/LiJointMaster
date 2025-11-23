@@ -41,6 +41,12 @@ private slots:
 
     void on_setUq_bt_clicked();
 
+    void on_adc_bt_clicked(bool checked);
+
+    void on_dcBus_bt_clicked();
+
+    void on_SVPWM_bt_clicked(bool checked);
+
 private:
     Ui::Widget *ui;
 
@@ -50,6 +56,8 @@ private:
     QTimer *refreshTimer;          // 定时刷新串口列表
     bool anglePrintingEnabled = false;  // 控制角度
     bool uabcEnabled = false;           //控制Uabc打印
+    bool adcEnabled  = false;
+    bool tabcEnabled = false;
 
     PlotManager *plotManager;
 };

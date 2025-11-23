@@ -205,6 +205,35 @@ void SerialManager::readSerialData()
             }
             break;
 
+        case CMD_TypeDef::CMD_ADC:
+            if (!values.isEmpty()) {
+                ADC1 = values[0];
+                ADC2 = values[1];
+                ADC3 = values[2];
+                emit newUABC(ADC1, ADC2, ADC3); //发射绘图
+                //qDebug() << "ADC1 =" << ADC1 << ", ADC2 =" << ADC2 << ", ADC3 =" << ADC3;
+
+            }
+            break;
+
+        case CMD_TypeDef::CMD_DCVBUS:
+            if (!values.isEmpty()) {
+                dcVbus = values[0];
+                //qDebug() << "ADC1 =" << ADC1 << ";
+
+            }
+            break;
+
+        case CMD_TypeDef::CMD_TABC:
+            if (!values.isEmpty()) {
+                Ta = values[0];
+                Tb = values[1];
+                Tc = values[2];
+                emit newTABC(Ta, Tb, Tc); //发射绘图
+                //qDebug() << "ADC1 =" << ADC1 << ", ADC2 =" << ADC2 << ", ADC3 =" << ADC3;
+
+            }
+            break;
 
         default:
             qDebug() << "Unknown CMD:" << cmd << "Values:" << values;

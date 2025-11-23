@@ -49,7 +49,7 @@ void PlotManager::appendData(const QString &name, double value)
 {
     if (!m_graphs.contains(name)) return;
 
-    m_key += 0.001; // 假设采样间隔 1ms
+    m_key += 0.0005; // 假设采样间隔 1ms
 
     GraphData &g = m_graphs[name];
     g.data.append(value);
