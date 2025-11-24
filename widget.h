@@ -47,6 +47,8 @@ private slots:
 
     void on_SVPWM_bt_clicked(bool checked);
 
+    void on_Iabc_bt_clicked(bool checked);
+
 private:
     Ui::Widget *ui;
 
@@ -58,6 +60,7 @@ private:
     bool uabcEnabled = false;           //控制Uabc打印
     bool adcEnabled  = false;
     bool tabcEnabled = false;
+    bool IabcEnabled = false;
 
     PlotManager *plotManager;
 };

@@ -235,6 +235,18 @@ void SerialManager::readSerialData()
             }
             break;
 
+        case CMD_TypeDef::CMD_IABC:
+            if (!values.isEmpty()) {
+                Ia = values[0];
+                Ib = values[1];
+                Ic = values[2];
+                emit newIABC(Ia, Ib, Ic); //发射绘图
+                //qDebug() << "ADC1 =" << ADC1 << ", ADC2 =" << ADC2 << ", ADC3 =" << ADC3;
+
+            }
+            break;
+
+
         default:
             qDebug() << "Unknown CMD:" << cmd << "Values:" << values;
             break;

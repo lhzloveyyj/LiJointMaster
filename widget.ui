@@ -398,7 +398,7 @@
    <property name="geometry">
     <rect>
      <x>460</x>
-     <y>570</y>
+     <y>590</y>
      <width>80</width>
      <height>30</height>
     </rect>
@@ -732,7 +732,7 @@
    <property name="geometry">
     <rect>
      <x>460</x>
-     <y>610</y>
+     <y>630</y>
      <width>80</width>
      <height>30</height>
     </rect>
@@ -764,7 +764,7 @@
      <x>460</x>
      <y>540</y>
      <width>80</width>
-     <height>23</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -786,7 +786,7 @@
    <property name="geometry">
     <rect>
      <x>460</x>
-     <y>650</y>
+     <y>670</y>
      <width>80</width>
      <height>30</height>
     </rect>
@@ -807,6 +807,36 @@
    </property>
    <property name="text">
     <string>三相SVPWM</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Iabc_bt">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>540</y>
+     <width>80</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>80</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+   </property>
+   <property name="text">
+    <string>三相电流</string>
    </property>
    <property name="checkable">
     <bool>true</bool>

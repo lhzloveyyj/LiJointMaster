@@ -30,13 +30,17 @@ public:
     float Ub;
     float Uc;
 
-    uint16_t ADC1;
-    uint16_t ADC2;
-    uint16_t ADC3;
+    int ADC1;
+    int ADC2;
+    int ADC3;
 
     float Ta;
     float Tb;
     float Tc;
+
+    float Ia;
+    float Ib;
+    float Ic;
 
     float dcVbus;
 
@@ -46,10 +50,10 @@ signals:
     void dataReceived(CMD_TypeDef cmd, QByteArray data); // 接收到数据的信号
     void commandParsed(CMD_TypeDef cmd);
     void zeroCalibrationFinished();         // 零点校准完成
-    void newUABC(float Ua, float Ub, float Uc);   // 发射三相电压绘图
+    void newUABC(int ADC1, int ADC2, int ADC3);   // 发射三相电压绘图
     void newADC(float Ua, float Ub, float Uc);    // 发射三相电压绘图
     void newTABC(float Ta, float Tb, float Tc);   // 发射三相SVPWM绘图
-
+    void newIABC(float Ia, float Ib, float Ic);   // 发射三相电流绘图
 
 private slots:
     void readSerialData();                  // 串口接收槽

@@ -81,6 +81,11 @@ Widget::Widget(QWidget *parent)
     plotManager->addGraph("Tb", Qt::cyan);
     plotManager->addGraph("Tc", Qt::magenta);
 
+    // 添加三条Iabc
+    plotManager->addGraph("Ia", Qt::yellow);
+    plotManager->addGraph("Ib", Qt::cyan);
+    plotManager->addGraph("Ic", Qt::magenta);
+
     // 连接信号
     connect(serialManager, &SerialManager::newUABC, [=](float Ua, float Ub, float Uc){
         plotManager->appendData("Ua", Ua);
@@ -88,7 +93,7 @@ Widget::Widget(QWidget *parent)
         plotManager->appendData("Uc", Uc);
     });
 
-    connect(serialManager, &SerialManager::newADC, [=](uint16_t ADC1, uint16_t ADC2, uint16_t ADC3){
+    connect(serialManager, &SerialManager::newADC, [=](int ADC1, int ADC2, int ADC3){
         plotManager->appendData("ADC1", ADC1);
         plotManager->appendData("ADC2", ADC2);
         plotManager->appendData("ADC3", ADC3);
@@ -98,6 +103,12 @@ Widget::Widget(QWidget *parent)
         plotManager->appendData("Ta", Ta);
         plotManager->appendData("Tb", Tb);
         plotManager->appendData("Tc", Tc);
+    });
+
+    connect(serialManager, &SerialManager::newIABC, [=](float Ia, float Ib, float Ic){
+        plotManager->appendData("Ia", Ia);
+        plotManager->appendData("Ib", Ib);
+        plotManager->appendData("Ic", Ic);
     });
 
     connect(ui->x_Axis_sd, &QSlider::valueChanged, this,
@@ -358,6 +369,24 @@ void Widget::on_SVPWM_bt_clicked(bool checked)
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_TABC_CLOSE, 0.0);
         qDebug() << "Tabc printing disabled";
+    }
+}
+
+
+void Widget::on_Iabc_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    IabcEnabled = checked;
+    if (IabcEnabled) {
+        qDebug() << "Iabc printing enabled";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_IABC, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_IABC_CLOSE, 0.0);
+        qDebug() << "Iabc printing disabled";
     }
 }
 

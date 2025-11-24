@@ -95,6 +95,7 @@ public:
     QPushButton *adc_bt;
     QPushButton *mechanicalAngle_bt;
     QPushButton *SVPWM_bt;
+    QPushButton *Iabc_bt;
 
     void setupUi(QWidget *Widget)
     {
@@ -283,7 +284,7 @@ public:
 
         Uabc_bt = new QPushButton(Widget);
         Uabc_bt->setObjectName("Uabc_bt");
-        Uabc_bt->setGeometry(QRect(460, 570, 80, 30));
+        Uabc_bt->setGeometry(QRect(460, 590, 80, 30));
         Uabc_bt->setMaximumSize(QSize(100, 30));
         Uabc_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
 "    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
@@ -438,7 +439,7 @@ public:
 
         adc_bt = new QPushButton(Widget);
         adc_bt->setObjectName("adc_bt");
-        adc_bt->setGeometry(QRect(460, 610, 80, 30));
+        adc_bt->setGeometry(QRect(460, 630, 80, 30));
         adc_bt->setMaximumSize(QSize(80, 30));
         adc_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
 "    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
@@ -449,7 +450,7 @@ public:
         adc_bt->setCheckable(true);
         mechanicalAngle_bt = new QPushButton(Widget);
         mechanicalAngle_bt->setObjectName("mechanicalAngle_bt");
-        mechanicalAngle_bt->setGeometry(QRect(460, 540, 80, 23));
+        mechanicalAngle_bt->setGeometry(QRect(460, 540, 80, 30));
         mechanicalAngle_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
 "    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
 "    color: black;                  /* \346\233\264\346\230\216\346\230\276 */\n"
@@ -459,7 +460,7 @@ public:
         mechanicalAngle_bt->setCheckable(true);
         SVPWM_bt = new QPushButton(Widget);
         SVPWM_bt->setObjectName("SVPWM_bt");
-        SVPWM_bt->setGeometry(QRect(460, 650, 80, 30));
+        SVPWM_bt->setGeometry(QRect(460, 670, 80, 30));
         SVPWM_bt->setMaximumSize(QSize(80, 30));
         SVPWM_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
 "    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
@@ -468,6 +469,17 @@ public:
 "    border: 2px solid #27ae60;\n"
 "}"));
         SVPWM_bt->setCheckable(true);
+        Iabc_bt = new QPushButton(Widget);
+        Iabc_bt->setObjectName("Iabc_bt");
+        Iabc_bt->setGeometry(QRect(560, 540, 80, 30));
+        Iabc_bt->setMaximumSize(QSize(80, 30));
+        Iabc_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
+"    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
+"    color: black;                  /* \346\233\264\346\230\216\346\230\276 */\n"
+"    font-weight: bold;\n"
+"    border: 2px solid #27ae60;\n"
+"}"));
+        Iabc_bt->setCheckable(true);
 
         retranslateUi(Widget);
 
@@ -534,6 +546,7 @@ public:
         adc_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270ADC", nullptr));
         mechanicalAngle_bt->setText(QCoreApplication::translate("Widget", "\346\234\272\346\242\260\350\247\222\345\272\246", nullptr));
         SVPWM_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270SVPWM", nullptr));
+        Iabc_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270\347\224\265\346\265\201", nullptr));
     } // retranslateUi
 
 };
