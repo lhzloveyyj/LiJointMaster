@@ -64,10 +64,10 @@
        <item>
         <widget class="QComboBox" name="BuadRate_ComboBox">
          <property name="currentText">
-          <string>1500000</string>
+          <string>4000000</string>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>10</number>
          </property>
          <item>
           <property name="text">
@@ -102,6 +102,26 @@
          <item>
           <property name="text">
            <string>2000000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2500000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3000000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3500000</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4000000</string>
           </property>
          </item>
         </widget>
@@ -611,7 +631,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>12</x>

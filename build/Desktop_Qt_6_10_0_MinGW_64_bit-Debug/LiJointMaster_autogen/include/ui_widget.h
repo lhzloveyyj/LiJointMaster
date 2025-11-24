@@ -82,13 +82,13 @@ public:
     QHBoxLayout *horizontalLayout_13;
     QLabel *label_11;
     QTextEdit *correctedElecAngle_te;
-    QWidget *widget;
+    QWidget *layoutWidget9;
     QHBoxLayout *horizontalLayout_15;
     QPushButton *dcBus_bt;
     QTextEdit *dcBus_te;
     QCustomPlot *plotWidget;
     QSlider *x_Axis_sd;
-    QWidget *layoutWidget9;
+    QWidget *layoutWidget10;
     QHBoxLayout *horizontalLayout_14;
     QTextEdit *setUq_te;
     QPushButton *setUq_bt;
@@ -135,6 +135,10 @@ public:
         horizontalLayout_2->addWidget(label_4);
 
         BuadRate_ComboBox = new QComboBox(layoutWidget);
+        BuadRate_ComboBox->addItem(QString());
+        BuadRate_ComboBox->addItem(QString());
+        BuadRate_ComboBox->addItem(QString());
+        BuadRate_ComboBox->addItem(QString());
         BuadRate_ComboBox->addItem(QString());
         BuadRate_ComboBox->addItem(QString());
         BuadRate_ComboBox->addItem(QString());
@@ -388,19 +392,19 @@ public:
 
         horizontalLayout_13->addWidget(correctedElecAngle_te);
 
-        widget = new QWidget(frame_3);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(12, 232, 133, 32));
-        horizontalLayout_15 = new QHBoxLayout(widget);
+        layoutWidget9 = new QWidget(frame_3);
+        layoutWidget9->setObjectName("layoutWidget9");
+        layoutWidget9->setGeometry(QRect(12, 232, 133, 32));
+        horizontalLayout_15 = new QHBoxLayout(layoutWidget9);
         horizontalLayout_15->setObjectName("horizontalLayout_15");
         horizontalLayout_15->setContentsMargins(0, 0, 0, 0);
-        dcBus_bt = new QPushButton(widget);
+        dcBus_bt = new QPushButton(layoutWidget9);
         dcBus_bt->setObjectName("dcBus_bt");
         dcBus_bt->setMaximumSize(QSize(60, 30));
 
         horizontalLayout_15->addWidget(dcBus_bt);
 
-        dcBus_te = new QTextEdit(widget);
+        dcBus_te = new QTextEdit(layoutWidget9);
         dcBus_te->setObjectName("dcBus_te");
         dcBus_te->setMaximumSize(QSize(65, 30));
 
@@ -414,19 +418,19 @@ public:
         x_Axis_sd->setGeometry(QRect(190, 510, 1081, 20));
         x_Axis_sd->setMaximum(200);
         x_Axis_sd->setOrientation(Qt::Orientation::Horizontal);
-        layoutWidget9 = new QWidget(Widget);
-        layoutWidget9->setObjectName("layoutWidget9");
-        layoutWidget9->setGeometry(QRect(180, 540, 168, 32));
-        horizontalLayout_14 = new QHBoxLayout(layoutWidget9);
+        layoutWidget10 = new QWidget(Widget);
+        layoutWidget10->setObjectName("layoutWidget10");
+        layoutWidget10->setGeometry(QRect(180, 540, 168, 32));
+        horizontalLayout_14 = new QHBoxLayout(layoutWidget10);
         horizontalLayout_14->setObjectName("horizontalLayout_14");
         horizontalLayout_14->setContentsMargins(0, 0, 0, 0);
-        setUq_te = new QTextEdit(layoutWidget9);
+        setUq_te = new QTextEdit(layoutWidget10);
         setUq_te->setObjectName("setUq_te");
         setUq_te->setMaximumSize(QSize(80, 30));
 
         horizontalLayout_14->addWidget(setUq_te);
 
-        setUq_bt = new QPushButton(layoutWidget9);
+        setUq_bt = new QPushButton(layoutWidget10);
         setUq_bt->setObjectName("setUq_bt");
         setUq_bt->setMaximumSize(QSize(80, 30));
 
@@ -467,7 +471,7 @@ public:
 
         retranslateUi(Widget);
 
-        BuadRate_ComboBox->setCurrentIndex(5);
+        BuadRate_ComboBox->setCurrentIndex(10);
         DataBits_comboBox->setCurrentIndex(3);
 
 
@@ -486,8 +490,12 @@ public:
         BuadRate_ComboBox->setItemText(4, QCoreApplication::translate("Widget", "921600", nullptr));
         BuadRate_ComboBox->setItemText(5, QCoreApplication::translate("Widget", "1500000", nullptr));
         BuadRate_ComboBox->setItemText(6, QCoreApplication::translate("Widget", "2000000", nullptr));
+        BuadRate_ComboBox->setItemText(7, QCoreApplication::translate("Widget", "2500000", nullptr));
+        BuadRate_ComboBox->setItemText(8, QCoreApplication::translate("Widget", "3000000", nullptr));
+        BuadRate_ComboBox->setItemText(9, QCoreApplication::translate("Widget", "3500000", nullptr));
+        BuadRate_ComboBox->setItemText(10, QCoreApplication::translate("Widget", "4000000", nullptr));
 
-        BuadRate_ComboBox->setCurrentText(QCoreApplication::translate("Widget", "1500000", nullptr));
+        BuadRate_ComboBox->setCurrentText(QCoreApplication::translate("Widget", "4000000", nullptr));
         label_5->setText(QCoreApplication::translate("Widget", "\346\225\260\346\215\256\344\275\215", nullptr));
         DataBits_comboBox->setItemText(0, QCoreApplication::translate("Widget", "5", nullptr));
         DataBits_comboBox->setItemText(1, QCoreApplication::translate("Widget", "6", nullptr));
