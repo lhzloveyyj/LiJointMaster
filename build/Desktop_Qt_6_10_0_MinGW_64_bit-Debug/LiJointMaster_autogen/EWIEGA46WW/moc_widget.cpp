@@ -59,7 +59,10 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         "on_adc_bt_clicked",
         "on_dcBus_bt_clicked",
         "on_SVPWM_bt_clicked",
-        "on_Iabc_bt_clicked"
+        "on_Iabc_bt_clicked",
+        "on_UAlpha_Beta_bt_clicked",
+        "on_IAlpha_Beta_bt_clicked",
+        "on_iq_id_bt_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -105,6 +108,18 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         QtMocHelpers::SlotData<void(bool)>(19, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::Bool, 9 },
         }}),
+        // Slot 'on_UAlpha_Beta_bt_clicked'
+        QtMocHelpers::SlotData<void(bool)>(20, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 9 },
+        }}),
+        // Slot 'on_IAlpha_Beta_bt_clicked'
+        QtMocHelpers::SlotData<void(bool)>(21, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 9 },
+        }}),
+        // Slot 'on_iq_id_bt_clicked'
+        QtMocHelpers::SlotData<void(bool)>(22, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 9 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -143,6 +158,9 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 12: _t->on_dcBus_bt_clicked(); break;
         case 13: _t->on_SVPWM_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
         case 14: _t->on_Iabc_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 15: _t->on_UAlpha_Beta_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 16: _t->on_IAlpha_Beta_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 17: _t->on_iq_id_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
         default: ;
         }
     }
@@ -167,14 +185,14 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 18;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 18)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 15;
+        _id -= 18;
     }
     return _id;
 }

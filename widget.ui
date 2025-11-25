@@ -842,6 +842,78 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="UAlpha_Beta_bt">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>580</y>
+     <width>80</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+   </property>
+   <property name="text">
+    <string>UAlpha_Beta</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="IAlpha_Beta_bt">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>620</y>
+     <width>80</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+   </property>
+   <property name="text">
+    <string>IAlpha_Beta</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="iq_id_bt">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>660</y>
+     <width>80</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+   </property>
+   <property name="text">
+    <string>IQ_ID</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>

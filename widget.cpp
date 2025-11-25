@@ -86,6 +86,15 @@ Widget::Widget(QWidget *parent)
     plotManager->addGraph("Ib", Qt::cyan);
     plotManager->addGraph("Ic", Qt::magenta);
 
+    plotManager->addGraph("Ualpha", Qt::yellow);
+    plotManager->addGraph("Ubeta", Qt::cyan);
+
+    plotManager->addGraph("Ialpha", Qt::yellow);
+    plotManager->addGraph("Ibeta", Qt::cyan);
+
+    plotManager->addGraph("Iq", Qt::yellow);
+    plotManager->addGraph("Id", Qt::cyan);
+
     // 连接信号
     connect(serialManager, &SerialManager::newUABC, [=](float Ua, float Ub, float Uc){
         plotManager->appendData("Ua", Ua);
@@ -111,6 +120,20 @@ Widget::Widget(QWidget *parent)
         plotManager->appendData("Ic", Ic);
     });
 
+    connect(serialManager, &SerialManager::newUalpha_Ubeta, [=](float Ualpha, float Ubeta){
+        plotManager->appendData("Ualpha", Ualpha);
+        plotManager->appendData("Ubeta", Ubeta);
+    });
+
+    connect(serialManager, &SerialManager::newIalpha_Ibeta, [=](float Ialpha, float Ibeta){
+        plotManager->appendData("Ualpha", Ialpha);
+        plotManager->appendData("Ubeta", Ibeta);
+    });
+
+    connect(serialManager, &SerialManager::newIqId, [=](float Iq, float Id){
+        plotManager->appendData("Iq", Iq);
+        plotManager->appendData("Id", Id);
+    });
     connect(ui->x_Axis_sd, &QSlider::valueChanged, this,
             [this](int value){
                 if (this->plotManager) // plotManager 是 Widget 里成员指针
@@ -387,6 +410,60 @@ void Widget::on_Iabc_bt_clicked(bool checked)
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_IABC_CLOSE, 0.0);
         qDebug() << "Iabc printing disabled";
+    }
+}
+
+
+void Widget::on_UAlpha_Beta_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    UAlpha_BetaEnabled = checked;
+    if (UAlpha_BetaEnabled) {
+        qDebug() << "UAlpha_BetaEnabled printing enabled";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_UALPHA_BETA, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_UALPHA_BETA_CLOSE, 0.0);
+        qDebug() << "UAlpha_BetaEnabled printing disabled";
+    }
+}
+
+
+void Widget::on_IAlpha_Beta_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    IAlpha_BetaEnabled = checked;
+    if (IAlpha_BetaEnabled) {
+        qDebug() << "IAlpha_BetaEnabled printing enabled";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_IALPHA_BETA, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_IALPHA_BETA_CLOSE, 0.0);
+        qDebug() << "IAlpha_BetaEnabled printing disabled";
+    }
+}
+
+
+void Widget::on_iq_id_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    IQ_ID_Enabled = checked;
+    if (IQ_ID_Enabled) {
+        qDebug() << "IQ_ID_Enabled printing enabled";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_IQ_ID, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_IQ_ID_CLOSE, 0.0);
+        qDebug() << "IQ_ID_Enabled printing disabled";
     }
 }
 

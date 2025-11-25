@@ -210,7 +210,7 @@ void SerialManager::readSerialData()
                 ADC1 = values[0];
                 ADC2 = values[1];
                 ADC3 = values[2];
-                emit newUABC(ADC1, ADC2, ADC3); //发射绘图
+                emit newADC(ADC1, ADC2, ADC3); //发射绘图
                 //qDebug() << "ADC1 =" << ADC1 << ", ADC2 =" << ADC2 << ", ADC3 =" << ADC3;
 
             }
@@ -243,6 +243,33 @@ void SerialManager::readSerialData()
                 emit newIABC(Ia, Ib, Ic); //发射绘图
                 //qDebug() << "ADC1 =" << ADC1 << ", ADC2 =" << ADC2 << ", ADC3 =" << ADC3;
 
+            }
+            break;
+
+        case CMD_TypeDef::CMD_UALPHA_BETA:
+            if (!values.isEmpty()) {
+                Ualpha = values[0];
+                Ubeta  = values[1];
+                emit newUalpha_Ubeta(Ualpha, Ubeta); //发射绘图
+                //qDebug() << "ADC1 =" << ADC1 << ", ADC2 =" << ADC2 << ", ADC3 =" << ADC3;
+            }
+            break;
+
+        case CMD_TypeDef::CMD_IALPHA_BETA:
+            if (!values.isEmpty()) {
+                Ialpha = values[0];
+                Ibeta  = values[1];
+                emit newIalpha_Ibeta(Ialpha, Ibeta); //发射绘图
+                //qDebug() << "ADC1 =" << ADC1 << ", ADC2 =" << ADC2 << ", ADC3 =" << ADC3;
+            }
+            break;
+
+        case CMD_TypeDef::CMD_IQ_ID:
+            if (!values.isEmpty()) {
+                Iq = values[0];
+                Id  = values[1];
+                emit newIqId(Iq, Id); //发射绘图
+                //qDebug() << "ADC1 =" << ADC1 << ", ADC2 =" << ADC2 << ", ADC3 =" << ADC3;
             }
             break;
 

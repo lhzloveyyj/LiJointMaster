@@ -49,6 +49,12 @@ private slots:
 
     void on_Iabc_bt_clicked(bool checked);
 
+    void on_UAlpha_Beta_bt_clicked(bool checked);
+
+    void on_IAlpha_Beta_bt_clicked(bool checked);
+
+    void on_iq_id_bt_clicked(bool checked);
+
 private:
     Ui::Widget *ui;
 
@@ -61,6 +67,9 @@ private:
     bool adcEnabled  = false;
     bool tabcEnabled = false;
     bool IabcEnabled = false;
+    bool UAlpha_BetaEnabled = false;
+    bool IAlpha_BetaEnabled = false;
+    bool IQ_ID_Enabled = false;
 
     PlotManager *plotManager;
 };

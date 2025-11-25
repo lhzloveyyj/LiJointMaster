@@ -96,6 +96,9 @@ public:
     QPushButton *mechanicalAngle_bt;
     QPushButton *SVPWM_bt;
     QPushButton *Iabc_bt;
+    QPushButton *UAlpha_Beta_bt;
+    QPushButton *IAlpha_Beta_bt;
+    QPushButton *iq_id_bt;
 
     void setupUi(QWidget *Widget)
     {
@@ -480,6 +483,36 @@ public:
 "    border: 2px solid #27ae60;\n"
 "}"));
         Iabc_bt->setCheckable(true);
+        UAlpha_Beta_bt = new QPushButton(Widget);
+        UAlpha_Beta_bt->setObjectName("UAlpha_Beta_bt");
+        UAlpha_Beta_bt->setGeometry(QRect(560, 580, 80, 30));
+        UAlpha_Beta_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
+"    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
+"    color: black;                  /* \346\233\264\346\230\216\346\230\276 */\n"
+"    font-weight: bold;\n"
+"    border: 2px solid #27ae60;\n"
+"}"));
+        UAlpha_Beta_bt->setCheckable(true);
+        IAlpha_Beta_bt = new QPushButton(Widget);
+        IAlpha_Beta_bt->setObjectName("IAlpha_Beta_bt");
+        IAlpha_Beta_bt->setGeometry(QRect(560, 620, 80, 30));
+        IAlpha_Beta_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
+"    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
+"    color: black;                  /* \346\233\264\346\230\216\346\230\276 */\n"
+"    font-weight: bold;\n"
+"    border: 2px solid #27ae60;\n"
+"}"));
+        IAlpha_Beta_bt->setCheckable(true);
+        iq_id_bt = new QPushButton(Widget);
+        iq_id_bt->setObjectName("iq_id_bt");
+        iq_id_bt->setGeometry(QRect(560, 660, 80, 30));
+        iq_id_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
+"    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
+"    color: black;                  /* \346\233\264\346\230\216\346\230\276 */\n"
+"    font-weight: bold;\n"
+"    border: 2px solid #27ae60;\n"
+"}"));
+        iq_id_bt->setCheckable(true);
 
         retranslateUi(Widget);
 
@@ -547,6 +580,9 @@ public:
         mechanicalAngle_bt->setText(QCoreApplication::translate("Widget", "\346\234\272\346\242\260\350\247\222\345\272\246", nullptr));
         SVPWM_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270SVPWM", nullptr));
         Iabc_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270\347\224\265\346\265\201", nullptr));
+        UAlpha_Beta_bt->setText(QCoreApplication::translate("Widget", "UAlpha_Beta", nullptr));
+        IAlpha_Beta_bt->setText(QCoreApplication::translate("Widget", "IAlpha_Beta", nullptr));
+        iq_id_bt->setText(QCoreApplication::translate("Widget", "IQ_ID", nullptr));
     } // retranslateUi
 
 };
