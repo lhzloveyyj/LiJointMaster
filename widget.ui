@@ -914,6 +914,76 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>580</y>
+     <width>168</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_16">
+    <item>
+     <widget class="QTextEdit" name="setIQ_te">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="setIQ_tb">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>设置Iq</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>620</y>
+     <width>168</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_17">
+    <item>
+     <widget class="QTextEdit" name="setID_te">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="setID_tb">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>设置Id</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>

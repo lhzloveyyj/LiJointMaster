@@ -467,3 +467,41 @@ void Widget::on_iq_id_bt_clicked(bool checked)
     }
 }
 
+
+void Widget::on_setIQ_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+    QString text = ui->setIQ_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 直接解析为浮点数
+    if (ok) {
+        qDebug() << "Sent value:" << floatValue;
+    } else {
+        qDebug() << "Failed to convert text to float:" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETIQ, floatValue);
+}
+
+
+void Widget::on_setID_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+    QString text = ui->setID_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 直接解析为浮点数
+    if (ok) {
+        qDebug() << "Sent value:" << floatValue;
+    } else {
+        qDebug() << "Failed to convert text to float:" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETID, floatValue);
+}
+

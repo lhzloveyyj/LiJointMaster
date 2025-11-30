@@ -99,6 +99,14 @@ public:
     QPushButton *UAlpha_Beta_bt;
     QPushButton *IAlpha_Beta_bt;
     QPushButton *iq_id_bt;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_16;
+    QTextEdit *setIQ_te;
+    QPushButton *setIQ_tb;
+    QWidget *widget1;
+    QHBoxLayout *horizontalLayout_17;
+    QTextEdit *setID_te;
+    QPushButton *setID_tb;
 
     void setupUi(QWidget *Widget)
     {
@@ -513,6 +521,42 @@ public:
 "    border: 2px solid #27ae60;\n"
 "}"));
         iq_id_bt->setCheckable(true);
+        widget = new QWidget(Widget);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(180, 580, 168, 32));
+        horizontalLayout_16 = new QHBoxLayout(widget);
+        horizontalLayout_16->setObjectName("horizontalLayout_16");
+        horizontalLayout_16->setContentsMargins(0, 0, 0, 0);
+        setIQ_te = new QTextEdit(widget);
+        setIQ_te->setObjectName("setIQ_te");
+        setIQ_te->setMaximumSize(QSize(80, 30));
+
+        horizontalLayout_16->addWidget(setIQ_te);
+
+        setIQ_tb = new QPushButton(widget);
+        setIQ_tb->setObjectName("setIQ_tb");
+        setIQ_tb->setMaximumSize(QSize(80, 30));
+
+        horizontalLayout_16->addWidget(setIQ_tb);
+
+        widget1 = new QWidget(Widget);
+        widget1->setObjectName("widget1");
+        widget1->setGeometry(QRect(180, 620, 168, 32));
+        horizontalLayout_17 = new QHBoxLayout(widget1);
+        horizontalLayout_17->setObjectName("horizontalLayout_17");
+        horizontalLayout_17->setContentsMargins(0, 0, 0, 0);
+        setID_te = new QTextEdit(widget1);
+        setID_te->setObjectName("setID_te");
+        setID_te->setMaximumSize(QSize(80, 30));
+
+        horizontalLayout_17->addWidget(setID_te);
+
+        setID_tb = new QPushButton(widget1);
+        setID_tb->setObjectName("setID_tb");
+        setID_tb->setMaximumSize(QSize(80, 30));
+
+        horizontalLayout_17->addWidget(setID_tb);
+
 
         retranslateUi(Widget);
 
@@ -583,6 +627,8 @@ public:
         UAlpha_Beta_bt->setText(QCoreApplication::translate("Widget", "UAlpha_Beta", nullptr));
         IAlpha_Beta_bt->setText(QCoreApplication::translate("Widget", "IAlpha_Beta", nullptr));
         iq_id_bt->setText(QCoreApplication::translate("Widget", "IQ_ID", nullptr));
+        setIQ_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256Iq", nullptr));
+        setID_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256Id", nullptr));
     } // retranslateUi
 
 };

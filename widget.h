@@ -55,6 +55,10 @@ private slots:
 
     void on_iq_id_bt_clicked(bool checked);
 
+    void on_setIQ_tb_clicked();
+
+    void on_setID_tb_clicked();
+
 private:
     Ui::Widget *ui;
 
