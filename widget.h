@@ -59,6 +59,8 @@ private slots:
 
     void on_setID_tb_clicked();
 
+    void on_ctrolMode_ComboBox_currentIndexChanged(int index);
+
 private:
     Ui::Widget *ui;
 

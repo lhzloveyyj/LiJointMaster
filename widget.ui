@@ -6,40 +6,390 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>720</height>
+    <width>1300</width>
+    <height>770</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <widget class="QFrame" name="frame">
+  <widget class="QCustomPlot" name="plotWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>70</y>
-     <width>151</width>
-     <height>201</height>
+     <x>160</x>
+     <y>60</y>
+     <width>1121</width>
+     <height>451</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::Shape::WinPanel</enum>
+  </widget>
+  <widget class="QSlider" name="x_Axis_sd">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>510</y>
+     <width>1081</width>
+     <height>20</height>
+    </rect>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Shadow::Raised</enum>
+   <property name="maximum">
+    <number>200</number>
    </property>
-   <widget class="QWidget" name="layoutWidget">
+   <property name="orientation">
+    <enum>Qt::Orientation::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>570</y>
+     <width>291</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="title">
+    <string>数据曲线打印</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="2">
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>速度</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="Iabc_bt">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>三相电流</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="UAlpha_Beta_bt">
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>UAlpha_Beta</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>速度环输出</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QPushButton" name="IAlpha_Beta_bt">
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>IAlpha_Beta</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>位置</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="Uabc_bt">
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>三相电压曲线</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>电流环输出</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="mechanicalAngle_bt">
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>机械角度</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="SVPWM_bt">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>三相SVPWM</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QPushButton" name="iq_id_bt">
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>IQ_ID</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="adc_bt">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>三相ADC</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="pushButton_12">
+      <property name="styleSheet">
+       <string notr="true">QPushButton:checked {
+    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
+    color: black;                  /* 更明显 */
+    font-weight: bold;
+    border: 2px solid #27ae60;
+}</string>
+      </property>
+      <property name="text">
+       <string>位置环输出</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>151</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>11</y>
+      <x>10</x>
+      <y>10</y>
       <width>124</width>
-      <height>151</height>
+      <height>227</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/picture/serial.png);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="maximumSize">
+          <size>
+           <width>84</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>串口配置</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_24">
        <item>
         <widget class="QLabel" name="label_3">
          <property name="text">
@@ -53,7 +403,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_23">
        <item>
         <widget class="QLabel" name="label_4">
          <property name="text">
@@ -129,7 +479,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <layout class="QHBoxLayout" name="horizontalLayout_22">
        <item>
         <widget class="QLabel" name="label_5">
          <property name="text">
@@ -167,7 +517,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <layout class="QHBoxLayout" name="horizontalLayout_21">
        <item>
         <widget class="QLabel" name="label_6">
          <property name="text">
@@ -197,7 +547,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <layout class="QHBoxLayout" name="horizontalLayout_20">
        <item>
         <widget class="QLabel" name="label_7">
          <property name="text">
@@ -236,28 +586,132 @@
        </item>
       </layout>
      </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="openserial_bt">
+         <property name="text">
+          <string>打开串口</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="serialStatus">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/picture/serial_down.png);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>310</y>
+     <width>151</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>11</y>
+      <width>102</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_8">
+     <item>
+      <widget class="QLabel" name="label_9">
+       <property name="minimumSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/picture/motor.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_10">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>电机配置</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>160</y>
-      <width>118</width>
-      <height>32</height>
+      <x>11</x>
+      <y>49</y>
+      <width>108</width>
+      <height>25</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_9">
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
-      <widget class="QPushButton" name="openserial_bt">
+      <widget class="QPushButton" name="connectMotor_bt">
        <property name="text">
-        <string>打开串口</string>
+        <string>连接</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="serialStatus">
+      <widget class="QLabel" name="connet_motor_pic">
        <property name="minimumSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="maximumSize">
         <size>
          <width>30</width>
          <height>30</height>
@@ -279,225 +733,11 @@
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QFrame" name="frame_2">
-   <property name="geometry">
-    <rect>
-     <x>-1</x>
-     <y>-1</y>
-     <width>1281</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Shape::Box</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Shadow::Raised</enum>
-   </property>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>0</y>
-      <width>150</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>LiJointMaster</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>102</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_7">
-    <item>
-     <widget class="QLabel" name="label_2">
-      <property name="minimumSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/picture/serial.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>串口配置</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>280</y>
-     <width>102</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_8">
-    <item>
-     <widget class="QLabel" name="label_9">
-      <property name="minimumSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/picture/motor.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_10">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>电机配置</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="Uabc_bt">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>590</y>
-     <width>80</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>100</width>
-     <height>30</height>
-    </size>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton:checked {
-    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
-    color: black;                  /* 更明显 */
-    font-weight: bold;
-    border: 2px solid #27ae60;
-}</string>
-   </property>
-   <property name="text">
-    <string>三相电压曲线</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QFrame" name="frame_3">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>320</y>
-     <width>151</width>
-     <height>401</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Shape::WinPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Shadow::Raised</enum>
-   </property>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>108</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_6">
-     <item>
-      <widget class="QPushButton" name="connectMotor_bt">
-       <property name="text">
-        <string>连接</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="connet_motor_pic">
-       <property name="minimumSize">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border-image: url(:/picture/serial_down.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QPushButton" name="zeroOffset_bt">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>120</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>零电位校准</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
+      <x>11</x>
+      <y>80</y>
       <width>128</width>
       <height>32</height>
      </rect>
@@ -531,8 +771,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>80</y>
+      <x>11</x>
+      <y>118</y>
       <width>128</width>
       <height>32</height>
      </rect>
@@ -563,11 +803,24 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="zeroOffset_bt">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>156</y>
+      <width>80</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>零电位校准</string>
+    </property>
+   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>161</y>
+      <y>185</y>
       <width>136</width>
       <height>32</height>
      </rect>
@@ -601,7 +854,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>191</y>
+      <y>223</y>
       <width>136</width>
       <height>32</height>
      </rect>
@@ -634,8 +887,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>232</y>
+      <x>11</x>
+      <y>261</y>
       <width>133</width>
       <height>32</height>
      </rect>
@@ -666,320 +919,587 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>301</y>
+      <width>133</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="maximumSize">
+        <size>
+         <width>60</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>MOS温度</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="textEdit_3">
+       <property name="maximumSize">
+        <size>
+         <width>65</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
-  <widget class="QCustomPlot" name="plotWidget" native="true">
+  <widget class="QGroupBox" name="groupBox_4">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>40</y>
-     <width>1131</width>
-     <height>471</height>
+     <x>480</x>
+     <y>530</y>
+     <width>191</width>
+     <height>231</height>
     </rect>
    </property>
+   <property name="title">
+    <string>给定控制期望</string>
+   </property>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>168</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_14">
+     <item>
+      <widget class="QTextEdit" name="setUq_te">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setUq_bt">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>设置Uq</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>168</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_16">
+     <item>
+      <widget class="QTextEdit" name="setIQ_te">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setIQ_tb">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>设置Iq</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>168</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_17">
+     <item>
+      <widget class="QTextEdit" name="setID_te">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setID_tb">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>设置Id</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>168</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QTextEdit" name="textEdit">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>设置速度</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>168</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QTextEdit" name="textEdit_2">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>设置位置</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
-  <widget class="QSlider" name="x_Axis_sd">
+  <widget class="QGroupBox" name="groupBox_5">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>510</y>
-     <width>1081</width>
-     <height>20</height>
+     <x>680</x>
+     <y>530</y>
+     <width>191</width>
+     <height>111</height>
     </rect>
    </property>
-   <property name="maximum">
-    <number>200</number>
+   <property name="title">
+    <string>电流环PID参数整定</string>
    </property>
-   <property name="orientation">
-    <enum>Qt::Orientation::Horizontal</enum>
-   </property>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>30</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>设置KP</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>70</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>设置KI</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QGroupBox" name="groupBox_7">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>540</y>
-     <width>168</width>
-     <height>32</height>
+     <x>680</x>
+     <y>650</y>
+     <width>191</width>
+     <height>111</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_14">
-    <item>
-     <widget class="QTextEdit" name="setUq_te">
-      <property name="maximumSize">
-       <size>
-        <width>80</width>
-        <height>30</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="setUq_bt">
-      <property name="maximumSize">
-       <size>
-        <width>80</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>设置Uq</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="title">
+    <string>速度环PID参数整定</string>
+   </property>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>30</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>设置KP</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_8">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_9">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_11">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>70</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>设置KI</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QPushButton" name="adc_bt">
+  <widget class="QGroupBox" name="groupBox_9">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>630</y>
-     <width>80</width>
-     <height>30</height>
+     <x>880</x>
+     <y>530</y>
+     <width>191</width>
+     <height>111</height>
     </rect>
    </property>
-   <property name="maximumSize">
-    <size>
-     <width>80</width>
-     <height>30</height>
-    </size>
+   <property name="title">
+    <string>位置环PID参数整定</string>
    </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton:checked {
-    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
-    color: black;                  /* 更明显 */
-    font-weight: bold;
-    border: 2px solid #27ae60;
-}</string>
-   </property>
-   <property name="text">
-    <string>三相ADC</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
+   <widget class="QPushButton" name="pushButton_14">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>30</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>设置KP</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_12">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_13">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_15">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>70</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>设置KD</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QPushButton" name="mechanicalAngle_bt">
+  <widget class="QGroupBox" name="groupBox_6">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>540</y>
-     <width>80</width>
-     <height>30</height>
+     <x>10</x>
+     <y>10</y>
+     <width>1271</width>
+     <height>41</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton:checked {
-    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
-    color: black;                  /* 更明显 */
-    font-weight: bold;
-    border: 2px solid #27ae60;
-}</string>
+   <property name="title">
+    <string/>
    </property>
-   <property name="text">
-    <string>机械角度</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="SVPWM_bt">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>670</y>
-     <width>80</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>80</width>
-     <height>30</height>
-    </size>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton:checked {
-    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
-    color: black;                  /* 更明显 */
-    font-weight: bold;
-    border: 2px solid #27ae60;
-}</string>
-   </property>
-   <property name="text">
-    <string>三相SVPWM</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="Iabc_bt">
-   <property name="geometry">
-    <rect>
-     <x>560</x>
-     <y>540</y>
-     <width>80</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>80</width>
-     <height>30</height>
-    </size>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton:checked {
-    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
-    color: black;                  /* 更明显 */
-    font-weight: bold;
-    border: 2px solid #27ae60;
-}</string>
-   </property>
-   <property name="text">
-    <string>三相电流</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="UAlpha_Beta_bt">
-   <property name="geometry">
-    <rect>
-     <x>560</x>
-     <y>580</y>
-     <width>80</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton:checked {
-    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
-    color: black;                  /* 更明显 */
-    font-weight: bold;
-    border: 2px solid #27ae60;
-}</string>
-   </property>
-   <property name="text">
-    <string>UAlpha_Beta</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="IAlpha_Beta_bt">
-   <property name="geometry">
-    <rect>
-     <x>560</x>
-     <y>620</y>
-     <width>80</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton:checked {
-    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
-    color: black;                  /* 更明显 */
-    font-weight: bold;
-    border: 2px solid #27ae60;
-}</string>
-   </property>
-   <property name="text">
-    <string>IAlpha_Beta</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="iq_id_bt">
-   <property name="geometry">
-    <rect>
-     <x>560</x>
-     <y>660</y>
-     <width>80</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton:checked {
-    background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
-    color: black;                  /* 更明显 */
-    font-weight: bold;
-    border: 2px solid #27ae60;
-}</string>
-   </property>
-   <property name="text">
-    <string>IQ_ID</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>LiJointMaster</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>580</y>
-     <width>168</width>
-     <height>32</height>
+     <y>530</y>
+     <width>245</width>
+     <height>29</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_16">
+   <layout class="QHBoxLayout" name="horizontalLayout_18">
     <item>
-     <widget class="QTextEdit" name="setIQ_te">
-      <property name="maximumSize">
-       <size>
-        <width>80</width>
-        <height>30</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="setIQ_tb">
-      <property name="maximumSize">
-       <size>
-        <width>80</width>
-        <height>30</height>
-       </size>
+     <widget class="QLabel" name="label_13">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="text">
-       <string>设置Iq</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>620</y>
-     <width>168</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_17">
-    <item>
-     <widget class="QTextEdit" name="setID_te">
-      <property name="maximumSize">
-       <size>
-        <width>80</width>
-        <height>30</height>
-       </size>
+       <string>控制模式选择</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="setID_tb">
-      <property name="maximumSize">
-       <size>
-        <width>80</width>
-        <height>30</height>
-       </size>
+     <widget class="QComboBox" name="ctrolMode_ComboBox">
+      <property name="styleSheet">
+       <string notr="true">QComboBox {
+    background-color: #3a3a3a;
+    color: #eeeeee;
+    border: 1px solid #666;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+QComboBox:hover {
+    border: 1px solid #0099ff;
+}
+
+/* 下拉菜单整体 */
+QComboBox QAbstractItemView {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+}
+
+/* 每一项的默认样式 */
+QComboBox QAbstractItemView::item {
+    padding: 6px;
+    color: #eeeeee;
+}
+
+/* ➤ 强制选中高亮（关键！） */
+QComboBox QAbstractItemView::item:selected {
+    background-color: #00aaff;
+    color: #000000;
+}
+</string>
       </property>
-      <property name="text">
-       <string>设置Id</string>
-      </property>
+      <item>
+       <property name="text">
+        <string>开环模式</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>力矩控制</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>速度-力矩控制</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>位置-速度-力矩控制</string>
+       </property>
+      </item>
      </widget>
     </item>
    </layout>

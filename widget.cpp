@@ -505,3 +505,27 @@ void Widget::on_setID_tb_clicked()
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETID, floatValue);
 }
 
+// 模式选择
+void Widget::on_ctrolMode_ComboBox_currentIndexChanged(int index)
+{
+    CMD_TypeDef cmd;     // ← 用你的枚举类型，不能用 uint8_t！
+
+    switch (index)
+    {
+    case 0: cmd = CMD_TypeDef::CMD_OPEN_LOOP;    break;
+    case 1: cmd = CMD_TypeDef::CMD_CURRENT_LOOP; break;
+    case 2: cmd = CMD_TypeDef::CMD_SPEED_LOOP;   break;
+    case 3: cmd = CMD_TypeDef::CMD_POSITION_LOOP ;  break;
+    default:
+        return;
+    }
+
+    float value = (float)index;   // 若你需要传模式编号
+
+    serialManager->sendFloatCommand(cmd, value);
+
+    qDebug() << "FOC 模式切换：" << ui->ctrolMode_ComboBox->currentText()
+             << " CMD=" << (int)cmd << " value=" << value;
+}
+
+
