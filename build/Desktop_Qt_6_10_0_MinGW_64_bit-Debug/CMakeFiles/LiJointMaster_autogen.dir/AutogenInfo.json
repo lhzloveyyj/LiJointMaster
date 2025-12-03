@@ -556,6 +556,12 @@
 	"HEADERS" : 
 	[
 		[
+			"E:/QT/LiJointMaster/dialog.h",
+			"MU",
+			"EWIEGA46WW/moc_dialog.cpp",
+			null
+		],
+		[
 			"E:/QT/LiJointMaster/plotmanager.h",
 			"MU",
 			"EWIEGA46WW/moc_plotmanager.cpp",
@@ -662,6 +668,7 @@
 	"SETTINGS_FILE" : "E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/LiJointMaster_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "E:/QT/LiJointMaster/dialog.cpp", "MU", null ],
 		[ "E:/QT/LiJointMaster/main.cpp", "MU", null ],
 		[ "E:/QT/LiJointMaster/plotmanager.cpp", "MU", null ],
 		[ "E:/QT/LiJointMaster/qcustomplot.cpp", "MU", null ],

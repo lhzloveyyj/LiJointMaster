@@ -16,10 +16,10 @@
   <widget class="QCustomPlot" name="plotWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>60</y>
-     <width>1121</width>
-     <height>451</height>
+     <x>170</x>
+     <y>50</y>
+     <width>1111</width>
+     <height>461</height>
     </rect>
    </property>
   </widget>
@@ -218,6 +218,7 @@
       <property name="font">
        <font>
         <family>微软雅黑</family>
+        <pointsize>9</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -326,15 +327,15 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>60</y>
+     <y>50</y>
      <width>151</width>
-     <height>241</height>
+     <height>251</height>
     </rect>
    </property>
    <property name="title">
     <string/>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -919,40 +920,75 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QProgressBar" name="mosTemp_bar">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>301</y>
-      <width>133</width>
-      <height>32</height>
+      <x>10</x>
+      <y>340</y>
+      <width>131</width>
+      <height>10</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="maximumSize">
-        <size>
-         <width>60</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>MOS温度</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QTextEdit" name="textEdit_3">
-       <property name="maximumSize">
-        <size>
-         <width>65</width>
-         <height>30</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar {
+    border: 2px solid #555;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #EEE;
+}
+
+QProgressBar::chunk {
+    border-radius: 5px;
+    background: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 0,
+        stop: 0 green,
+        stop: 0.5 yellow,
+        stop: 1 red
+    );
+}
+</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="textVisible">
+     <bool>false</bool>
+    </property>
+    <property name="format">
+     <string>%p°C</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mosTemp_lab">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>300</y>
+      <width>50</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>70</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>300</y>
+      <width>60</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>MOS温度</string>
+    </property>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_4">
@@ -971,432 +1007,155 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
-      <width>168</width>
-      <height>32</height>
+      <y>30</y>
+      <width>170</width>
+      <height>186</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_14">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QTextEdit" name="setUq_te">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_14">
+       <item>
+        <widget class="QTextEdit" name="setUq_te">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="setUq_bt">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置Uq</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="setUq_bt">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>设置Uq</string>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_16">
+       <item>
+        <widget class="QTextEdit" name="setIQ_te">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="setIQ_tb">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置Iq</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_17">
+       <item>
+        <widget class="QTextEdit" name="setID_te">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="setID_tb">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置Id</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QTextEdit" name="textEdit">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置速度</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QTextEdit" name="textEdit_2">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置位置</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>168</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_16">
-     <item>
-      <widget class="QTextEdit" name="setIQ_te">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="setIQ_tb">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>设置Iq</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>100</y>
-      <width>168</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_17">
-     <item>
-      <widget class="QTextEdit" name="setID_te">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="setID_tb">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>设置Id</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>168</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QTextEdit" name="textEdit">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>设置速度</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>180</y>
-      <width>168</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QTextEdit" name="textEdit_2">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>设置位置</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_5">
-   <property name="geometry">
-    <rect>
-     <x>680</x>
-     <y>530</y>
-     <width>191</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>电流环PID参数整定</string>
-   </property>
-   <widget class="QPushButton" name="pushButton_6">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>30</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="text">
-     <string>设置KP</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_4">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_5">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>70</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="text">
-     <string>设置KI</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_7">
-   <property name="geometry">
-    <rect>
-     <x>680</x>
-     <y>650</y>
-     <width>191</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>速度环PID参数整定</string>
-   </property>
-   <widget class="QPushButton" name="pushButton_10">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>30</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="text">
-     <string>设置KP</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_8">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_9">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_11">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>70</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="text">
-     <string>设置KI</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_9">
-   <property name="geometry">
-    <rect>
-     <x>880</x>
-     <y>530</y>
-     <width>191</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>位置环PID参数整定</string>
-   </property>
-   <widget class="QPushButton" name="pushButton_14">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>30</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="text">
-     <string>设置KP</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_12">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_13">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_15">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>70</y>
-      <width>80</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>80</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="text">
-     <string>设置KD</string>
-    </property>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_6">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
+     <y>0</y>
      <width>1271</width>
      <height>41</height>
     </rect>
@@ -1404,27 +1163,47 @@
    <property name="title">
     <string/>
    </property>
-   <widget class="QLabel" name="label_12">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>11</x>
       <y>10</y>
-      <width>131</width>
-      <height>21</height>
+      <width>304</width>
+      <height>25</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>黑体</family>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>LiJointMaster</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_9">
+     <item>
+      <widget class="QLabel" name="label_12">
+       <property name="font">
+        <font>
+         <family>黑体</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>LiJointMaster</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="DevMsg_bt">
+       <property name="text">
+        <string>开发者留言</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_13">
+       <property name="text">
+        <string>设置</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -1500,6 +1279,200 @@ QComboBox QAbstractItemView::item:selected {
         <string>位置-速度-力矩控制</string>
        </property>
       </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_8">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>640</y>
+     <width>591</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>GroupBox</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>530</y>
+     <width>586</width>
+     <height>112</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="title">
+       <string>电流环PID参数整定</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QTextEdit" name="textEdit_4">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="pushButton_6">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>设置KP</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QTextEdit" name="textEdit_5">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="pushButton_7">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>设置KI</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_9">
+      <property name="title">
+       <string>速度环PID参数整定</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QTextEdit" name="textEdit_12">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushButton_14">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置KP</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QTextEdit" name="textEdit_13">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushButton_15">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置KI</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_7">
+      <property name="title">
+       <string>位置环PID参数整定</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <widget class="QTextEdit" name="textEdit_8">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushButton_10">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置KP</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QTextEdit" name="textEdit_9">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushButton_11">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置KD</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>

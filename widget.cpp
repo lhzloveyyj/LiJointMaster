@@ -3,6 +3,8 @@
 #include "serialmanager.h"
 #include <QMessageBox>
 
+#include "dialog.h"  // 注意这里的大小写，和你的文件名一致
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
@@ -160,7 +162,10 @@ Widget::Widget(QWidget *parent)
                 plotManager->setXAxisRange(rangeSec);  // 只修改范围，不直接 replot
             });
 
-
+    /* =================================== MOS温度刷新定时器 ==================================== */
+    mosTimer = new QTimer(this);
+    connect(mosTimer, &QTimer::timeout, this, &Widget::updateMosTempUI);
+    mosTimer->start(100);
 }
 
 Widget::~Widget()
@@ -528,4 +533,47 @@ void Widget::on_ctrolMode_ComboBox_currentIndexChanged(int index)
              << " CMD=" << (int)cmd << " value=" << value;
 }
 
+
+void Widget::on_DevMsg_bt_clicked()
+{
+    Dialog dlg;   // 创建你的 Dialog 对象
+    dlg.exec();   // 弹出（模态窗口）
+
+}
+
+// MOS温度刷新
+void Widget::updateMosTempUI()
+{
+    float temp = serialManager->mosTemp;
+
+    // 1️⃣ 更新标签文字
+    ui->mosTemp_lab->setText(QString::number(temp, 'f', 1) + " ℃");
+
+    // 2️⃣ 更新进度条数值
+    ui->mosTemp_bar->setValue((int)temp);
+
+    // 3️⃣ 根据温度动态设置进度条颜色
+    QString color;
+    if (temp <= 30)
+        color = "green";
+    else if (temp <= 50)
+        color = "yellow";
+    else
+        color = "red";
+
+    QString style = QString(
+                        "QProgressBar {"
+                        "    border: 2px solid #555;"
+                        "    border-radius: 5px;"
+                        "    text-align: center;"
+                        "    background-color: #EEE;"
+                        "}"
+                        "QProgressBar::chunk {"
+                        "    border-radius: 5px;"
+                        "    background-color: %1;"
+                        "}"
+                        ).arg(color);
+
+    ui->mosTemp_bar->setStyleSheet(style);
+}
 

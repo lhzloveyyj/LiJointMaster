@@ -463,6 +463,7 @@ LiJointMaster_autogen/timestamp: \
 	D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qserialportinfo.h \
 	D:/download/QT/6.10.0/mingw_64/include/QtSerialPort/qtserialportexports.h \
 	D:/download/QT/6.10.0/mingw_64/include/QtWidgets/QCommonStyle \
+	D:/download/QT/6.10.0/mingw_64/include/QtWidgets/QDialog \
 	D:/download/QT/6.10.0/mingw_64/include/QtWidgets/QLayout \
 	D:/download/QT/6.10.0/mingw_64/include/QtWidgets/QScrollerProperties \
 	D:/download/QT/6.10.0/mingw_64/include/QtWidgets/QWidget \
@@ -1153,6 +1154,8 @@ LiJointMaster_autogen/timestamp: \
 	E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_autogen/moc_predefs.h \
+	E:/QT/LiJointMaster/dialog.cpp \
+	E:/QT/LiJointMaster/dialog.h \
 	E:/QT/LiJointMaster/main.cpp \
 	E:/QT/LiJointMaster/plotmanager.cpp \
 	E:/QT/LiJointMaster/plotmanager.h \
@@ -1163,5 +1166,6 @@ LiJointMaster_autogen/timestamp: \
 	E:/QT/LiJointMaster/serialmanager.h \
 	E:/QT/LiJointMaster/widget.cpp \
 	E:/QT/LiJointMaster/widget.h \
+	E:/QT/LiJointMaster/dialog.ui \
 	E:/QT/LiJointMaster/widget.ui \
 	D:/download/QT/Tools/CMake_64/bin/cmake.exe

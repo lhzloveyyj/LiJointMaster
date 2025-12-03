@@ -66,7 +66,9 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         "on_setIQ_tb_clicked",
         "on_setID_tb_clicked",
         "on_ctrolMode_ComboBox_currentIndexChanged",
-        "index"
+        "index",
+        "on_DevMsg_bt_clicked",
+        "updateMosTempUI"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -132,6 +134,10 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         QtMocHelpers::SlotData<void(int)>(25, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::Int, 26 },
         }}),
+        // Slot 'on_DevMsg_bt_clicked'
+        QtMocHelpers::SlotData<void()>(27, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'updateMosTempUI'
+        QtMocHelpers::SlotData<void()>(28, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -176,6 +182,8 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 18: _t->on_setIQ_tb_clicked(); break;
         case 19: _t->on_setID_tb_clicked(); break;
         case 20: _t->on_ctrolMode_ComboBox_currentIndexChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 21: _t->on_DevMsg_bt_clicked(); break;
+        case 22: _t->updateMosTempUI(); break;
         default: ;
         }
     }
@@ -200,14 +208,14 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 23;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
+        if (_id < 23)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 21;
+        _id -= 23;
     }
     return _id;
 }

@@ -273,6 +273,12 @@ void SerialManager::readSerialData()
             }
             break;
 
+        case CMD_TypeDef::CMD_MOSTEMP:
+            if (!values.isEmpty()) {
+                mosTemp = values[0];
+            }
+            break;
+
 
         default:
             qDebug() << "Unknown CMD:" << cmd << "Values:" << values;

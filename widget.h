@@ -61,6 +61,10 @@ private slots:
 
     void on_ctrolMode_ComboBox_currentIndexChanged(int index);
 
+    void on_DevMsg_bt_clicked();
+
+    void updateMosTempUI();
+
 private:
     Ui::Widget *ui;
 
@@ -68,6 +72,7 @@ private:
     //串口
     SerialManager *serialManager;  // 串口管理对象
     QTimer *refreshTimer;          // 定时刷新串口列表
+    QTimer *mosTimer;          // 定时刷新MOS温度
     bool anglePrintingEnabled = false;  // 控制角度
     bool uabcEnabled = false;           //控制Uabc打印
     bool adcEnabled  = false;
@@ -76,6 +81,7 @@ private:
     bool UAlpha_BetaEnabled = false;
     bool IAlpha_BetaEnabled = false;
     bool IQ_ID_Enabled = false;
+    bool mostemp_Enabled = false;
 
     PlotManager *plotManager;
 };

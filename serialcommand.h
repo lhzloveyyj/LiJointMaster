@@ -40,6 +40,7 @@ enum class CMD_TypeDef : uint8_t
     CMD_CURRENT_LOOP            = 0x21,  // 电流环
     CMD_SPEED_LOOP              = 0x22,  // 速度-电流环
     CMD_POSITION_LOOP           = 0x23,  // 位置-速度-电流环
+    CMD_MOSTEMP                 = 0x24,  // MOS温度
 };
 
 

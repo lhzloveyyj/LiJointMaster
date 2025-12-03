@@ -53,6 +53,8 @@ public:
 
     float dcVbus;
 
+    float mosTemp;
+
 signals:
     void portOpened();                      // 串口打开信号
     void portClosed();                      // 串口关闭信号
