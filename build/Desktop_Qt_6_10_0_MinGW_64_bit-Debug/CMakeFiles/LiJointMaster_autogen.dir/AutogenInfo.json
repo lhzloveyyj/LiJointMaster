@@ -562,6 +562,12 @@
 			null
 		],
 		[
+			"E:/QT/LiJointMaster/loghelper.h",
+			"MU",
+			"EWIEGA46WW/moc_loghelper.cpp",
+			null
+		],
+		[
 			"E:/QT/LiJointMaster/plotmanager.h",
 			"MU",
 			"EWIEGA46WW/moc_plotmanager.cpp",
@@ -669,6 +675,7 @@
 	"SOURCES" : 
 	[
 		[ "E:/QT/LiJointMaster/dialog.cpp", "MU", null ],
+		[ "E:/QT/LiJointMaster/loghelper.cpp", "MU", null ],
 		[ "E:/QT/LiJointMaster/main.cpp", "MU", null ],
 		[ "E:/QT/LiJointMaster/plotmanager.cpp", "MU", null ],
 		[ "E:/QT/LiJointMaster/qcustomplot.cpp", "MU", null ],

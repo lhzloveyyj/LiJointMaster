@@ -68,7 +68,10 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         "on_ctrolMode_ComboBox_currentIndexChanged",
         "index",
         "on_DevMsg_bt_clicked",
-        "updateMosTempUI"
+        "updateMosTempUI",
+        "appendLogToUI",
+        "msg",
+        "onNewLog"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -138,6 +141,14 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         QtMocHelpers::SlotData<void()>(27, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'updateMosTempUI'
         QtMocHelpers::SlotData<void()>(28, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'appendLogToUI'
+        QtMocHelpers::SlotData<void(const QString &)>(29, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 30 },
+        }}),
+        // Slot 'onNewLog'
+        QtMocHelpers::SlotData<void(const QString &)>(31, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 30 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -184,6 +195,8 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 20: _t->on_ctrolMode_ComboBox_currentIndexChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
         case 21: _t->on_DevMsg_bt_clicked(); break;
         case 22: _t->updateMosTempUI(); break;
+        case 23: _t->appendLogToUI((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 24: _t->onNewLog((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
@@ -208,14 +221,14 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 25)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 25;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 25)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 23;
+        _id -= 25;
     }
     return _id;
 }

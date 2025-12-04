@@ -19,6 +19,7 @@
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -132,10 +133,10 @@ public:
     QLabel *label_13;
     QComboBox *ctrolMode_ComboBox;
     QGroupBox *groupBox_8;
+    QTextBrowser *log_txt;
     QWidget *layoutWidget11;
     QHBoxLayout *horizontalLayout_5;
     QGroupBox *groupBox_5;
-    QGridLayout *gridLayout_4;
     QGridLayout *gridLayout_2;
     QTextEdit *textEdit_4;
     QPushButton *pushButton_6;
@@ -153,6 +154,7 @@ public:
     QPushButton *pushButton_10;
     QTextEdit *textEdit_9;
     QPushButton *pushButton_11;
+    QGroupBox *groupBox_10;
 
     void setupUi(QWidget *Widget)
     {
@@ -525,7 +527,7 @@ public:
         connet_motor_pic = new QLabel(layoutWidget2);
         connet_motor_pic->setObjectName("connet_motor_pic");
         connet_motor_pic->setMinimumSize(QSize(20, 20));
-        connet_motor_pic->setMaximumSize(QSize(30, 30));
+        connet_motor_pic->setMaximumSize(QSize(20, 20));
         connet_motor_pic->setStyleSheet(QString::fromUtf8("border-image: url(:/picture/serial_down.png);"));
         connet_motor_pic->setScaledContents(true);
         connet_motor_pic->setAlignment(Qt::AlignmentFlag::AlignCenter);
@@ -829,18 +831,19 @@ public:
 
         groupBox_8 = new QGroupBox(Widget);
         groupBox_8->setObjectName("groupBox_8");
-        groupBox_8->setGeometry(QRect(680, 640, 591, 121));
+        groupBox_8->setGeometry(QRect(950, 640, 321, 121));
+        log_txt = new QTextBrowser(groupBox_8);
+        log_txt->setObjectName("log_txt");
+        log_txt->setGeometry(QRect(10, 20, 301, 91));
         layoutWidget11 = new QWidget(Widget);
         layoutWidget11->setObjectName("layoutWidget11");
-        layoutWidget11->setGeometry(QRect(680, 530, 586, 112));
+        layoutWidget11->setGeometry(QRect(680, 530, 584, 110));
         horizontalLayout_5 = new QHBoxLayout(layoutWidget11);
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
         groupBox_5 = new QGroupBox(layoutWidget11);
         groupBox_5->setObjectName("groupBox_5");
-        gridLayout_4 = new QGridLayout(groupBox_5);
-        gridLayout_4->setObjectName("gridLayout_4");
-        gridLayout_2 = new QGridLayout();
+        gridLayout_2 = new QGridLayout(groupBox_5);
         gridLayout_2->setObjectName("gridLayout_2");
         textEdit_4 = new QTextEdit(groupBox_5);
         textEdit_4->setObjectName("textEdit_4");
@@ -865,9 +868,6 @@ public:
         pushButton_7->setMaximumSize(QSize(80, 30));
 
         gridLayout_2->addWidget(pushButton_7, 1, 1, 1, 1);
-
-
-        gridLayout_4->addLayout(gridLayout_2, 0, 0, 1, 1);
 
 
         horizontalLayout_5->addWidget(groupBox_5);
@@ -934,6 +934,9 @@ public:
 
         horizontalLayout_5->addWidget(groupBox_7);
 
+        groupBox_10 = new QGroupBox(Widget);
+        groupBox_10->setObjectName("groupBox_10");
+        groupBox_10->setGeometry(QRect(680, 639, 261, 121));
 
         retranslateUi(Widget);
 
@@ -1029,7 +1032,7 @@ public:
         ctrolMode_ComboBox->setItemText(2, QCoreApplication::translate("Widget", "\351\200\237\345\272\246-\345\212\233\347\237\251\346\216\247\345\210\266", nullptr));
         ctrolMode_ComboBox->setItemText(3, QCoreApplication::translate("Widget", "\344\275\215\347\275\256-\351\200\237\345\272\246-\345\212\233\347\237\251\346\216\247\345\210\266", nullptr));
 
-        groupBox_8->setTitle(QCoreApplication::translate("Widget", "GroupBox", nullptr));
+        groupBox_8->setTitle(QCoreApplication::translate("Widget", "LOG\344\277\241\346\201\257", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("Widget", "\347\224\265\346\265\201\347\216\257PID\345\217\202\346\225\260\346\225\264\345\256\232", nullptr));
         pushButton_6->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
         pushButton_7->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KI", nullptr));
@@ -1039,6 +1042,7 @@ public:
         groupBox_7->setTitle(QCoreApplication::translate("Widget", "\344\275\215\347\275\256\347\216\257PID\345\217\202\346\225\260\346\225\264\345\256\232", nullptr));
         pushButton_10->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
         pushButton_11->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KD", nullptr));
+        groupBox_10->setTitle(QCoreApplication::translate("Widget", "GroupBox", nullptr));
     } // retranslateUi
 
 };

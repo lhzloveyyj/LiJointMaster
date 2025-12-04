@@ -37,6 +37,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         plotmanager.cpp
         plotmanager.h
         dialog.h dialog.cpp dialog.ui
+        loghelper.h
+        loghelper.cpp
 
 
 

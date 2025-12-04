@@ -30,6 +30,7 @@ LiJointMaster_autogen/timestamp: \
 	D:/download/QT/6.10.0/mingw_64/include/QtCore/QVector \
 	D:/download/QT/6.10.0/mingw_64/include/QtCore/QtCore \
 	D:/download/QT/6.10.0/mingw_64/include/QtCore/QtCoreDepends \
+	D:/download/QT/6.10.0/mingw_64/include/QtCore/QtMessageHandler \
 	D:/download/QT/6.10.0/mingw_64/include/QtCore/QtNumeric \
 	D:/download/QT/6.10.0/mingw_64/include/QtCore/q17memory.h \
 	D:/download/QT/6.10.0/mingw_64/include/QtCore/q20algorithm.h \
@@ -1156,6 +1157,8 @@ LiJointMaster_autogen/timestamp: \
 	E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_autogen/moc_predefs.h \
 	E:/QT/LiJointMaster/dialog.cpp \
 	E:/QT/LiJointMaster/dialog.h \
+	E:/QT/LiJointMaster/loghelper.cpp \
+	E:/QT/LiJointMaster/loghelper.h \
 	E:/QT/LiJointMaster/main.cpp \
 	E:/QT/LiJointMaster/plotmanager.cpp \
 	E:/QT/LiJointMaster/plotmanager.h \

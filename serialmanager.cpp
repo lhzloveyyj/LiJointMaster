@@ -164,9 +164,7 @@ void SerialManager::readSerialData()
                 getPairs = int(values[0]);
                 dir      = int(values[1]);
                 g_zeroOffset = values[2];
-                qDebug() << "CMD_CONNECT_MOTOR getPairs =" << getPairs;
-                qDebug() << "CMD_CONNECT_MOTOR dir =" << dir;
-                qDebug() << "CMD_CONNECT_MOTOR g_zeroOffset =" << g_zeroOffset;
+                qDebug() << "连接成功 ！";
                 emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR);
             }
             break;
@@ -175,21 +173,14 @@ void SerialManager::readSerialData()
             if (values.size() >= 1) {
                 mechanicalAngle = values[0];
                 qDebug() << "Mechanical Angle:" << mechanicalAngle;
-            } else {
-                qDebug() << "CMD_MECHANICALANGLE 数据为空";
             }
-            break;
-
-        case CMD_TypeDef::CMD_ZEROCALIBRATIO:
-
             break;
 
         case CMD_TypeDef::CMD_ZEROCALIBRATIO_OVER:
             if (!values.isEmpty()) {
                 g_zeroOffset = values[0];
                 g_correctedElecAngle      = values[1];
-                qDebug() << "g_zeroOffset = " << g_zeroOffset;
-                qDebug() << "g_correctedElecAngle =" << g_correctedElecAngle;
+                qDebug() << "校准结束";
             }
             emit zeroCalibrationFinished();
             break;
@@ -200,7 +191,6 @@ void SerialManager::readSerialData()
                 Ub = values[1];
                 Uc = values[2];
                 emit newUABC(Ua, Ub, Uc); //发射绘图
-                //qDebug() << "Ua =" << Ua << ", Ub =" << Ub << ", Uc =" << Uc;
 
             }
             break;
@@ -211,7 +201,6 @@ void SerialManager::readSerialData()
                 ADC2 = values[1];
                 ADC3 = values[2];
                 emit newADC(ADC1, ADC2, ADC3); //发射绘图
-                //qDebug() << "ADC1 =" << ADC1 << ", ADC2 =" << ADC2 << ", ADC3 =" << ADC3;
 
             }
             break;
@@ -219,7 +208,6 @@ void SerialManager::readSerialData()
         case CMD_TypeDef::CMD_DCVBUS:
             if (!values.isEmpty()) {
                 dcVbus = values[0];
-                //qDebug() << "ADC1 =" << ADC1 << ";
 
             }
             break;

@@ -20,6 +20,8 @@ public:
     explicit Widget(QWidget *parent = nullptr);
     ~Widget();
 
+    static Widget *instance;   // 给日志系统用
+
 private slots:
     void on_openserial_bt_clicked();
     void on_connectMotor_bt_clicked();
@@ -64,6 +66,9 @@ private slots:
     void on_DevMsg_bt_clicked();
 
     void updateMosTempUI();
+
+    void appendLogToUI(const QString &msg);
+    void onNewLog(const QString &msg);
 
 private:
     Ui::Widget *ui;

@@ -714,8 +714,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>30</width>
-         <height>30</height>
+         <width>20</width>
+         <height>20</height>
         </size>
        </property>
        <property name="styleSheet">
@@ -1286,23 +1286,33 @@ QComboBox QAbstractItemView::item:selected {
   <widget class="QGroupBox" name="groupBox_8">
    <property name="geometry">
     <rect>
-     <x>680</x>
+     <x>950</x>
      <y>640</y>
-     <width>591</width>
+     <width>321</width>
      <height>121</height>
     </rect>
    </property>
    <property name="title">
-    <string>GroupBox</string>
+    <string>LOG信息</string>
    </property>
+   <widget class="QTextBrowser" name="log_txt">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>301</width>
+      <height>91</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>680</x>
      <y>530</y>
-     <width>586</width>
-     <height>112</height>
+     <width>584</width>
+     <height>110</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -1311,56 +1321,52 @@ QComboBox QAbstractItemView::item:selected {
       <property name="title">
        <string>电流环PID参数整定</string>
       </property>
-      <layout class="QGridLayout" name="gridLayout_4">
+      <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
-        <layout class="QGridLayout" name="gridLayout_2">
-         <item row="0" column="0">
-          <widget class="QTextEdit" name="textEdit_4">
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QPushButton" name="pushButton_6">
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>设置KP</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QTextEdit" name="textEdit_5">
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QPushButton" name="pushButton_7">
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>设置KI</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QTextEdit" name="textEdit_4">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置KP</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QTextEdit" name="textEdit_5">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>设置KI</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -1476,6 +1482,19 @@ QComboBox QAbstractItemView::item:selected {
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_10">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>639</y>
+     <width>261</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>GroupBox</string>
+   </property>
   </widget>
  </widget>
  <customwidgets>
