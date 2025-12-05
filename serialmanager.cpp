@@ -222,6 +222,9 @@ void SerialManager::readSerialData()
                 getPairs      = int(values[0]);
                 dir           = int(values[1]);
                 g_zeroOffset  = values[2];
+                iqPID_kp      = values[3];
+                iqPID_ki      = values[4];
+                dcVbus        = values[5];
                 qDebug() << "连接成功！";
                 emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR);
             }
@@ -230,7 +233,7 @@ void SerialManager::readSerialData()
         case CMD_TypeDef::CMD_MECHANICALANGLE:
             if (!values.isEmpty()) {
                 mechanicalAngle = values[0];
-                qDebug() << "Mechanical Angle:" << mechanicalAngle;
+                emit newmechanicalAngle(mechanicalAngle);
             }
             break;
 
@@ -238,7 +241,6 @@ void SerialManager::readSerialData()
             if (!values.isEmpty()) {
                 g_zeroOffset           = values[0];
                 g_correctedElecAngle   = values[1];
-                qDebug() << "校准结束";
             }
             emit zeroCalibrationFinished();
             break;

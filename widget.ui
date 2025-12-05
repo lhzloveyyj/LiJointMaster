@@ -42,9 +42,9 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>170</x>
      <y>570</y>
-     <width>291</width>
+     <width>301</width>
      <height>191</height>
     </rect>
    </property>
@@ -1202,6 +1202,42 @@ QProgressBar::chunk {
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>10</y>
+      <width>86</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLabel" name="label_15">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>版本号</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_16">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>1.0.0</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -1286,9 +1322,9 @@ QComboBox QAbstractItemView::item:selected {
   <widget class="QGroupBox" name="groupBox_8">
    <property name="geometry">
     <rect>
-     <x>950</x>
+     <x>880</x>
      <y>640</y>
-     <width>321</width>
+     <width>391</width>
      <height>121</height>
     </rect>
    </property>
@@ -1300,7 +1336,7 @@ QComboBox QAbstractItemView::item:selected {
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>301</width>
+      <width>371</width>
       <height>91</height>
      </rect>
     </property>
@@ -1323,7 +1359,7 @@ QComboBox QAbstractItemView::item:selected {
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
-        <widget class="QTextEdit" name="textEdit_4">
+        <widget class="QTextEdit" name="iqPID_kp_te">
          <property name="maximumSize">
           <size>
            <width>80</width>
@@ -1346,7 +1382,7 @@ QComboBox QAbstractItemView::item:selected {
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QTextEdit" name="textEdit_5">
+        <widget class="QTextEdit" name="iqPID_ki_te">
          <property name="maximumSize">
           <size>
            <width>80</width>
@@ -1488,7 +1524,7 @@ QComboBox QAbstractItemView::item:selected {
     <rect>
      <x>680</x>
      <y>639</y>
-     <width>261</width>
+     <width>191</width>
      <height>121</height>
     </rect>
    </property>

@@ -81,6 +81,8 @@ public:
     float Iq, Id;                ///< dq轴电流
     float dcVbus;                ///< 母线电压
     float mosTemp;               ///< MOS温度
+    float iqPID_kp;               // 电流环kp
+    float iqPID_ki;               // 电流环ki
     ///@}
 
 signals:
@@ -89,6 +91,7 @@ signals:
     void dataReceived(CMD_TypeDef cmd, QByteArray data); ///< 接收到原始数据
     void commandParsed(CMD_TypeDef cmd);    ///< 命令解析完成
     void zeroCalibrationFinished();         ///< 零点校准完成
+    void newmechanicalAngle(float mechanicalAngle);
     void newADC(int ADC1, int ADC2, int ADC3); ///< 发射三相ADC数据
     void newUABC(float Ua, float Ub, float Uc); ///< 发射三相电压数据
     void newTABC(float Ta, float Tb, float Tc); ///< 发射三相SVPWM数据

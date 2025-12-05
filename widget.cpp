@@ -82,6 +82,9 @@ Widget::Widget(QWidget *parent)
     // 创建绘图管理器，负责管理曲线及动态数据追加
     plotManager = new PlotManager(ui->plotWidget, this);
 
+    // 添加机械角度曲线
+    plotManager->addGraph("mechanicalAngle", Qt::red);
+
     // 添加三相电压曲线
     plotManager->addGraph("Ua", Qt::red);
     plotManager->addGraph("Ub", Qt::green);
@@ -115,6 +118,10 @@ Widget::Widget(QWidget *parent)
     plotManager->addGraph("Id", Qt::cyan);
 
     // 串口实时信号 → 动态追加数据到曲线
+    connect(serialManager, &SerialManager::newmechanicalAngle, [=](float mechanicalAngle){
+        plotManager->appendData("mechanicalAngle", mechanicalAngle);
+    });
+
     connect(serialManager, &SerialManager::newUABC, [=](float Ua, float Ub, float Uc){
         plotManager->appendData("Ua", Ua);  // 添加 Ua 数据
         plotManager->appendData("Ub", Ub);  // 添加 Ub 数据
@@ -278,6 +285,9 @@ void Widget::on_connectMotor_bt_clicked()
         ui->setPairs_te->setPlainText(QString::number(serialManager->getPairs));
         ui->setDir_te->setPlainText(QString::number(serialManager->dir));
         ui->zeroOffset_te->setPlainText(QString::number(serialManager->g_zeroOffset));
+        ui->iqPID_kp_te->setPlainText(QString::number(serialManager->iqPID_kp));
+        ui->iqPID_ki_te->setPlainText(QString::number(serialManager->iqPID_ki));
+        ui->dcBus_te->setPlainText(QString::number(serialManager->dcVbus));
     });
 }
 
@@ -315,11 +325,11 @@ void Widget::on_mechanicalAngle_bt_clicked(bool checked)
     // 保存开关状态
     anglePrintingEnabled = checked;
     if (anglePrintingEnabled) {
-        qDebug() << "Angle printing enabled";
+        qDebug() << "打印机械角度";
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_MECHANICALANGLE, 0.0);
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_MECHANICALANGLE_CLOSE, 0.0);
-        qDebug() << "Angle printing disabled";
+        qDebug() << "停止打印机械角度";
     }
 }
 
@@ -388,6 +398,7 @@ void Widget::on_zeroOffset_bt_clicked()
  */
 void Widget::onZeroCalibrationFinished()
 {
+    qDebug() << "校准完成";
     ui->zeroOffset_te->setPlainText(QString::number(serialManager->g_zeroOffset));
     ui->correctedElecAngle_te->setPlainText(QString::number(serialManager->g_correctedElecAngle));
 }
@@ -408,11 +419,11 @@ void Widget::on_Uabc_bt_clicked(bool checked)
     uabcEnabled = checked;
 
     if (uabcEnabled) {
-        qDebug() << "Uabc printing enabled";
+        qDebug() << "打印三相电压";
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_UABC, 0.0);
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_UABC_CLOSE, 0.0);
-        qDebug() << "Uabc printing disabled";
+        qDebug() << "停止打印三相电压";
     }
 }
 
@@ -433,9 +444,9 @@ void Widget::on_setUq_bt_clicked()
     float floatValue = text.toFloat(&ok);  // 转换为浮点数
 
     if (ok) {
-        qDebug() << "Sent value:" << floatValue;
+        qDebug() << "设置Uq" << floatValue;
     } else {
-        qDebug() << "Failed to convert text to float:" << text;
+        qDebug() << "设置Uq失败" << text;
     }
 
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETUQ, floatValue);
@@ -455,11 +466,11 @@ void Widget::on_adc_bt_clicked(bool checked)
     adcEnabled = checked;
 
     if (adcEnabled) {
-        qDebug() << "ADC printing enabled";
+        qDebug() << "打印三相ADC";
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_ADC, 0.0);
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_ADC_CLOSE, 0.0);
-        qDebug() << "ADC printing disabled";
+        qDebug() << "停止打印三相ADC";
     }
 }
 
@@ -496,11 +507,11 @@ void Widget::on_SVPWM_bt_clicked(bool checked)
     tabcEnabled = checked;
 
     if (tabcEnabled) {
-        qDebug() << "Tabc printing enabled";
+        qDebug() << "打印三相SVPWM";
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_TABC, 0.0);
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_TABC_CLOSE, 0.0);
-        qDebug() << "Tabc printing disabled";
+        qDebug() << "停止打印三相SVPWM";
     }
 }
 
@@ -518,11 +529,11 @@ void Widget::on_Iabc_bt_clicked(bool checked)
     IabcEnabled = checked;
 
     if (IabcEnabled) {
-        qDebug() << "Iabc printing enabled";
+        qDebug() << "打印三相电流";
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_IABC, 0.0);
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_IABC_CLOSE, 0.0);
-        qDebug() << "Iabc printing disabled";
+        qDebug() << "停止打印三相电流";
     }
 }
 
@@ -540,11 +551,11 @@ void Widget::on_UAlpha_Beta_bt_clicked(bool checked)
     UAlpha_BetaEnabled = checked;
 
     if (UAlpha_BetaEnabled) {
-        qDebug() << "UAlpha_BetaEnabled printing enabled";
+        qDebug() << "打印UAlpha UBeta";
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_UALPHA_BETA, 0.0);
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_UALPHA_BETA_CLOSE, 0.0);
-        qDebug() << "UAlpha_BetaEnabled printing disabled";
+        qDebug() << "停止打印UAlpha UBeta";
     }
 }
 
@@ -562,11 +573,11 @@ void Widget::on_IAlpha_Beta_bt_clicked(bool checked)
     IAlpha_BetaEnabled = checked;
 
     if (IAlpha_BetaEnabled) {
-        qDebug() << "IAlpha_BetaEnabled printing enabled";
+        qDebug() << "打印IAlpha IUBeta";
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_IALPHA_BETA, 0.0);
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_IALPHA_BETA_CLOSE, 0.0);
-        qDebug() << "IAlpha_BetaEnabled printing disabled";
+        qDebug() << "停止打印IAlpha IUBeta";
     }
 }
 
@@ -584,11 +595,11 @@ void Widget::on_iq_id_bt_clicked(bool checked)
     IQ_ID_Enabled = checked;
 
     if (IQ_ID_Enabled) {
-        qDebug() << "IQ_ID_Enabled printing enabled";
+        qDebug() << "打印Iq Id";
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_IQ_ID, 0.0);
     } else {
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_IQ_ID_CLOSE, 0.0);
-        qDebug() << "IQ_ID_Enabled printing disabled";
+        qDebug() << "停止打印Iq Id";
     }
 }
 
@@ -607,9 +618,9 @@ void Widget::on_setIQ_tb_clicked()
     float floatValue = text.toFloat(&ok);
 
     if (ok) {
-        qDebug() << "Sent IQ value:" << floatValue;
+        qDebug() << "设置 Iq " << floatValue;
     } else {
-        qDebug() << "Failed to convert text to float:" << text;
+        qDebug() << "设置Iq失败" << text;
     }
 
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETIQ, floatValue);
@@ -630,9 +641,9 @@ void Widget::on_setID_tb_clicked()
     float floatValue = text.toFloat(&ok);
 
     if (ok) {
-        qDebug() << "Sent ID value:" << floatValue;
+        qDebug() << "设置Id" << floatValue;
     } else {
-        qDebug() << "Failed to convert text to float:" << text;
+        qDebug() << "设置Id失败" << text;
     }
 
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETID, floatValue);

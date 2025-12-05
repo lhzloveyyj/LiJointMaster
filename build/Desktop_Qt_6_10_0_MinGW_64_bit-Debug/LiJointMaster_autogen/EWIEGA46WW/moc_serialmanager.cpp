@@ -48,6 +48,8 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         "data",
         "commandParsed",
         "zeroCalibrationFinished",
+        "newmechanicalAngle",
+        "mechanicalAngle",
         "newADC",
         "ADC1",
         "ADC2",
@@ -91,36 +93,40 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         }}),
         // Signal 'zeroCalibrationFinished'
         QtMocHelpers::SignalData<void()>(9, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'newmechanicalAngle'
+        QtMocHelpers::SignalData<void(float)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 11 },
+        }}),
         // Signal 'newADC'
-        QtMocHelpers::SignalData<void(int, int, int)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 11 }, { QMetaType::Int, 12 }, { QMetaType::Int, 13 },
+        QtMocHelpers::SignalData<void(int, int, int)>(12, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 13 }, { QMetaType::Int, 14 }, { QMetaType::Int, 15 },
         }}),
         // Signal 'newUABC'
-        QtMocHelpers::SignalData<void(float, float, float)>(14, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Float, 15 }, { QMetaType::Float, 16 }, { QMetaType::Float, 17 },
+        QtMocHelpers::SignalData<void(float, float, float)>(16, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 17 }, { QMetaType::Float, 18 }, { QMetaType::Float, 19 },
         }}),
         // Signal 'newTABC'
-        QtMocHelpers::SignalData<void(float, float, float)>(18, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Float, 19 }, { QMetaType::Float, 20 }, { QMetaType::Float, 21 },
+        QtMocHelpers::SignalData<void(float, float, float)>(20, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 21 }, { QMetaType::Float, 22 }, { QMetaType::Float, 23 },
         }}),
         // Signal 'newIABC'
-        QtMocHelpers::SignalData<void(float, float, float)>(22, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Float, 23 }, { QMetaType::Float, 24 }, { QMetaType::Float, 25 },
+        QtMocHelpers::SignalData<void(float, float, float)>(24, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 25 }, { QMetaType::Float, 26 }, { QMetaType::Float, 27 },
         }}),
         // Signal 'newUalpha_Ubeta'
-        QtMocHelpers::SignalData<void(float, float)>(26, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Float, 27 }, { QMetaType::Float, 28 },
+        QtMocHelpers::SignalData<void(float, float)>(28, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 29 }, { QMetaType::Float, 30 },
         }}),
         // Signal 'newIalpha_Ibeta'
-        QtMocHelpers::SignalData<void(float, float)>(29, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Float, 30 }, { QMetaType::Float, 31 },
+        QtMocHelpers::SignalData<void(float, float)>(31, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 32 }, { QMetaType::Float, 33 },
         }}),
         // Signal 'newIqId'
-        QtMocHelpers::SignalData<void(float, float)>(32, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Float, 33 }, { QMetaType::Float, 34 },
+        QtMocHelpers::SignalData<void(float, float)>(34, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 35 }, { QMetaType::Float, 36 },
         }}),
         // Slot 'readSerialData'
-        QtMocHelpers::SlotData<void()>(35, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(37, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -149,14 +155,15 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 2: _t->dataReceived((*reinterpret_cast<std::add_pointer_t<CMD_TypeDef>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[2]))); break;
         case 3: _t->commandParsed((*reinterpret_cast<std::add_pointer_t<CMD_TypeDef>>(_a[1]))); break;
         case 4: _t->zeroCalibrationFinished(); break;
-        case 5: _t->newADC((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3]))); break;
-        case 6: _t->newUABC((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[3]))); break;
-        case 7: _t->newTABC((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[3]))); break;
-        case 8: _t->newIABC((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[3]))); break;
-        case 9: _t->newUalpha_Ubeta((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
-        case 10: _t->newIalpha_Ibeta((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
-        case 11: _t->newIqId((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
-        case 12: _t->readSerialData(); break;
+        case 5: _t->newmechanicalAngle((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
+        case 6: _t->newADC((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3]))); break;
+        case 7: _t->newUABC((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[3]))); break;
+        case 8: _t->newTABC((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[3]))); break;
+        case 9: _t->newIABC((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[3]))); break;
+        case 10: _t->newUalpha_Ubeta((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
+        case 11: _t->newIalpha_Ibeta((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
+        case 12: _t->newIqId((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
+        case 13: _t->readSerialData(); break;
         default: ;
         }
     }
@@ -171,19 +178,21 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             return;
         if (QtMocHelpers::indexOfMethod<void (SerialManager::*)()>(_a, &SerialManager::zeroCalibrationFinished, 4))
             return;
-        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(int , int , int )>(_a, &SerialManager::newADC, 5))
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float )>(_a, &SerialManager::newmechanicalAngle, 5))
             return;
-        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float , float )>(_a, &SerialManager::newUABC, 6))
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(int , int , int )>(_a, &SerialManager::newADC, 6))
             return;
-        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float , float )>(_a, &SerialManager::newTABC, 7))
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float , float )>(_a, &SerialManager::newUABC, 7))
             return;
-        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float , float )>(_a, &SerialManager::newIABC, 8))
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float , float )>(_a, &SerialManager::newTABC, 8))
             return;
-        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float )>(_a, &SerialManager::newUalpha_Ubeta, 9))
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float , float )>(_a, &SerialManager::newIABC, 9))
             return;
-        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float )>(_a, &SerialManager::newIalpha_Ibeta, 10))
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float )>(_a, &SerialManager::newUalpha_Ubeta, 10))
             return;
-        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float )>(_a, &SerialManager::newIqId, 11))
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float )>(_a, &SerialManager::newIalpha_Ibeta, 11))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float )>(_a, &SerialManager::newIqId, 12))
             return;
     }
 }
@@ -207,14 +216,14 @@ int SerialManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
 }
@@ -250,44 +259,50 @@ void SerialManager::zeroCalibrationFinished()
 }
 
 // SIGNAL 5
-void SerialManager::newADC(int _t1, int _t2, int _t3)
+void SerialManager::newmechanicalAngle(float _t1)
 {
-    QMetaObject::activate<void>(this, &staticMetaObject, 5, nullptr, _t1, _t2, _t3);
+    QMetaObject::activate<void>(this, &staticMetaObject, 5, nullptr, _t1);
 }
 
 // SIGNAL 6
-void SerialManager::newUABC(float _t1, float _t2, float _t3)
+void SerialManager::newADC(int _t1, int _t2, int _t3)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 6, nullptr, _t1, _t2, _t3);
 }
 
 // SIGNAL 7
-void SerialManager::newTABC(float _t1, float _t2, float _t3)
+void SerialManager::newUABC(float _t1, float _t2, float _t3)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 7, nullptr, _t1, _t2, _t3);
 }
 
 // SIGNAL 8
-void SerialManager::newIABC(float _t1, float _t2, float _t3)
+void SerialManager::newTABC(float _t1, float _t2, float _t3)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 8, nullptr, _t1, _t2, _t3);
 }
 
 // SIGNAL 9
-void SerialManager::newUalpha_Ubeta(float _t1, float _t2)
+void SerialManager::newIABC(float _t1, float _t2, float _t3)
 {
-    QMetaObject::activate<void>(this, &staticMetaObject, 9, nullptr, _t1, _t2);
+    QMetaObject::activate<void>(this, &staticMetaObject, 9, nullptr, _t1, _t2, _t3);
 }
 
 // SIGNAL 10
-void SerialManager::newIalpha_Ibeta(float _t1, float _t2)
+void SerialManager::newUalpha_Ubeta(float _t1, float _t2)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 10, nullptr, _t1, _t2);
 }
 
 // SIGNAL 11
-void SerialManager::newIqId(float _t1, float _t2)
+void SerialManager::newIalpha_Ibeta(float _t1, float _t2)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 11, nullptr, _t1, _t2);
+}
+
+// SIGNAL 12
+void SerialManager::newIqId(float _t1, float _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 12, nullptr, _t1, _t2);
 }
 QT_WARNING_POP

@@ -128,6 +128,10 @@ public:
     QLabel *label_12;
     QPushButton *DevMsg_bt;
     QPushButton *pushButton_13;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *label_15;
+    QLabel *label_16;
     QWidget *layoutWidget10;
     QHBoxLayout *horizontalLayout_18;
     QLabel *label_13;
@@ -138,9 +142,9 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QGroupBox *groupBox_5;
     QGridLayout *gridLayout_2;
-    QTextEdit *textEdit_4;
+    QTextEdit *iqPID_kp_te;
     QPushButton *pushButton_6;
-    QTextEdit *textEdit_5;
+    QTextEdit *iqPID_ki_te;
     QPushButton *pushButton_7;
     QGroupBox *groupBox_9;
     QGridLayout *gridLayout_3;
@@ -171,7 +175,7 @@ public:
         x_Axis_sd->setOrientation(Qt::Orientation::Horizontal);
         groupBox = new QGroupBox(Widget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(180, 570, 291, 191));
+        groupBox->setGeometry(QRect(170, 570, 301, 191));
         QFont font;
         font.setPointSize(9);
         groupBox->setFont(font);
@@ -778,6 +782,26 @@ public:
 
         horizontalLayout_9->addWidget(pushButton_13);
 
+        widget = new QWidget(groupBox_6);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(1180, 10, 86, 22));
+        horizontalLayout_4 = new QHBoxLayout(widget);
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        label_15 = new QLabel(widget);
+        label_15->setObjectName("label_15");
+        label_15->setFont(font2);
+
+        horizontalLayout_4->addWidget(label_15);
+
+        label_16 = new QLabel(widget);
+        label_16->setObjectName("label_16");
+        QFont font4;
+        font4.setPointSize(10);
+        label_16->setFont(font4);
+
+        horizontalLayout_4->addWidget(label_16);
+
         layoutWidget10 = new QWidget(Widget);
         layoutWidget10->setObjectName("layoutWidget10");
         layoutWidget10->setGeometry(QRect(180, 530, 245, 29));
@@ -831,10 +855,10 @@ public:
 
         groupBox_8 = new QGroupBox(Widget);
         groupBox_8->setObjectName("groupBox_8");
-        groupBox_8->setGeometry(QRect(950, 640, 321, 121));
+        groupBox_8->setGeometry(QRect(880, 640, 391, 121));
         log_txt = new QTextBrowser(groupBox_8);
         log_txt->setObjectName("log_txt");
-        log_txt->setGeometry(QRect(10, 20, 301, 91));
+        log_txt->setGeometry(QRect(10, 20, 371, 91));
         layoutWidget11 = new QWidget(Widget);
         layoutWidget11->setObjectName("layoutWidget11");
         layoutWidget11->setGeometry(QRect(680, 530, 584, 110));
@@ -845,11 +869,11 @@ public:
         groupBox_5->setObjectName("groupBox_5");
         gridLayout_2 = new QGridLayout(groupBox_5);
         gridLayout_2->setObjectName("gridLayout_2");
-        textEdit_4 = new QTextEdit(groupBox_5);
-        textEdit_4->setObjectName("textEdit_4");
-        textEdit_4->setMaximumSize(QSize(80, 30));
+        iqPID_kp_te = new QTextEdit(groupBox_5);
+        iqPID_kp_te->setObjectName("iqPID_kp_te");
+        iqPID_kp_te->setMaximumSize(QSize(80, 30));
 
-        gridLayout_2->addWidget(textEdit_4, 0, 0, 1, 1);
+        gridLayout_2->addWidget(iqPID_kp_te, 0, 0, 1, 1);
 
         pushButton_6 = new QPushButton(groupBox_5);
         pushButton_6->setObjectName("pushButton_6");
@@ -857,11 +881,11 @@ public:
 
         gridLayout_2->addWidget(pushButton_6, 0, 1, 1, 1);
 
-        textEdit_5 = new QTextEdit(groupBox_5);
-        textEdit_5->setObjectName("textEdit_5");
-        textEdit_5->setMaximumSize(QSize(80, 30));
+        iqPID_ki_te = new QTextEdit(groupBox_5);
+        iqPID_ki_te->setObjectName("iqPID_ki_te");
+        iqPID_ki_te->setMaximumSize(QSize(80, 30));
 
-        gridLayout_2->addWidget(textEdit_5, 1, 0, 1, 1);
+        gridLayout_2->addWidget(iqPID_ki_te, 1, 0, 1, 1);
 
         pushButton_7 = new QPushButton(groupBox_5);
         pushButton_7->setObjectName("pushButton_7");
@@ -936,7 +960,7 @@ public:
 
         groupBox_10 = new QGroupBox(Widget);
         groupBox_10->setObjectName("groupBox_10");
-        groupBox_10->setGeometry(QRect(680, 639, 261, 121));
+        groupBox_10->setGeometry(QRect(680, 639, 191, 121));
 
         retranslateUi(Widget);
 
@@ -1026,6 +1050,8 @@ public:
         label_12->setText(QCoreApplication::translate("Widget", "LiJointMaster", nullptr));
         DevMsg_bt->setText(QCoreApplication::translate("Widget", "\345\274\200\345\217\221\350\200\205\347\225\231\350\250\200", nullptr));
         pushButton_13->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256", nullptr));
+        label_15->setText(QCoreApplication::translate("Widget", "\347\211\210\346\234\254\345\217\267", nullptr));
+        label_16->setText(QCoreApplication::translate("Widget", "1.0.0", nullptr));
         label_13->setText(QCoreApplication::translate("Widget", "\346\216\247\345\210\266\346\250\241\345\274\217\351\200\211\346\213\251", nullptr));
         ctrolMode_ComboBox->setItemText(0, QCoreApplication::translate("Widget", "\345\274\200\347\216\257\346\250\241\345\274\217", nullptr));
         ctrolMode_ComboBox->setItemText(1, QCoreApplication::translate("Widget", "\345\212\233\347\237\251\346\216\247\345\210\266", nullptr));
