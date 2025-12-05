@@ -44,13 +44,20 @@ template <> constexpr inline auto PlotManager::qt_create_metaobjectdata<qt_meta_
         "appendData",
         "",
         "name",
-        "value"
+        "value",
+        "onMouseMove",
+        "QMouseEvent*",
+        "event"
     };
 
     QtMocHelpers::UintData qt_methods {
         // Slot 'appendData'
         QtMocHelpers::SlotData<void(const QString &, double)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 3 }, { QMetaType::Double, 4 },
+        }}),
+        // Slot 'onMouseMove'
+        QtMocHelpers::SlotData<void(QMouseEvent *)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 6, 7 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -76,6 +83,7 @@ void PlotManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->appendData((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<double>>(_a[2]))); break;
+        case 1: _t->onMouseMove((*reinterpret_cast<std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
         default: ;
         }
     }
@@ -100,14 +108,14 @@ int PlotManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }

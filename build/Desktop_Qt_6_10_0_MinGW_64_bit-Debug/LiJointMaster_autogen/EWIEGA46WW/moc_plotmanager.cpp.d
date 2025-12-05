@@ -316,7 +316,6 @@ E:/QT/LiJointMaster/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/LiJointMaster_aut
   D:/download/QT/6.10.0/mingw_64/include/QtGui/QPaintEvent \
   D:/download/QT/6.10.0/mingw_64/include/QtGui/QPainter \
   D:/download/QT/6.10.0/mingw_64/include/QtGui/QPainterPath \
-  D:/download/QT/6.10.0/mingw_64/include/QtGui/QPen \
   D:/download/QT/6.10.0/mingw_64/include/QtGui/QPixmap \
   D:/download/QT/6.10.0/mingw_64/include/QtGui/QShortcut \
   D:/download/QT/6.10.0/mingw_64/include/QtGui/QSurfaceFormat \
