@@ -74,6 +74,12 @@ private slots:
     void onNewLog(const QString &msg);               ///< 新日志槽
     ///@}
 
+    void on_setUd_bt_clicked();
+
+    void on_iqPID_kp_tb_clicked();
+
+    void on_speed_bt_clicked(bool checked);
+
 private:
     Ui::Widget *ui;              ///< 界面对象
 
@@ -94,6 +100,7 @@ private:
     bool IAlpha_BetaEnabled = false;       ///< Iαβ 打印开关
     bool IQ_ID_Enabled = false;            ///< Iq/Id 打印开关
     bool mostemp_Enabled = false;          ///< MOS温度打印开关
+    bool speed_Enabled = false;
 
     PlotManager *plotManager;               ///< 绘图管理对象
 };

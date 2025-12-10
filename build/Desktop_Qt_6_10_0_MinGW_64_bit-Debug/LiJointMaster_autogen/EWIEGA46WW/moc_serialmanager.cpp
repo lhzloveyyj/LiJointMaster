@@ -75,6 +75,8 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         "newIqId",
         "Iq",
         "Id",
+        "newSpeed",
+        "speed",
         "readSerialData"
     };
 
@@ -125,8 +127,12 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         QtMocHelpers::SignalData<void(float, float)>(34, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::Float, 35 }, { QMetaType::Float, 36 },
         }}),
+        // Signal 'newSpeed'
+        QtMocHelpers::SignalData<void(float)>(37, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 38 },
+        }}),
         // Slot 'readSerialData'
-        QtMocHelpers::SlotData<void()>(37, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(39, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -163,7 +169,8 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 10: _t->newUalpha_Ubeta((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
         case 11: _t->newIalpha_Ibeta((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
         case 12: _t->newIqId((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
-        case 13: _t->readSerialData(); break;
+        case 13: _t->newSpeed((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
+        case 14: _t->readSerialData(); break;
         default: ;
         }
     }
@@ -194,6 +201,8 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             return;
         if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float , float )>(_a, &SerialManager::newIqId, 12))
             return;
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float )>(_a, &SerialManager::newSpeed, 13))
+            return;
     }
 }
 
@@ -216,14 +225,14 @@ int SerialManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 15;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 15)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 14;
+        _id -= 15;
     }
     return _id;
 }
@@ -304,5 +313,11 @@ void SerialManager::newIalpha_Ibeta(float _t1, float _t2)
 void SerialManager::newIqId(float _t1, float _t2)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 12, nullptr, _t1, _t2);
+}
+
+// SIGNAL 13
+void SerialManager::newSpeed(float _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 13, nullptr, _t1);
 }
 QT_WARNING_POP

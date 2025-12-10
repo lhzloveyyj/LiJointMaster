@@ -83,6 +83,7 @@ public:
     float mosTemp;               ///< MOS温度
     float iqPID_kp;               // 电流环kp
     float iqPID_ki;               // 电流环ki
+    float speed;                  // 速度
     ///@}
 
 signals:
@@ -99,6 +100,7 @@ signals:
     void newUalpha_Ubeta(float Ualpha, float Ubeta); ///< 发射 αβ电压
     void newIalpha_Ibeta(float Ialpha, float Ibeta); ///< 发射 αβ电流
     void newIqId(float Iq, float Id);             ///< 发射 dq电流
+    void newSpeed(float speed);             ///< 发射 速度
 
 private slots:
     /**

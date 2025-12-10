@@ -317,6 +317,13 @@ void SerialManager::readSerialData()
             }
             break;
 
+        case CMD_TypeDef::CMD_SPEED:
+            if (!values.isEmpty()) {
+                speed = values[0];
+                emit newSpeed(speed);
+            }
+            break;
+
         default:
             qWarning() << "Unknown CMD:" << cmd << "Values:" << values;
             break;

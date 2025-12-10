@@ -117,6 +117,9 @@ Widget::Widget(QWidget *parent)
     plotManager->addGraph("Iq", Qt::yellow);
     plotManager->addGraph("Id", Qt::cyan);
 
+    // 添加速度打印
+    plotManager->addGraph("speed", Qt::yellow);
+
     // 串口实时信号 → 动态追加数据到曲线
     connect(serialManager, &SerialManager::newmechanicalAngle, [=](float mechanicalAngle){
         plotManager->appendData("mechanicalAngle", mechanicalAngle);
@@ -159,6 +162,10 @@ Widget::Widget(QWidget *parent)
     connect(serialManager, &SerialManager::newIqId, [=](float Iq, float Id){
         plotManager->appendData("Iq", Iq);
         plotManager->appendData("Id", Id);
+    });
+
+    connect(serialManager, &SerialManager::newSpeed, [=](float speed){
+        plotManager->appendData("speed", speed);
     });
 
 
@@ -743,3 +750,65 @@ void Widget::onNewLog(const QString &msg)
 {
     ui->log_txt->append(msg);
 }
+
+
+void Widget::on_setUd_bt_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->setUd_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置Ud" << floatValue;
+    } else {
+        qDebug() << "设置Ud失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETUD, floatValue);
+}
+
+
+void Widget::on_iqPID_kp_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->iqPID_kp_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置KP" << floatValue;
+    } else {
+        qDebug() << "设置KP失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETIQPIDKP, floatValue);
+}
+
+
+void Widget::on_speed_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    speed_Enabled = checked;
+
+    if (speed_Enabled) {
+        qDebug() << "打印速度";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_SPEED, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_SPEED_CLODE, 0.0);
+        qDebug() << "停止打印速度";
+    }
+}
+

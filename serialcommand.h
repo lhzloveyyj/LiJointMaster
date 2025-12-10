@@ -67,6 +67,12 @@ enum class CMD_TypeDef : uint8_t
 
     // ================= 温度 ================= //
     CMD_MOSTEMP                 = 0x24,  ///< 获取 MOSFET 温度
+    CMD_SETUD                   = 0x25,  ///< 设置Ud
+    CMD_SETIQPIDKP              = 0x26,  ///< 设置电流环KP
+    CMD_SETIQPIDKI              = 0x27,  ///< 设置电流环KI、
+
+    CMD_SPEED                   = 0x28,  ///< 开启速度打印
+    CMD_SPEED_CLODE             = 0x29,  ///< 关闭速度打印
 };
 
 #endif // SERIALCOMMAND_H
