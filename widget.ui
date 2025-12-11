@@ -118,7 +118,7 @@
      </widget>
     </item>
     <item row="3" column="2">
-     <widget class="QPushButton" name="pushButton_9">
+     <widget class="QPushButton" name="speedOut_bt">
       <property name="styleSheet">
        <string notr="true">QPushButton:checked {
     background-color: #2ecc71;     /* 按下（checked）变亮绿色 */
@@ -738,7 +738,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>80</y>
+      <y>110</y>
       <width>128</width>
       <height>32</height>
      </rect>
@@ -773,7 +773,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>118</y>
+      <y>150</y>
       <width>128</width>
       <height>32</height>
      </rect>
@@ -798,30 +798,17 @@
         </size>
        </property>
        <property name="text">
-        <string>设置方向</string>
+        <string>设置角度方向</string>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="zeroOffset_bt">
-    <property name="geometry">
-     <rect>
-      <x>11</x>
-      <y>156</y>
-      <width>80</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>零电位校准</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>185</y>
+      <y>230</y>
       <width>136</width>
       <height>32</height>
      </rect>
@@ -855,7 +842,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>223</y>
+      <y>270</y>
       <width>136</width>
       <height>32</height>
      </rect>
@@ -889,7 +876,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>261</y>
+      <y>310</y>
       <width>133</width>
       <height>32</height>
      </rect>
@@ -924,7 +911,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>340</y>
+      <y>390</y>
       <width>131</width>
       <height>10</height>
      </rect>
@@ -962,7 +949,7 @@ QProgressBar::chunk {
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>300</y>
+      <y>350</y>
       <width>50</width>
       <height>30</height>
      </rect>
@@ -981,13 +968,61 @@ QProgressBar::chunk {
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>300</y>
+      <y>350</y>
       <width>60</width>
       <height>30</height>
      </rect>
     </property>
     <property name="text">
      <string>MOS温度</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>190</y>
+      <width>128</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_25">
+     <item>
+      <widget class="QTextEdit" name="setSpeedDir_te">
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setSpeedDir_bt">
+       <property name="minimumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>设置速度方向</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="zeroOffset_bt">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>80</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>零电位校准</string>
     </property>
    </widget>
   </widget>
@@ -1115,7 +1150,7 @@ QProgressBar::chunk {
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QTextEdit" name="textEdit">
+       <widget class="QTextEdit" name="setSpeedTar_te">
         <property name="maximumSize">
          <size>
           <width>80</width>
@@ -1125,7 +1160,7 @@ QProgressBar::chunk {
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="setSpeedTar_tb">
         <property name="maximumSize">
          <size>
           <width>80</width>
@@ -1431,7 +1466,7 @@ QComboBox QAbstractItemView::item:selected {
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
-        <widget class="QTextEdit" name="textEdit_12">
+        <widget class="QTextEdit" name="speedPID_kp_te">
          <property name="maximumSize">
           <size>
            <width>80</width>
@@ -1441,7 +1476,7 @@ QComboBox QAbstractItemView::item:selected {
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QPushButton" name="pushButton_14">
+        <widget class="QPushButton" name="speedPID_kp_tb">
          <property name="maximumSize">
           <size>
            <width>80</width>
@@ -1454,7 +1489,7 @@ QComboBox QAbstractItemView::item:selected {
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QTextEdit" name="textEdit_13">
+        <widget class="QTextEdit" name="speedPID_ki_te">
          <property name="maximumSize">
           <size>
            <width>80</width>
@@ -1464,7 +1499,7 @@ QComboBox QAbstractItemView::item:selected {
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton_15">
+        <widget class="QPushButton" name="speedPID_ki_tb">
          <property name="maximumSize">
           <size>
            <width>80</width>

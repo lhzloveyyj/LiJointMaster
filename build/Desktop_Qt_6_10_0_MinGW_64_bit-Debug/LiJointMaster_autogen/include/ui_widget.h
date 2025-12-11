@@ -37,7 +37,7 @@ public:
     QPushButton *speed_bt;
     QPushButton *Iabc_bt;
     QPushButton *UAlpha_Beta_bt;
-    QPushButton *pushButton_9;
+    QPushButton *speedOut_bt;
     QPushButton *IAlpha_Beta_bt;
     QPushButton *pushButton_4;
     QPushButton *Uabc_bt;
@@ -88,7 +88,6 @@ public:
     QHBoxLayout *horizontalLayout_11;
     QTextEdit *setDir_te;
     QPushButton *setDir_bt;
-    QPushButton *zeroOffset_bt;
     QWidget *layoutWidget5;
     QHBoxLayout *horizontalLayout_12;
     QLabel *label_8;
@@ -104,6 +103,11 @@ public:
     QProgressBar *mosTemp_bar;
     QLabel *mosTemp_lab;
     QLabel *label_14;
+    QWidget *layoutWidget_2;
+    QHBoxLayout *horizontalLayout_25;
+    QTextEdit *setSpeedDir_te;
+    QPushButton *setSpeedDir_bt;
+    QPushButton *zeroOffset_bt;
     QGroupBox *groupBox_4;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_14;
@@ -119,8 +123,8 @@ public:
     QTextEdit *setID_te;
     QPushButton *setID_tb;
     QHBoxLayout *horizontalLayout_2;
-    QTextEdit *textEdit;
-    QPushButton *pushButton;
+    QTextEdit *setSpeedTar_te;
+    QPushButton *setSpeedTar_tb;
     QHBoxLayout *horizontalLayout_3;
     QTextEdit *textEdit_2;
     QPushButton *pushButton_2;
@@ -150,10 +154,10 @@ public:
     QPushButton *iqPID_ki_tb;
     QGroupBox *groupBox_9;
     QGridLayout *gridLayout_3;
-    QTextEdit *textEdit_12;
-    QPushButton *pushButton_14;
-    QTextEdit *textEdit_13;
-    QPushButton *pushButton_15;
+    QTextEdit *speedPID_kp_te;
+    QPushButton *speedPID_kp_tb;
+    QTextEdit *speedPID_ki_te;
+    QPushButton *speedPID_ki_tb;
     QGroupBox *groupBox_7;
     QGridLayout *gridLayout_5;
     QTextEdit *textEdit_8;
@@ -220,17 +224,17 @@ public:
 
         gridLayout->addWidget(UAlpha_Beta_bt, 2, 1, 1, 1);
 
-        pushButton_9 = new QPushButton(groupBox);
-        pushButton_9->setObjectName("pushButton_9");
-        pushButton_9->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
+        speedOut_bt = new QPushButton(groupBox);
+        speedOut_bt->setObjectName("speedOut_bt");
+        speedOut_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
 "    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
 "    color: black;                  /* \346\233\264\346\230\216\346\230\276 */\n"
 "    font-weight: bold;\n"
 "    border: 2px solid #27ae60;\n"
 "}"));
-        pushButton_9->setCheckable(true);
+        speedOut_bt->setCheckable(true);
 
-        gridLayout->addWidget(pushButton_9, 3, 2, 1, 1);
+        gridLayout->addWidget(speedOut_bt, 3, 2, 1, 1);
 
         IAlpha_Beta_bt = new QPushButton(groupBox);
         IAlpha_Beta_bt->setObjectName("IAlpha_Beta_bt");
@@ -542,7 +546,7 @@ public:
 
         layoutWidget3 = new QWidget(groupBox_3);
         layoutWidget3->setObjectName("layoutWidget3");
-        layoutWidget3->setGeometry(QRect(11, 80, 128, 32));
+        layoutWidget3->setGeometry(QRect(11, 110, 128, 32));
         horizontalLayout_10 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_10->setObjectName("horizontalLayout_10");
         horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
@@ -560,7 +564,7 @@ public:
 
         layoutWidget4 = new QWidget(groupBox_3);
         layoutWidget4->setObjectName("layoutWidget4");
-        layoutWidget4->setGeometry(QRect(11, 118, 128, 32));
+        layoutWidget4->setGeometry(QRect(11, 150, 128, 32));
         horizontalLayout_11 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_11->setObjectName("horizontalLayout_11");
         horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
@@ -576,12 +580,9 @@ public:
 
         horizontalLayout_11->addWidget(setDir_bt);
 
-        zeroOffset_bt = new QPushButton(groupBox_3);
-        zeroOffset_bt->setObjectName("zeroOffset_bt");
-        zeroOffset_bt->setGeometry(QRect(11, 156, 80, 23));
         layoutWidget5 = new QWidget(groupBox_3);
         layoutWidget5->setObjectName("layoutWidget5");
-        layoutWidget5->setGeometry(QRect(11, 185, 136, 32));
+        layoutWidget5->setGeometry(QRect(11, 230, 136, 32));
         horizontalLayout_12 = new QHBoxLayout(layoutWidget5);
         horizontalLayout_12->setObjectName("horizontalLayout_12");
         horizontalLayout_12->setContentsMargins(0, 0, 0, 0);
@@ -599,7 +600,7 @@ public:
 
         layoutWidget6 = new QWidget(groupBox_3);
         layoutWidget6->setObjectName("layoutWidget6");
-        layoutWidget6->setGeometry(QRect(11, 223, 136, 32));
+        layoutWidget6->setGeometry(QRect(11, 270, 136, 32));
         horizontalLayout_13 = new QHBoxLayout(layoutWidget6);
         horizontalLayout_13->setObjectName("horizontalLayout_13");
         horizontalLayout_13->setContentsMargins(0, 0, 0, 0);
@@ -617,7 +618,7 @@ public:
 
         layoutWidget7 = new QWidget(groupBox_3);
         layoutWidget7->setObjectName("layoutWidget7");
-        layoutWidget7->setGeometry(QRect(11, 261, 133, 32));
+        layoutWidget7->setGeometry(QRect(11, 310, 133, 32));
         horizontalLayout_15 = new QHBoxLayout(layoutWidget7);
         horizontalLayout_15->setObjectName("horizontalLayout_15");
         horizontalLayout_15->setContentsMargins(0, 0, 0, 0);
@@ -635,7 +636,7 @@ public:
 
         mosTemp_bar = new QProgressBar(groupBox_3);
         mosTemp_bar->setObjectName("mosTemp_bar");
-        mosTemp_bar->setGeometry(QRect(10, 340, 131, 10));
+        mosTemp_bar->setGeometry(QRect(10, 390, 131, 10));
         mosTemp_bar->setStyleSheet(QString::fromUtf8("QProgressBar {\n"
 "    border: 2px solid #555;\n"
 "    border-radius: 5px;\n"
@@ -657,11 +658,32 @@ public:
         mosTemp_bar->setTextVisible(false);
         mosTemp_lab = new QLabel(groupBox_3);
         mosTemp_lab->setObjectName("mosTemp_lab");
-        mosTemp_lab->setGeometry(QRect(90, 300, 50, 30));
+        mosTemp_lab->setGeometry(QRect(90, 350, 50, 30));
         mosTemp_lab->setMaximumSize(QSize(70, 30));
         label_14 = new QLabel(groupBox_3);
         label_14->setObjectName("label_14");
-        label_14->setGeometry(QRect(10, 300, 60, 30));
+        label_14->setGeometry(QRect(10, 350, 60, 30));
+        layoutWidget_2 = new QWidget(groupBox_3);
+        layoutWidget_2->setObjectName("layoutWidget_2");
+        layoutWidget_2->setGeometry(QRect(10, 190, 128, 32));
+        horizontalLayout_25 = new QHBoxLayout(layoutWidget_2);
+        horizontalLayout_25->setObjectName("horizontalLayout_25");
+        horizontalLayout_25->setContentsMargins(0, 0, 0, 0);
+        setSpeedDir_te = new QTextEdit(layoutWidget_2);
+        setSpeedDir_te->setObjectName("setSpeedDir_te");
+        setSpeedDir_te->setMaximumSize(QSize(40, 30));
+
+        horizontalLayout_25->addWidget(setSpeedDir_te);
+
+        setSpeedDir_bt = new QPushButton(layoutWidget_2);
+        setSpeedDir_bt->setObjectName("setSpeedDir_bt");
+        setSpeedDir_bt->setMinimumSize(QSize(80, 30));
+
+        horizontalLayout_25->addWidget(setSpeedDir_bt);
+
+        zeroOffset_bt = new QPushButton(groupBox_3);
+        zeroOffset_bt->setObjectName("zeroOffset_bt");
+        zeroOffset_bt->setGeometry(QRect(20, 80, 80, 23));
         groupBox_4 = new QGroupBox(Widget);
         groupBox_4->setObjectName("groupBox_4");
         groupBox_4->setGeometry(QRect(480, 530, 192, 234));
@@ -737,17 +759,17 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        textEdit = new QTextEdit(groupBox_4);
-        textEdit->setObjectName("textEdit");
-        textEdit->setMaximumSize(QSize(80, 25));
+        setSpeedTar_te = new QTextEdit(groupBox_4);
+        setSpeedTar_te->setObjectName("setSpeedTar_te");
+        setSpeedTar_te->setMaximumSize(QSize(80, 25));
 
-        horizontalLayout_2->addWidget(textEdit);
+        horizontalLayout_2->addWidget(setSpeedTar_te);
 
-        pushButton = new QPushButton(groupBox_4);
-        pushButton->setObjectName("pushButton");
-        pushButton->setMaximumSize(QSize(80, 25));
+        setSpeedTar_tb = new QPushButton(groupBox_4);
+        setSpeedTar_tb->setObjectName("setSpeedTar_tb");
+        setSpeedTar_tb->setMaximumSize(QSize(80, 25));
 
-        horizontalLayout_2->addWidget(pushButton);
+        horizontalLayout_2->addWidget(setSpeedTar_tb);
 
 
         verticalLayout_2->addLayout(horizontalLayout_2);
@@ -915,29 +937,29 @@ public:
         groupBox_9->setObjectName("groupBox_9");
         gridLayout_3 = new QGridLayout(groupBox_9);
         gridLayout_3->setObjectName("gridLayout_3");
-        textEdit_12 = new QTextEdit(groupBox_9);
-        textEdit_12->setObjectName("textEdit_12");
-        textEdit_12->setMaximumSize(QSize(80, 30));
+        speedPID_kp_te = new QTextEdit(groupBox_9);
+        speedPID_kp_te->setObjectName("speedPID_kp_te");
+        speedPID_kp_te->setMaximumSize(QSize(80, 30));
 
-        gridLayout_3->addWidget(textEdit_12, 0, 0, 1, 1);
+        gridLayout_3->addWidget(speedPID_kp_te, 0, 0, 1, 1);
 
-        pushButton_14 = new QPushButton(groupBox_9);
-        pushButton_14->setObjectName("pushButton_14");
-        pushButton_14->setMaximumSize(QSize(80, 30));
+        speedPID_kp_tb = new QPushButton(groupBox_9);
+        speedPID_kp_tb->setObjectName("speedPID_kp_tb");
+        speedPID_kp_tb->setMaximumSize(QSize(80, 30));
 
-        gridLayout_3->addWidget(pushButton_14, 0, 1, 1, 1);
+        gridLayout_3->addWidget(speedPID_kp_tb, 0, 1, 1, 1);
 
-        textEdit_13 = new QTextEdit(groupBox_9);
-        textEdit_13->setObjectName("textEdit_13");
-        textEdit_13->setMaximumSize(QSize(80, 30));
+        speedPID_ki_te = new QTextEdit(groupBox_9);
+        speedPID_ki_te->setObjectName("speedPID_ki_te");
+        speedPID_ki_te->setMaximumSize(QSize(80, 30));
 
-        gridLayout_3->addWidget(textEdit_13, 1, 0, 1, 1);
+        gridLayout_3->addWidget(speedPID_ki_te, 1, 0, 1, 1);
 
-        pushButton_15 = new QPushButton(groupBox_9);
-        pushButton_15->setObjectName("pushButton_15");
-        pushButton_15->setMaximumSize(QSize(80, 30));
+        speedPID_ki_tb = new QPushButton(groupBox_9);
+        speedPID_ki_tb->setObjectName("speedPID_ki_tb");
+        speedPID_ki_tb->setMaximumSize(QSize(80, 30));
 
-        gridLayout_3->addWidget(pushButton_15, 1, 1, 1, 1);
+        gridLayout_3->addWidget(speedPID_ki_tb, 1, 1, 1, 1);
 
 
         horizontalLayout_5->addWidget(groupBox_9);
@@ -993,7 +1015,7 @@ public:
         speed_bt->setText(QCoreApplication::translate("Widget", "\351\200\237\345\272\246", nullptr));
         Iabc_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270\347\224\265\346\265\201", nullptr));
         UAlpha_Beta_bt->setText(QCoreApplication::translate("Widget", "UAlpha_Beta", nullptr));
-        pushButton_9->setText(QCoreApplication::translate("Widget", "\351\200\237\345\272\246\347\216\257\350\276\223\345\207\272", nullptr));
+        speedOut_bt->setText(QCoreApplication::translate("Widget", "\351\200\237\345\272\246\347\216\257\350\276\223\345\207\272", nullptr));
         IAlpha_Beta_bt->setText(QCoreApplication::translate("Widget", "IAlpha_Beta", nullptr));
         pushButton_4->setText(QCoreApplication::translate("Widget", "\344\275\215\347\275\256", nullptr));
         Uabc_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270\347\224\265\345\216\213\346\233\262\347\272\277", nullptr));
@@ -1047,20 +1069,21 @@ public:
         connectMotor_bt->setText(QCoreApplication::translate("Widget", "\350\277\236\346\216\245", nullptr));
         connet_motor_pic->setText(QString());
         setPairs_bt->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\346\236\201\345\257\271\346\225\260", nullptr));
-        setDir_bt->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\346\226\271\345\220\221", nullptr));
-        zeroOffset_bt->setText(QCoreApplication::translate("Widget", "\351\233\266\347\224\265\344\275\215\346\240\241\345\207\206", nullptr));
+        setDir_bt->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\350\247\222\345\272\246\346\226\271\345\220\221", nullptr));
         label_8->setText(QCoreApplication::translate("Widget", "\351\233\266\345\201\217\345\200\274", nullptr));
         label_11->setText(QCoreApplication::translate("Widget", "\347\224\265\350\247\222\345\272\246", nullptr));
         dcBus_bt->setText(QCoreApplication::translate("Widget", "\346\257\215\347\272\277\347\224\265\345\216\213", nullptr));
         mosTemp_bar->setFormat(QCoreApplication::translate("Widget", "%p\302\260C", nullptr));
         mosTemp_lab->setText(QString());
         label_14->setText(QCoreApplication::translate("Widget", "MOS\346\270\251\345\272\246", nullptr));
+        setSpeedDir_bt->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\351\200\237\345\272\246\346\226\271\345\220\221", nullptr));
+        zeroOffset_bt->setText(QCoreApplication::translate("Widget", "\351\233\266\347\224\265\344\275\215\346\240\241\345\207\206", nullptr));
         groupBox_4->setTitle(QCoreApplication::translate("Widget", "\347\273\231\345\256\232\346\216\247\345\210\266\346\234\237\346\234\233", nullptr));
         setUq_bt->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256Uq", nullptr));
         setUd_bt->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256Ud", nullptr));
         setIQ_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256Iq", nullptr));
         setID_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256Id", nullptr));
-        pushButton->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\351\200\237\345\272\246", nullptr));
+        setSpeedTar_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\351\200\237\345\272\246", nullptr));
         pushButton_2->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\344\275\215\347\275\256", nullptr));
         groupBox_6->setTitle(QString());
         label_12->setText(QCoreApplication::translate("Widget", "LiJointMaster", nullptr));
@@ -1079,8 +1102,8 @@ public:
         iqPID_kp_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
         iqPID_ki_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KI", nullptr));
         groupBox_9->setTitle(QCoreApplication::translate("Widget", "\351\200\237\345\272\246\347\216\257PID\345\217\202\346\225\260\346\225\264\345\256\232", nullptr));
-        pushButton_14->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
-        pushButton_15->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KI", nullptr));
+        speedPID_kp_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
+        speedPID_ki_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KI", nullptr));
         groupBox_7->setTitle(QCoreApplication::translate("Widget", "\344\275\215\347\275\256\347\216\257PID\345\217\202\346\225\260\346\225\264\345\256\232", nullptr));
         pushButton_10->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
         pushButton_11->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KD", nullptr));

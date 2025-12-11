@@ -74,7 +74,12 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         "onNewLog",
         "on_setUd_bt_clicked",
         "on_iqPID_kp_tb_clicked",
-        "on_speed_bt_clicked"
+        "on_speed_bt_clicked",
+        "on_setSpeedDir_bt_clicked",
+        "on_speedOut_bt_clicked",
+        "on_setSpeedTar_tb_clicked",
+        "on_speedPID_kp_tb_clicked",
+        "on_speedPID_ki_tb_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -160,6 +165,18 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         QtMocHelpers::SlotData<void(bool)>(34, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::Bool, 9 },
         }}),
+        // Slot 'on_setSpeedDir_bt_clicked'
+        QtMocHelpers::SlotData<void()>(35, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_speedOut_bt_clicked'
+        QtMocHelpers::SlotData<void(bool)>(36, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 9 },
+        }}),
+        // Slot 'on_setSpeedTar_tb_clicked'
+        QtMocHelpers::SlotData<void()>(37, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_speedPID_kp_tb_clicked'
+        QtMocHelpers::SlotData<void()>(38, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_speedPID_ki_tb_clicked'
+        QtMocHelpers::SlotData<void()>(39, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -211,6 +228,11 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 25: _t->on_setUd_bt_clicked(); break;
         case 26: _t->on_iqPID_kp_tb_clicked(); break;
         case 27: _t->on_speed_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 28: _t->on_setSpeedDir_bt_clicked(); break;
+        case 29: _t->on_speedOut_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 30: _t->on_setSpeedTar_tb_clicked(); break;
+        case 31: _t->on_speedPID_kp_tb_clicked(); break;
+        case 32: _t->on_speedPID_ki_tb_clicked(); break;
         default: ;
         }
     }
@@ -235,14 +257,14 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 28)
+        if (_id < 33)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 28;
+        _id -= 33;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 28)
+        if (_id < 33)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 28;
+        _id -= 33;
     }
     return _id;
 }

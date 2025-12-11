@@ -73,6 +73,12 @@ enum class CMD_TypeDef : uint8_t
 
     CMD_SPEED                   = 0x28,  ///< 开启速度打印
     CMD_SPEED_CLODE             = 0x29,  ///< 关闭速度打印
+    CMD_SETSPEEDDIR             = 0x30,  ///< 设置速度方向
+    CMD_SPEEDOUT                = 0x31,  ///< 打印速度
+    CMD_SPEEDOUT_CLOSE          = 0x32,  ///< 停止打印速度
+    CMD_SETSPEEDTAR             = 0x33,  ///< 设置速度期望
+    CMD_SETSPEEDPIDKP           = 0x34,  ///< 设置速度环KP
+    CMD_SETSPEEDPIDKI           = 0x35,  ///< 设置速度环KI
 };
 
 #endif // SERIALCOMMAND_H

@@ -120,6 +120,9 @@ Widget::Widget(QWidget *parent)
     // 添加速度打印
     plotManager->addGraph("speed", Qt::yellow);
 
+    // 添加速度环输出打印
+    plotManager->addGraph("speedOut", Qt::magenta);
+
     // 串口实时信号 → 动态追加数据到曲线
     connect(serialManager, &SerialManager::newmechanicalAngle, [=](float mechanicalAngle){
         plotManager->appendData("mechanicalAngle", mechanicalAngle);
@@ -166,6 +169,10 @@ Widget::Widget(QWidget *parent)
 
     connect(serialManager, &SerialManager::newSpeed, [=](float speed){
         plotManager->appendData("speed", speed);
+    });
+
+    connect(serialManager, &SerialManager::newSpeedOut, [=](float speedOut){
+        plotManager->appendData("speedOut", speedOut);
     });
 
 
@@ -295,6 +302,9 @@ void Widget::on_connectMotor_bt_clicked()
         ui->iqPID_kp_te->setPlainText(QString::number(serialManager->iqPID_kp));
         ui->iqPID_ki_te->setPlainText(QString::number(serialManager->iqPID_ki));
         ui->dcBus_te->setPlainText(QString::number(serialManager->dcVbus));
+        ui->setSpeedDir_te->setPlainText(QString::number(serialManager->speedDir));
+        ui->speedPID_kp_te->setPlainText(QString::number(serialManager->speedPID_kp));
+        ui->speedPID_ki_te->setPlainText(QString::number(serialManager->speedPID_ki));
     });
 }
 
@@ -810,5 +820,105 @@ void Widget::on_speed_bt_clicked(bool checked)
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_SPEED_CLODE, 0.0);
         qDebug() << "停止打印速度";
     }
+}
+
+
+void Widget::on_setSpeedDir_bt_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->setSpeedDir_te->toPlainText().trimmed();
+    bool ok = false;
+    int value = text.toInt(&ok);
+    float floatValue = static_cast<float>(value);
+
+    qDebug() << "设置速度方向";
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETSPEEDDIR, floatValue);
+}
+
+
+void Widget::on_speedOut_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    speedOut_Enabled = checked;
+
+    if (speedOut_Enabled) {
+        qDebug() << "打印速度输出";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_SPEEDOUT, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_SPEEDOUT_CLOSE, 0.0);
+        qDebug() << "停止打印速度输出";
+    }
+}
+
+
+void Widget::on_setSpeedTar_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->setSpeedTar_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置速度期望" << floatValue;
+    } else {
+        qDebug() << "设置速度期望失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETSPEEDTAR, floatValue);
+}
+
+
+void Widget::on_speedPID_kp_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->speedPID_kp_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置速度环KP" << floatValue;
+    } else {
+        qDebug() << "设置速度环KP失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETSPEEDPIDKP, floatValue);
+}
+
+
+void Widget::on_speedPID_ki_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->speedPID_ki_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置速度环KI" << floatValue;
+    } else {
+        qDebug() << "设置速度环KI失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETSPEEDPIDKI, floatValue);
 }
 

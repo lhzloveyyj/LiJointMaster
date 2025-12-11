@@ -84,6 +84,10 @@ public:
     float iqPID_kp;               // 电流环kp
     float iqPID_ki;               // 电流环ki
     float speed;                  // 速度
+    float speedDir;               // 速度方向
+    float speedOut;               // 速度环输出
+    float speedPID_kp;            // 速度环kp
+    float speedPID_ki;            // 速度环ki
     ///@}
 
 signals:
@@ -101,6 +105,7 @@ signals:
     void newIalpha_Ibeta(float Ialpha, float Ibeta); ///< 发射 αβ电流
     void newIqId(float Iq, float Id);             ///< 发射 dq电流
     void newSpeed(float speed);             ///< 发射 速度
+    void newSpeedOut(float speedOut);       // 发射速度环输出
 
 private slots:
     /**

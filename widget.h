@@ -80,6 +80,16 @@ private slots:
 
     void on_speed_bt_clicked(bool checked);
 
+    void on_setSpeedDir_bt_clicked();
+
+    void on_speedOut_bt_clicked(bool checked);
+
+    void on_setSpeedTar_tb_clicked();
+
+    void on_speedPID_kp_tb_clicked();
+
+    void on_speedPID_ki_tb_clicked();
+
 private:
     Ui::Widget *ui;              ///< 界面对象
 
@@ -101,6 +111,7 @@ private:
     bool IQ_ID_Enabled = false;            ///< Iq/Id 打印开关
     bool mostemp_Enabled = false;          ///< MOS温度打印开关
     bool speed_Enabled = false;
+    bool speedOut_Enabled = false;
 
     PlotManager *plotManager;               ///< 绘图管理对象
 };

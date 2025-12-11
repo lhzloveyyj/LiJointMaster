@@ -225,6 +225,9 @@ void SerialManager::readSerialData()
                 iqPID_kp      = values[3];
                 iqPID_ki      = values[4];
                 dcVbus        = values[5];
+                speedDir      = values[6];
+                speedPID_kp   = values[7];
+                speedPID_ki   = values[8];
                 qDebug() << "连接成功！";
                 emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR);
             }
@@ -321,6 +324,13 @@ void SerialManager::readSerialData()
             if (!values.isEmpty()) {
                 speed = values[0];
                 emit newSpeed(speed);
+            }
+            break;
+
+        case CMD_TypeDef::CMD_SPEEDOUT:
+            if (!values.isEmpty()) {
+                speedOut = values[0];
+                emit newSpeedOut(speedOut);
             }
             break;
 
