@@ -39,14 +39,14 @@ public:
     QPushButton *UAlpha_Beta_bt;
     QPushButton *speedOut_bt;
     QPushButton *IAlpha_Beta_bt;
-    QPushButton *pushButton_4;
+    QPushButton *local_bt;
     QPushButton *Uabc_bt;
     QPushButton *pushButton_8;
     QPushButton *mechanicalAngle_bt;
     QPushButton *SVPWM_bt;
     QPushButton *iq_id_bt;
     QPushButton *adc_bt;
-    QPushButton *pushButton_12;
+    QPushButton *localOut_bt;
     QGroupBox *groupBox_2;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
@@ -126,8 +126,8 @@ public:
     QTextEdit *setSpeedTar_te;
     QPushButton *setSpeedTar_tb;
     QHBoxLayout *horizontalLayout_3;
-    QTextEdit *textEdit_2;
-    QPushButton *pushButton_2;
+    QTextEdit *setLocalTar_te;
+    QPushButton *setLocalTar_tb;
     QGroupBox *groupBox_6;
     QWidget *layoutWidget8;
     QHBoxLayout *horizontalLayout_9;
@@ -248,17 +248,17 @@ public:
 
         gridLayout->addWidget(IAlpha_Beta_bt, 0, 2, 1, 1);
 
-        pushButton_4 = new QPushButton(groupBox);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
+        local_bt = new QPushButton(groupBox);
+        local_bt->setObjectName("local_bt");
+        local_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
 "    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
 "    color: black;                  /* \346\233\264\346\230\216\346\230\276 */\n"
 "    font-weight: bold;\n"
 "    border: 2px solid #27ae60;\n"
 "}"));
-        pushButton_4->setCheckable(true);
+        local_bt->setCheckable(true);
 
-        gridLayout->addWidget(pushButton_4, 3, 0, 1, 1);
+        gridLayout->addWidget(local_bt, 3, 0, 1, 1);
 
         Uabc_bt = new QPushButton(groupBox);
         Uabc_bt->setObjectName("Uabc_bt");
@@ -339,17 +339,17 @@ public:
 
         gridLayout->addWidget(adc_bt, 0, 1, 1, 1);
 
-        pushButton_12 = new QPushButton(groupBox);
-        pushButton_12->setObjectName("pushButton_12");
-        pushButton_12->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
+        localOut_bt = new QPushButton(groupBox);
+        localOut_bt->setObjectName("localOut_bt");
+        localOut_bt->setStyleSheet(QString::fromUtf8("QPushButton:checked {\n"
 "    background-color: #2ecc71;     /* \346\214\211\344\270\213\357\274\210checked\357\274\211\345\217\230\344\272\256\347\273\277\350\211\262 */\n"
 "    color: black;                  /* \346\233\264\346\230\216\346\230\276 */\n"
 "    font-weight: bold;\n"
 "    border: 2px solid #27ae60;\n"
 "}"));
-        pushButton_12->setCheckable(true);
+        localOut_bt->setCheckable(true);
 
-        gridLayout->addWidget(pushButton_12, 4, 0, 1, 1);
+        gridLayout->addWidget(localOut_bt, 4, 0, 1, 1);
 
         groupBox_2 = new QGroupBox(Widget);
         groupBox_2->setObjectName("groupBox_2");
@@ -776,17 +776,17 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        textEdit_2 = new QTextEdit(groupBox_4);
-        textEdit_2->setObjectName("textEdit_2");
-        textEdit_2->setMaximumSize(QSize(80, 25));
+        setLocalTar_te = new QTextEdit(groupBox_4);
+        setLocalTar_te->setObjectName("setLocalTar_te");
+        setLocalTar_te->setMaximumSize(QSize(80, 25));
 
-        horizontalLayout_3->addWidget(textEdit_2);
+        horizontalLayout_3->addWidget(setLocalTar_te);
 
-        pushButton_2 = new QPushButton(groupBox_4);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setMaximumSize(QSize(80, 25));
+        setLocalTar_tb = new QPushButton(groupBox_4);
+        setLocalTar_tb->setObjectName("setLocalTar_tb");
+        setLocalTar_tb->setMaximumSize(QSize(80, 25));
 
-        horizontalLayout_3->addWidget(pushButton_2);
+        horizontalLayout_3->addWidget(setLocalTar_tb);
 
 
         verticalLayout_2->addLayout(horizontalLayout_3);
@@ -1017,14 +1017,14 @@ public:
         UAlpha_Beta_bt->setText(QCoreApplication::translate("Widget", "UAlpha_Beta", nullptr));
         speedOut_bt->setText(QCoreApplication::translate("Widget", "\351\200\237\345\272\246\347\216\257\350\276\223\345\207\272", nullptr));
         IAlpha_Beta_bt->setText(QCoreApplication::translate("Widget", "IAlpha_Beta", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("Widget", "\344\275\215\347\275\256", nullptr));
+        local_bt->setText(QCoreApplication::translate("Widget", "\344\275\215\347\275\256", nullptr));
         Uabc_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270\347\224\265\345\216\213\346\233\262\347\272\277", nullptr));
         pushButton_8->setText(QCoreApplication::translate("Widget", "\347\224\265\346\265\201\347\216\257\350\276\223\345\207\272", nullptr));
         mechanicalAngle_bt->setText(QCoreApplication::translate("Widget", "\346\234\272\346\242\260\350\247\222\345\272\246", nullptr));
         SVPWM_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270SVPWM", nullptr));
         iq_id_bt->setText(QCoreApplication::translate("Widget", "IQ_ID", nullptr));
         adc_bt->setText(QCoreApplication::translate("Widget", "\344\270\211\347\233\270ADC", nullptr));
-        pushButton_12->setText(QCoreApplication::translate("Widget", "\344\275\215\347\275\256\347\216\257\350\276\223\345\207\272", nullptr));
+        localOut_bt->setText(QCoreApplication::translate("Widget", "\344\275\215\347\275\256\347\216\257\350\276\223\345\207\272", nullptr));
         groupBox_2->setTitle(QString());
         label_2->setText(QString());
         label->setText(QCoreApplication::translate("Widget", "\344\270\262\345\217\243\351\205\215\347\275\256", nullptr));
@@ -1084,7 +1084,7 @@ public:
         setIQ_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256Iq", nullptr));
         setID_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256Id", nullptr));
         setSpeedTar_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\351\200\237\345\272\246", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\344\275\215\347\275\256", nullptr));
+        setLocalTar_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256\344\275\215\347\275\256", nullptr));
         groupBox_6->setTitle(QString());
         label_12->setText(QCoreApplication::translate("Widget", "LiJointMaster", nullptr));
         DevMsg_bt->setText(QCoreApplication::translate("Widget", "\345\274\200\345\217\221\350\200\205\347\225\231\350\250\200", nullptr));

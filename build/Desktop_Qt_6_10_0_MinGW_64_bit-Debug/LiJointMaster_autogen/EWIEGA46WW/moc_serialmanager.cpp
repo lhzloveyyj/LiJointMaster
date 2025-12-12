@@ -79,6 +79,10 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         "speed",
         "newSpeedOut",
         "speedOut",
+        "newLocal",
+        "local",
+        "newLocalOut",
+        "localOut",
         "readSerialData"
     };
 
@@ -137,8 +141,16 @@ template <> constexpr inline auto SerialManager::qt_create_metaobjectdata<qt_met
         QtMocHelpers::SignalData<void(float)>(39, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::Float, 40 },
         }}),
+        // Signal 'newLocal'
+        QtMocHelpers::SignalData<void(float)>(41, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 42 },
+        }}),
+        // Signal 'newLocalOut'
+        QtMocHelpers::SignalData<void(float)>(43, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 44 },
+        }}),
         // Slot 'readSerialData'
-        QtMocHelpers::SlotData<void()>(41, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(45, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -177,7 +189,9 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 12: _t->newIqId((*reinterpret_cast<std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<float>>(_a[2]))); break;
         case 13: _t->newSpeed((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
         case 14: _t->newSpeedOut((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
-        case 15: _t->readSerialData(); break;
+        case 15: _t->newLocal((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
+        case 16: _t->newLocalOut((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
+        case 17: _t->readSerialData(); break;
         default: ;
         }
     }
@@ -212,6 +226,10 @@ void SerialManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             return;
         if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float )>(_a, &SerialManager::newSpeedOut, 14))
             return;
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float )>(_a, &SerialManager::newLocal, 15))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (SerialManager::*)(float )>(_a, &SerialManager::newLocalOut, 16))
+            return;
     }
 }
 
@@ -234,14 +252,14 @@ int SerialManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 18;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 18)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 16;
+        _id -= 18;
     }
     return _id;
 }
@@ -334,5 +352,17 @@ void SerialManager::newSpeed(float _t1)
 void SerialManager::newSpeedOut(float _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 14, nullptr, _t1);
+}
+
+// SIGNAL 15
+void SerialManager::newLocal(float _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 15, nullptr, _t1);
+}
+
+// SIGNAL 16
+void SerialManager::newLocalOut(float _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 16, nullptr, _t1);
 }
 QT_WARNING_POP

@@ -123,6 +123,12 @@ Widget::Widget(QWidget *parent)
     // 添加速度环输出打印
     plotManager->addGraph("speedOut", Qt::magenta);
 
+    // 添加位置打印
+    plotManager->addGraph("local", Qt::blue);
+
+    // 添加位置环输出打印
+    plotManager->addGraph("localOut", Qt::yellow);
+
     // 串口实时信号 → 动态追加数据到曲线
     connect(serialManager, &SerialManager::newmechanicalAngle, [=](float mechanicalAngle){
         plotManager->appendData("mechanicalAngle", mechanicalAngle);
@@ -175,6 +181,13 @@ Widget::Widget(QWidget *parent)
         plotManager->appendData("speedOut", speedOut);
     });
 
+    connect(serialManager, &SerialManager::newLocal, [=](float local){
+        plotManager->appendData("local", local);
+    });
+
+    connect(serialManager, &SerialManager::newLocalOut, [=](float localOut){
+        plotManager->appendData("localOut", localOut);
+    });
 
     /* ============================= X 轴范围滑条 ============================= */
     connect(ui->x_Axis_sd, &QSlider::valueChanged, this, [this](int value){
@@ -941,5 +954,64 @@ void Widget::on_iqPID_ki_tb_clicked()
     }
 
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETIQPIDKI, floatValue);
+}
+
+
+void Widget::on_setLocalTar_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->setLocalTar_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置位置期望" << floatValue;
+    } else {
+        qDebug() << "设置位置期望失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETLOCALTAR, floatValue);
+}
+
+
+void Widget::on_local_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    local_Enabled = checked;
+
+    if (local_Enabled) {
+        qDebug() << "打印位置";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_LOCAL, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_LOCAL_CLOSE, 0.0);
+        qDebug() << "停止打印位置";
+    }
+}
+
+
+void Widget::on_localOut_bt_clicked(bool checked)
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    localOut_Enabled = checked;
+
+    if (localOut_Enabled) {
+        qDebug() << "打印位置环输出";
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_LOCALOUT, 0.0);
+    } else {
+        serialManager->sendFloatCommand(CMD_TypeDef::CMD_LOCALOUT_CLOSE, 0.0);
+        qDebug() << "停止打印位置环输出";
+    }
 }
 

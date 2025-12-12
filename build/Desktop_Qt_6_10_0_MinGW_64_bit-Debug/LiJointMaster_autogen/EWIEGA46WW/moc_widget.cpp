@@ -80,7 +80,10 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         "on_setSpeedTar_tb_clicked",
         "on_speedPID_kp_tb_clicked",
         "on_speedPID_ki_tb_clicked",
-        "on_iqPID_ki_tb_clicked"
+        "on_iqPID_ki_tb_clicked",
+        "on_setLocalTar_tb_clicked",
+        "on_local_bt_clicked",
+        "on_localOut_bt_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -180,6 +183,16 @@ template <> constexpr inline auto Widget::qt_create_metaobjectdata<qt_meta_tag_Z
         QtMocHelpers::SlotData<void()>(39, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_iqPID_ki_tb_clicked'
         QtMocHelpers::SlotData<void()>(40, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_setLocalTar_tb_clicked'
+        QtMocHelpers::SlotData<void()>(41, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_local_bt_clicked'
+        QtMocHelpers::SlotData<void(bool)>(42, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 9 },
+        }}),
+        // Slot 'on_localOut_bt_clicked'
+        QtMocHelpers::SlotData<void(bool)>(43, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 9 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -237,6 +250,9 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 31: _t->on_speedPID_kp_tb_clicked(); break;
         case 32: _t->on_speedPID_ki_tb_clicked(); break;
         case 33: _t->on_iqPID_ki_tb_clicked(); break;
+        case 34: _t->on_setLocalTar_tb_clicked(); break;
+        case 35: _t->on_local_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 36: _t->on_localOut_bt_clicked((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
         default: ;
         }
     }
@@ -261,14 +277,14 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 34)
+        if (_id < 37)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 34;
+        _id -= 37;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 34)
+        if (_id < 37)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 34;
+        _id -= 37;
     }
     return _id;
 }

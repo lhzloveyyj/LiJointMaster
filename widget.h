@@ -92,6 +92,12 @@ private slots:
 
     void on_iqPID_ki_tb_clicked();
 
+    void on_setLocalTar_tb_clicked();
+
+    void on_local_bt_clicked(bool checked);
+
+    void on_localOut_bt_clicked(bool checked);
+
 private:
     Ui::Widget *ui;              ///< 界面对象
 
@@ -114,6 +120,8 @@ private:
     bool mostemp_Enabled = false;          ///< MOS温度打印开关
     bool speed_Enabled = false;
     bool speedOut_Enabled = false;
+    bool local_Enabled = false;
+    bool localOut_Enabled = false;
 
     PlotManager *plotManager;               ///< 绘图管理对象
 };

@@ -346,6 +346,20 @@ void SerialManager::readSerialData()
             }
             break;
 
+        case CMD_TypeDef::CMD_LOCAL:
+            if (!values.isEmpty()) {
+                local = values[0];
+                emit newLocal(local);
+            }
+            break;
+
+        case CMD_TypeDef::CMD_LOCALOUT:
+            if (!values.isEmpty()) {
+                localOut = values[0];
+                emit newLocalOut(localOut);
+            }
+            break;
+
         default:
             qWarning() << "Unknown CMD:" << cmd << "Values:" << values;
             break;

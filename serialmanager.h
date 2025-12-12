@@ -88,6 +88,8 @@ public:
     float speedOut;               // 速度环输出
     float speedPID_kp;            // 速度环kp
     float speedPID_ki;            // 速度环ki
+    float local;                  // 位置
+    float localOut;               // 位置环输出
     ///@}
 
 signals:
@@ -106,6 +108,8 @@ signals:
     void newIqId(float Iq, float Id);             ///< 发射 dq电流
     void newSpeed(float speed);             ///< 发射 速度
     void newSpeedOut(float speedOut);       // 发射速度环输出
+    void newLocal(float local);          // 发射位置
+    void newLocalOut(float localOut);       // 发射位置环输出
 
 private slots:
     /**
