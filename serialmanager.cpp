@@ -228,6 +228,18 @@ void SerialManager::readSerialData()
                 speedDir      = values[6];
                 speedPID_kp   = values[7];
                 speedPID_ki   = values[8];
+
+                qDebug() << "getPairs     =" << getPairs;
+                qDebug() << "dir          =" << dir;
+                qDebug() << "g_zeroOffset =" << g_zeroOffset;
+                qDebug() << "iqPID_kp     =" << iqPID_kp;
+                qDebug() << "iqPID_ki     =" << iqPID_ki;
+                qDebug() << "dcVbus       =" << dcVbus;
+                qDebug() << "speedDir     =" << speedDir;
+                qDebug() << "speedPID_kp  =" << speedPID_kp;
+                qDebug() << "speedPID_ki  =" << speedPID_ki;
+
+
                 qDebug() << "连接成功！";
                 emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR);
             }

@@ -90,6 +90,8 @@ private slots:
 
     void on_speedPID_ki_tb_clicked();
 
+    void on_iqPID_ki_tb_clicked();
+
 private:
     Ui::Widget *ui;              ///< 界面对象
 

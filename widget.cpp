@@ -922,3 +922,24 @@ void Widget::on_speedPID_ki_tb_clicked()
     serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETSPEEDPIDKI, floatValue);
 }
 
+
+void Widget::on_iqPID_ki_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->iqPID_ki_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置电流环KI" << floatValue;
+    } else {
+        qDebug() << "设置电流环KI失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETIQPIDKI, floatValue);
+}
+
