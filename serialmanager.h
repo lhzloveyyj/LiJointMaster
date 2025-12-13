@@ -90,6 +90,11 @@ public:
     float speedPID_ki;            // 速度环ki
     float local;                  // 位置
     float localOut;               // 位置环输出
+    float localPID_kp;            // 位置环KP
+    float localPID_kd;            // 位置环KD
+    float iqPID_outMax;           // 电流环输出限制
+    float speedPID_outMax;        // 速度环输出限制
+    float localPID_outMax;        // 位置环输出限制
     ///@}
 
 signals:

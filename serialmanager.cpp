@@ -176,49 +176,83 @@ float bytesToFloat(const QByteArray &data, int index)
 void SerialManager::readSerialData()
 {
     QByteArray data = serialPort->readAll();
-    rxBuffer.append(data); // 缓存数据
+    if (data.isEmpty())
+        return;
+
+    rxBuffer.append(data);
+
+    constexpr int MAX_PAYLOAD_LEN = 128;   // 最大 16 个 float，自行调整
 
     while (rxBuffer.size() >= 5)
     {
-        // 1️⃣ 查找帧头
-        int headIndex = rxBuffer.indexOf(char(0xA5));
+        // 1️⃣ 找帧头
+        int headIndex = rxBuffer.indexOf(char(FRAME_HEAD));
         if (headIndex < 0) {
-            rxBuffer.clear();
+            // 只保留最后 1 个字节，防止帧头被截断
+            rxBuffer.remove(0, rxBuffer.size() - 1);
             return;
         }
 
-        // 2️⃣ 不够一个最小帧则等待
+        // 2️⃣ 不够最小帧长度
         if (rxBuffer.size() - headIndex < 5)
             return;
 
-        // 3️⃣ 获取数据长度并计算帧总长度
+        // 3️⃣ 读取长度
         uint8_t len = uint8_t(rxBuffer[headIndex + 2]);
+
+        // 长度合法性校验
+        if (len == 0 || len > MAX_PAYLOAD_LEN || (len % 4) != 0) {
+            rxBuffer.remove(0, headIndex + 1);
+            continue;
+        }
+
         int frameSize = 5 + len;
 
-        // 4️⃣ 如果缓存不够完整帧，等待下一次
+        // 4️⃣ 缓冲区不够一整帧
         if (rxBuffer.size() - headIndex < frameSize)
             return;
 
-        // 5️⃣ 截取一帧数据
+        // 5️⃣ 取出完整帧
         QByteArray frame = rxBuffer.mid(headIndex, frameSize);
+
+        // 6️⃣ 校验帧尾
+        if (uint8_t(frame[frameSize - 1]) != FRAME_TAIL) {
+            rxBuffer.remove(0, headIndex + 1);
+            continue;
+        }
+
+        // 7️⃣ 校验和
+        uint8_t checksum = 0;
+        for (int i = 0; i < frameSize - 2; i++)
+            checksum += uint8_t(frame[i]);
+
+        if (checksum != uint8_t(frame[frameSize - 2])) {
+            rxBuffer.remove(0, headIndex + 1);
+            continue;
+        }
+
+        // ✅ 到这里，帧 100% 正确
         rxBuffer.remove(0, headIndex + frameSize);
+
+        // ================== 解析数据 ==================
 
         uint8_t cmd = uint8_t(frame[1]);
         QByteArray dataBytes = frame.mid(3, len);
 
-        // 6️⃣ 将数据按 float 拆分
         int floatCount = len / 4;
         QVector<float> values;
+        values.reserve(floatCount);
+
         for (int i = 0; i < floatCount; i++) {
             float v = bytesToFloat(dataBytes, i * 4);
             values.append(v);
         }
 
-        // 7️⃣ 根据命令处理数据
+        // ================== 分发命令 ==================
         switch (CMD_TypeDef(cmd)) {
 
         case CMD_TypeDef::CMD_CONNECT_MOTOR:
-            if (!values.isEmpty()) {
+            if (values.size() >= 9) {
                 getPairs      = int(values[0]);
                 dir           = int(values[1]);
                 g_zeroOffset  = values[2];
@@ -228,40 +262,33 @@ void SerialManager::readSerialData()
                 speedDir      = values[6];
                 speedPID_kp   = values[7];
                 speedPID_ki   = values[8];
+                localPID_kp   = values[9];
+                localPID_kd   = values[10];
+                iqPID_outMax  = values[11];
+                speedPID_outMax = values[12];
+                localPID_outMax = values[13];
 
-                qDebug() << "getPairs     =" << getPairs;
-                qDebug() << "dir          =" << dir;
-                qDebug() << "g_zeroOffset =" << g_zeroOffset;
-                qDebug() << "iqPID_kp     =" << iqPID_kp;
-                qDebug() << "iqPID_ki     =" << iqPID_ki;
-                qDebug() << "dcVbus       =" << dcVbus;
-                qDebug() << "speedDir     =" << speedDir;
-                qDebug() << "speedPID_kp  =" << speedPID_kp;
-                qDebug() << "speedPID_ki  =" << speedPID_ki;
-
-
-                qDebug() << "连接成功！";
                 emit commandParsed(CMD_TypeDef::CMD_CONNECT_MOTOR);
             }
             break;
 
         case CMD_TypeDef::CMD_MECHANICALANGLE:
-            if (!values.isEmpty()) {
+            if (values.size() >= 1) {
                 mechanicalAngle = values[0];
                 emit newmechanicalAngle(mechanicalAngle);
             }
             break;
 
         case CMD_TypeDef::CMD_ZEROCALIBRATIO_OVER:
-            if (!values.isEmpty()) {
-                g_zeroOffset           = values[0];
-                g_correctedElecAngle   = values[1];
+            if (values.size() >= 2) {
+                g_zeroOffset         = values[0];
+                g_correctedElecAngle = values[1];
+                emit zeroCalibrationFinished();
             }
-            emit zeroCalibrationFinished();
             break;
 
         case CMD_TypeDef::CMD_UABC:
-            if (!values.isEmpty()) {
+            if (values.size() >= 3) {
                 Ua = values[0];
                 Ub = values[1];
                 Uc = values[2];
@@ -270,7 +297,7 @@ void SerialManager::readSerialData()
             break;
 
         case CMD_TypeDef::CMD_ADC:
-            if (!values.isEmpty()) {
+            if (values.size() >= 3) {
                 ADC1 = values[0];
                 ADC2 = values[1];
                 ADC3 = values[2];
@@ -279,13 +306,13 @@ void SerialManager::readSerialData()
             break;
 
         case CMD_TypeDef::CMD_DCVBUS:
-            if (!values.isEmpty()) {
+            if (values.size() >= 1) {
                 dcVbus = values[0];
             }
             break;
 
         case CMD_TypeDef::CMD_TABC:
-            if (!values.isEmpty()) {
+            if (values.size() >= 3) {
                 Ta = values[0];
                 Tb = values[1];
                 Tc = values[2];
@@ -294,7 +321,7 @@ void SerialManager::readSerialData()
             break;
 
         case CMD_TypeDef::CMD_IABC:
-            if (!values.isEmpty()) {
+            if (values.size() >= 3) {
                 Ia = values[0];
                 Ib = values[1];
                 Ic = values[2];
@@ -303,7 +330,7 @@ void SerialManager::readSerialData()
             break;
 
         case CMD_TypeDef::CMD_UALPHA_BETA:
-            if (!values.isEmpty()) {
+            if (values.size() >= 2) {
                 Ualpha = values[0];
                 Ubeta  = values[1];
                 emit newUalpha_Ubeta(Ualpha, Ubeta);
@@ -311,7 +338,7 @@ void SerialManager::readSerialData()
             break;
 
         case CMD_TypeDef::CMD_IALPHA_BETA:
-            if (!values.isEmpty()) {
+            if (values.size() >= 2) {
                 Ialpha = values[0];
                 Ibeta  = values[1];
                 emit newIalpha_Ibeta(Ialpha, Ibeta);
@@ -319,7 +346,7 @@ void SerialManager::readSerialData()
             break;
 
         case CMD_TypeDef::CMD_IQ_ID:
-            if (!values.isEmpty()) {
+            if (values.size() >= 2) {
                 Iq = values[0];
                 Id = values[1];
                 emit newIqId(Iq, Id);
@@ -327,42 +354,44 @@ void SerialManager::readSerialData()
             break;
 
         case CMD_TypeDef::CMD_MOSTEMP:
-            if (!values.isEmpty()) {
+            if (values.size() >= 1) {
                 mosTemp = values[0];
             }
             break;
 
         case CMD_TypeDef::CMD_SPEED:
-            if (!values.isEmpty()) {
+            if (values.size() >= 1) {
                 speed = values[0];
                 emit newSpeed(speed);
             }
             break;
 
         case CMD_TypeDef::CMD_SPEEDOUT:
-            if (!values.isEmpty()) {
+            if (values.size() >= 1) {
                 speedOut = values[0];
                 emit newSpeedOut(speedOut);
             }
             break;
 
         case CMD_TypeDef::CMD_LOCAL:
-            if (!values.isEmpty()) {
+            if (values.size() >= 1) {
                 local = values[0];
                 emit newLocal(local);
             }
             break;
 
         case CMD_TypeDef::CMD_LOCALOUT:
-            if (!values.isEmpty()) {
+            if (values.size() >= 1) {
                 localOut = values[0];
                 emit newLocalOut(localOut);
             }
             break;
 
         default:
-            qWarning() << "Unknown CMD:" << cmd << "Values:" << values;
+            qWarning() << "Unknown CMD:" << cmd;
             break;
         }
     }
 }
+
+

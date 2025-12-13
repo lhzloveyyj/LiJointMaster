@@ -142,35 +142,38 @@ public:
     QHBoxLayout *horizontalLayout_18;
     QLabel *label_13;
     QComboBox *ctrolMode_ComboBox;
-    QGroupBox *groupBox_8;
-    QTextBrowser *log_txt;
-    QWidget *layoutWidget11;
-    QHBoxLayout *horizontalLayout_5;
     QGroupBox *groupBox_5;
     QGridLayout *gridLayout_2;
     QTextEdit *iqPID_kp_te;
     QPushButton *iqPID_kp_tb;
     QTextEdit *iqPID_ki_te;
     QPushButton *iqPID_ki_tb;
+    QTextEdit *iqPID_out_te;
+    QPushButton *iqPID_out_tb;
     QGroupBox *groupBox_9;
     QGridLayout *gridLayout_3;
     QTextEdit *speedPID_kp_te;
     QPushButton *speedPID_kp_tb;
     QTextEdit *speedPID_ki_te;
     QPushButton *speedPID_ki_tb;
+    QTextEdit *speedPID_out_te;
+    QPushButton *speedPID_out_tb;
     QGroupBox *groupBox_7;
-    QGridLayout *gridLayout_5;
-    QTextEdit *textEdit_8;
-    QPushButton *pushButton_10;
-    QTextEdit *textEdit_9;
-    QPushButton *pushButton_11;
-    QGroupBox *groupBox_10;
+    QGridLayout *gridLayout_4;
+    QTextEdit *localPID_kp_te;
+    QPushButton *localPID_kp_tb;
+    QTextEdit *localPID_kd_te;
+    QPushButton *localPID_kd_tb;
+    QTextEdit *localPID_out_te;
+    QPushButton *localPID_out_tb;
+    QGroupBox *groupBox_8;
+    QTextBrowser *log_txt;
 
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName("Widget");
-        Widget->resize(1300, 770);
+        Widget->resize(1285, 770);
         plotWidget = new QCustomPlot(Widget);
         plotWidget->setObjectName("plotWidget");
         plotWidget->setGeometry(QRect(170, 50, 1111, 461));
@@ -181,7 +184,7 @@ public:
         x_Axis_sd->setOrientation(Qt::Orientation::Horizontal);
         groupBox = new QGroupBox(Widget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(170, 570, 301, 191));
+        groupBox->setGeometry(QRect(170, 570, 301, 201));
         QFont font;
         font.setPointSize(9);
         groupBox->setFont(font);
@@ -502,7 +505,7 @@ public:
 
         groupBox_3 = new QGroupBox(Widget);
         groupBox_3->setObjectName("groupBox_3");
-        groupBox_3->setGeometry(QRect(10, 310, 151, 451));
+        groupBox_3->setGeometry(QRect(10, 310, 151, 461));
         layoutWidget1 = new QWidget(groupBox_3);
         layoutWidget1->setObjectName("layoutWidget1");
         layoutWidget1->setGeometry(QRect(11, 11, 102, 32));
@@ -686,7 +689,7 @@ public:
         zeroOffset_bt->setGeometry(QRect(20, 80, 80, 23));
         groupBox_4 = new QGroupBox(Widget);
         groupBox_4->setObjectName("groupBox_4");
-        groupBox_4->setGeometry(QRect(480, 530, 192, 234));
+        groupBox_4->setGeometry(QRect(480, 530, 192, 241));
         verticalLayout_2 = new QVBoxLayout(groupBox_4);
         verticalLayout_2->setObjectName("verticalLayout_2");
         horizontalLayout_14 = new QHBoxLayout();
@@ -890,25 +893,14 @@ public:
 
         horizontalLayout_18->addWidget(ctrolMode_ComboBox);
 
-        groupBox_8 = new QGroupBox(Widget);
-        groupBox_8->setObjectName("groupBox_8");
-        groupBox_8->setGeometry(QRect(880, 640, 391, 121));
-        log_txt = new QTextBrowser(groupBox_8);
-        log_txt->setObjectName("log_txt");
-        log_txt->setGeometry(QRect(10, 20, 371, 91));
-        layoutWidget11 = new QWidget(Widget);
-        layoutWidget11->setObjectName("layoutWidget11");
-        layoutWidget11->setGeometry(QRect(680, 530, 584, 110));
-        horizontalLayout_5 = new QHBoxLayout(layoutWidget11);
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
-        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        groupBox_5 = new QGroupBox(layoutWidget11);
+        groupBox_5 = new QGroupBox(Widget);
         groupBox_5->setObjectName("groupBox_5");
+        groupBox_5->setGeometry(QRect(680, 530, 190, 131));
         gridLayout_2 = new QGridLayout(groupBox_5);
         gridLayout_2->setObjectName("gridLayout_2");
         iqPID_kp_te = new QTextEdit(groupBox_5);
         iqPID_kp_te->setObjectName("iqPID_kp_te");
-        iqPID_kp_te->setMaximumSize(QSize(80, 30));
+        iqPID_kp_te->setMaximumSize(QSize(80, 25));
 
         gridLayout_2->addWidget(iqPID_kp_te, 0, 0, 1, 1);
 
@@ -920,7 +912,7 @@ public:
 
         iqPID_ki_te = new QTextEdit(groupBox_5);
         iqPID_ki_te->setObjectName("iqPID_ki_te");
-        iqPID_ki_te->setMaximumSize(QSize(80, 30));
+        iqPID_ki_te->setMaximumSize(QSize(80, 25));
 
         gridLayout_2->addWidget(iqPID_ki_te, 1, 0, 1, 1);
 
@@ -930,16 +922,26 @@ public:
 
         gridLayout_2->addWidget(iqPID_ki_tb, 1, 1, 1, 1);
 
+        iqPID_out_te = new QTextEdit(groupBox_5);
+        iqPID_out_te->setObjectName("iqPID_out_te");
+        iqPID_out_te->setMaximumSize(QSize(80, 25));
 
-        horizontalLayout_5->addWidget(groupBox_5);
+        gridLayout_2->addWidget(iqPID_out_te, 2, 0, 1, 1);
 
-        groupBox_9 = new QGroupBox(layoutWidget11);
+        iqPID_out_tb = new QPushButton(groupBox_5);
+        iqPID_out_tb->setObjectName("iqPID_out_tb");
+        iqPID_out_tb->setMaximumSize(QSize(80, 30));
+
+        gridLayout_2->addWidget(iqPID_out_tb, 2, 1, 1, 1);
+
+        groupBox_9 = new QGroupBox(Widget);
         groupBox_9->setObjectName("groupBox_9");
+        groupBox_9->setGeometry(QRect(880, 530, 190, 129));
         gridLayout_3 = new QGridLayout(groupBox_9);
         gridLayout_3->setObjectName("gridLayout_3");
         speedPID_kp_te = new QTextEdit(groupBox_9);
         speedPID_kp_te->setObjectName("speedPID_kp_te");
-        speedPID_kp_te->setMaximumSize(QSize(80, 30));
+        speedPID_kp_te->setMaximumSize(QSize(80, 25));
 
         gridLayout_3->addWidget(speedPID_kp_te, 0, 0, 1, 1);
 
@@ -951,7 +953,7 @@ public:
 
         speedPID_ki_te = new QTextEdit(groupBox_9);
         speedPID_ki_te->setObjectName("speedPID_ki_te");
-        speedPID_ki_te->setMaximumSize(QSize(80, 30));
+        speedPID_ki_te->setMaximumSize(QSize(80, 25));
 
         gridLayout_3->addWidget(speedPID_ki_te, 1, 0, 1, 1);
 
@@ -961,43 +963,64 @@ public:
 
         gridLayout_3->addWidget(speedPID_ki_tb, 1, 1, 1, 1);
 
+        speedPID_out_te = new QTextEdit(groupBox_9);
+        speedPID_out_te->setObjectName("speedPID_out_te");
+        speedPID_out_te->setMaximumSize(QSize(80, 25));
 
-        horizontalLayout_5->addWidget(groupBox_9);
+        gridLayout_3->addWidget(speedPID_out_te, 2, 0, 1, 1);
 
-        groupBox_7 = new QGroupBox(layoutWidget11);
+        speedPID_out_tb = new QPushButton(groupBox_9);
+        speedPID_out_tb->setObjectName("speedPID_out_tb");
+
+        gridLayout_3->addWidget(speedPID_out_tb, 2, 1, 1, 1);
+
+        groupBox_7 = new QGroupBox(Widget);
         groupBox_7->setObjectName("groupBox_7");
-        gridLayout_5 = new QGridLayout(groupBox_7);
-        gridLayout_5->setObjectName("gridLayout_5");
-        textEdit_8 = new QTextEdit(groupBox_7);
-        textEdit_8->setObjectName("textEdit_8");
-        textEdit_8->setMaximumSize(QSize(80, 30));
+        groupBox_7->setGeometry(QRect(1080, 530, 190, 129));
+        gridLayout_4 = new QGridLayout(groupBox_7);
+        gridLayout_4->setObjectName("gridLayout_4");
+        localPID_kp_te = new QTextEdit(groupBox_7);
+        localPID_kp_te->setObjectName("localPID_kp_te");
+        localPID_kp_te->setMaximumSize(QSize(80, 25));
 
-        gridLayout_5->addWidget(textEdit_8, 0, 0, 1, 1);
+        gridLayout_4->addWidget(localPID_kp_te, 0, 0, 1, 1);
 
-        pushButton_10 = new QPushButton(groupBox_7);
-        pushButton_10->setObjectName("pushButton_10");
-        pushButton_10->setMaximumSize(QSize(80, 30));
+        localPID_kp_tb = new QPushButton(groupBox_7);
+        localPID_kp_tb->setObjectName("localPID_kp_tb");
+        localPID_kp_tb->setMaximumSize(QSize(80, 30));
 
-        gridLayout_5->addWidget(pushButton_10, 0, 1, 1, 1);
+        gridLayout_4->addWidget(localPID_kp_tb, 0, 1, 1, 1);
 
-        textEdit_9 = new QTextEdit(groupBox_7);
-        textEdit_9->setObjectName("textEdit_9");
-        textEdit_9->setMaximumSize(QSize(80, 30));
+        localPID_kd_te = new QTextEdit(groupBox_7);
+        localPID_kd_te->setObjectName("localPID_kd_te");
+        localPID_kd_te->setMaximumSize(QSize(80, 25));
 
-        gridLayout_5->addWidget(textEdit_9, 1, 0, 1, 1);
+        gridLayout_4->addWidget(localPID_kd_te, 1, 0, 1, 1);
 
-        pushButton_11 = new QPushButton(groupBox_7);
-        pushButton_11->setObjectName("pushButton_11");
-        pushButton_11->setMaximumSize(QSize(80, 30));
+        localPID_kd_tb = new QPushButton(groupBox_7);
+        localPID_kd_tb->setObjectName("localPID_kd_tb");
+        localPID_kd_tb->setMaximumSize(QSize(80, 30));
 
-        gridLayout_5->addWidget(pushButton_11, 1, 1, 1, 1);
+        gridLayout_4->addWidget(localPID_kd_tb, 1, 1, 1, 1);
 
+        localPID_out_te = new QTextEdit(groupBox_7);
+        localPID_out_te->setObjectName("localPID_out_te");
+        localPID_out_te->setMaximumSize(QSize(80, 25));
 
-        horizontalLayout_5->addWidget(groupBox_7);
+        gridLayout_4->addWidget(localPID_out_te, 2, 0, 1, 1);
 
-        groupBox_10 = new QGroupBox(Widget);
-        groupBox_10->setObjectName("groupBox_10");
-        groupBox_10->setGeometry(QRect(680, 639, 191, 121));
+        localPID_out_tb = new QPushButton(groupBox_7);
+        localPID_out_tb->setObjectName("localPID_out_tb");
+        localPID_out_tb->setMaximumSize(QSize(80, 30));
+
+        gridLayout_4->addWidget(localPID_out_tb, 2, 1, 1, 1);
+
+        groupBox_8 = new QGroupBox(Widget);
+        groupBox_8->setObjectName("groupBox_8");
+        groupBox_8->setGeometry(QRect(680, 660, 591, 111));
+        log_txt = new QTextBrowser(groupBox_8);
+        log_txt->setObjectName("log_txt");
+        log_txt->setGeometry(QRect(10, 20, 571, 81));
 
         retranslateUi(Widget);
 
@@ -1097,17 +1120,19 @@ public:
         ctrolMode_ComboBox->setItemText(2, QCoreApplication::translate("Widget", "\351\200\237\345\272\246-\345\212\233\347\237\251\346\216\247\345\210\266", nullptr));
         ctrolMode_ComboBox->setItemText(3, QCoreApplication::translate("Widget", "\344\275\215\347\275\256-\351\200\237\345\272\246-\345\212\233\347\237\251\346\216\247\345\210\266", nullptr));
 
-        groupBox_8->setTitle(QCoreApplication::translate("Widget", "LOG\344\277\241\346\201\257", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("Widget", "\347\224\265\346\265\201\347\216\257PID\345\217\202\346\225\260\346\225\264\345\256\232", nullptr));
         iqPID_kp_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
         iqPID_ki_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KI", nullptr));
+        iqPID_out_tb->setText(QCoreApplication::translate("Widget", "\350\276\223\345\207\272\351\231\220\345\210\266", nullptr));
         groupBox_9->setTitle(QCoreApplication::translate("Widget", "\351\200\237\345\272\246\347\216\257PID\345\217\202\346\225\260\346\225\264\345\256\232", nullptr));
         speedPID_kp_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
         speedPID_ki_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KI", nullptr));
+        speedPID_out_tb->setText(QCoreApplication::translate("Widget", "\350\276\223\345\207\272\351\231\220\345\210\266", nullptr));
         groupBox_7->setTitle(QCoreApplication::translate("Widget", "\344\275\215\347\275\256\347\216\257PID\345\217\202\346\225\260\346\225\264\345\256\232", nullptr));
-        pushButton_10->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
-        pushButton_11->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KD", nullptr));
-        groupBox_10->setTitle(QCoreApplication::translate("Widget", "GroupBox", nullptr));
+        localPID_kp_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KP", nullptr));
+        localPID_kd_tb->setText(QCoreApplication::translate("Widget", "\350\256\276\347\275\256KD", nullptr));
+        localPID_out_tb->setText(QCoreApplication::translate("Widget", "\350\276\223\345\207\272\351\231\220\345\210\266", nullptr));
+        groupBox_8->setTitle(QCoreApplication::translate("Widget", "LOG\344\277\241\346\201\257", nullptr));
     } // retranslateUi
 
 };

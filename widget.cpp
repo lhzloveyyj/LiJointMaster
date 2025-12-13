@@ -318,6 +318,11 @@ void Widget::on_connectMotor_bt_clicked()
         ui->setSpeedDir_te->setPlainText(QString::number(serialManager->speedDir));
         ui->speedPID_kp_te->setPlainText(QString::number(serialManager->speedPID_kp));
         ui->speedPID_ki_te->setPlainText(QString::number(serialManager->speedPID_ki));
+        ui->localPID_kp_te->setPlainText(QString::number(serialManager->localPID_kp));
+        ui->localPID_kd_te->setPlainText(QString::number(serialManager->localPID_kd));
+        ui->iqPID_out_te->setPlainText(QString::number(serialManager->iqPID_outMax));
+        ui->speedPID_out_te->setPlainText(QString::number(serialManager->speedPID_outMax));
+        ui->localPID_out_te->setPlainText(QString::number(serialManager->localPID_outMax));
     });
 }
 
@@ -1013,5 +1018,112 @@ void Widget::on_localOut_bt_clicked(bool checked)
         serialManager->sendFloatCommand(CMD_TypeDef::CMD_LOCALOUT_CLOSE, 0.0);
         qDebug() << "停止打印位置环输出";
     }
+}
+
+
+void Widget::on_localPID_kp_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->localPID_kp_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置位置环KP" << floatValue;
+    } else {
+        qDebug() << "设置位置环KP失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETLOCALPIDKP, floatValue);
+}
+
+
+void Widget::on_localPID_kd_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->localPID_kd_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置位置环KD" << floatValue;
+    } else {
+        qDebug() << "设置位置环KD失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETLOCALPIDKD, floatValue);
+}
+
+
+void Widget::on_iqPID_out_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->iqPID_out_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置电流环输出限制" << floatValue;
+    } else {
+        qDebug() << "设置电流环输出限制失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETIQPIDOUT, floatValue);
+}
+
+
+void Widget::on_speedPID_out_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->speedPID_out_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置速度环输出限制" << floatValue;
+    } else {
+        qDebug() << "设置速度环输出限制失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETSPEEDPIDOUT, floatValue);
+}
+
+
+
+
+void Widget::on_localPID_out_tb_clicked()
+{
+    if (!serialManager->isOpen()) {
+        QMessageBox::warning(this, "Warning", "Serial port is not open!");
+        return;
+    }
+
+    QString text = ui->localPID_out_te->toPlainText().trimmed();
+    bool ok = false;
+    float floatValue = text.toFloat(&ok);  // 转换为浮点数
+
+    if (ok) {
+        qDebug() << "设置位置环输出限制" << floatValue;
+    } else {
+        qDebug() << "设置位置环输出限制失败" << text;
+    }
+
+    serialManager->sendFloatCommand(CMD_TypeDef::CMD_SETLOCALPIDOUT, floatValue);
 }
 

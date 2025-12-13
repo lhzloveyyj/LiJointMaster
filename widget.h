@@ -98,6 +98,16 @@ private slots:
 
     void on_localOut_bt_clicked(bool checked);
 
+    void on_localPID_kp_tb_clicked();
+
+    void on_localPID_kd_tb_clicked();
+
+    void on_iqPID_out_tb_clicked();
+
+    void on_speedPID_out_tb_clicked();
+
+    void on_localPID_out_tb_clicked();
+
 private:
     Ui::Widget *ui;              ///< 界面对象
 
