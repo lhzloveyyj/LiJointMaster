@@ -5,5 +5,6 @@
         <file>picture/connet_motor.png</file>
         <file>picture/serial_down.png</file>
         <file>picture/serial_up.png</file>
+        <file>picture/ico.ico</file>
     </qresource>
 </RCC>

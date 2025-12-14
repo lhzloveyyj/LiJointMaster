@@ -15,6 +15,9 @@ int main(int argc, char *argv[])
     // 1️⃣ 创建 Qt 应用程序对象
     QApplication a(argc, argv);
 
+    a.setWindowIcon(QIcon(":/picture/ico.ico"));
+
+
     // 2️⃣ 安装日志捕获（将 qDebug、qWarning 等信息重定向）
     LogHelper::install();   // ★ 捕获 qDebug 输出
 

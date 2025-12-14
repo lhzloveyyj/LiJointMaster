@@ -18,6 +18,10 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
+    this->setWindowTitle("LiJointMaster");
+
+
+
     /* ============================= 全局暗色 UI ============================= */
     // 设置深色主题样式
     QString darkStyle =
